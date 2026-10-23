@@ -1,0 +1,9 @@
+src/
+local/
+logs/
+scenario/runlogs/
+scenario/results/
+*.vec
+*.vci
+*_m.cc
+*_m.h
