@@ -5,8 +5,8 @@ import json, sys
 S = json.load(open(sys.argv[1]))
 out = sys.argv[2]
 Ns = [20, 40, 60, 80, 100, 120]
-cfgs = [('Proposed', 'Ours (A+B)', 'cA', 'mark=*', 'solid'),
-        ('ProposedA', 'Ours (A only)', 'cB', 'mark=square*', 'dashed'),
+cfgs = [('Proposed', r'\textsf{FogRoam} (A+B)', 'cA', 'mark=*', 'solid'),
+        ('ProposedA', r'\textsf{FogRoam} (A only)', 'cB', 'mark=square*', 'dashed'),
         ('Baseline', r'\cite{chen2024provably}', 'cC', 'mark=triangle*', 'densely dotted')]
 
 def series(key, scale=1.0, sd=None):

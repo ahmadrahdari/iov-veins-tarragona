@@ -1,14 +1,14 @@
-# V2X simulation of a two-phase IoV authentication protocol (Tarragona, Spain)
+# V2X simulation of FogRoam (Tarragona, Spain)
 
 Veins/SUMO/OMNeT++ simulation used in the paper
-*"Revisiting Authentication Security for 6G-Fog Integrated Internet of Vehicles"* to
+*"FogRoam: Forward-Secure Authentication with Cloud-Free Handover for 6G Vehicular Networks"* to
 compare the packet loss rate, the end-to-end delay, and the authentication latency of three configurations:
 
 | Configuration | Protocol |
 |---------------|----------|
-| `Proposed`  | proposed protocol: phase A (cloud-assisted, messages M1–M4) and phase B (cloud-free handover, messages M5–M6) |
-| `ProposedA` | proposed protocol restricted to phase A |
-| `Baseline`  | the fog-based protocol cryptanalysed in the paper (reference [11]; messages M1–M4) |
+| `Proposed`  | FogRoam: phase A (cloud-assisted, messages M1–M4) and phase B (cloud-free handover, messages M5–M6) |
+| `ProposedA` | FogRoam restricted to phase A |
+| `Baseline`  | the fog-based protocol of Chen et al. analysed in the paper (reference [11]; messages M1–M4) |
 
 ## Software
 
@@ -45,8 +45,8 @@ Both scripts use the repository folder as `$SIM`; set `SIM=/other/path` to chang
   vehicle joins and whenever its last phase A is older than 20 s, and phase B
   otherwise.
 * Message sizes (bits) and processing delays (ms) are set in `scenario/omnetpp.ini`
-  from the operation costs reported in the paper (polynomial degrees
-  t_x = 1000, t_y = 100).
+  from the operation counts of each scheme and the execution times measured with
+  `bench/bench.c` (polynomial degrees t_x = 1000, t_y = 100); see *Operation costs*.
 * 150 s per run, statistics collected after a 25 s warm-up, 3 seeds per configuration.
 
 ## Running
@@ -54,13 +54,28 @@ Both scripts use the repository folder as `$SIM`; set `SIM=/other/path` to chang
 ```bash
 cd scenario
 ./run.sh Proposed 0      # one run; run numbers 0..17 = 6 densities x 3 seeds
-./runall.sh              # all runs of the three configurations
+./runall.sh              # all runs of the three configurations (JOBS=4 ./runall_par.sh runs them in parallel)
 cd ..
 python3 analysis/parse.py scenario/results analysis/summary.json
 python3 analysis/make_tex.py analysis/summary.json fig_sim.tex
 ```
 
 Veins starts SUMO itself (`TraCIScenarioManagerForker`).
+
+## Operation costs
+
+`bench/bench.c` measures, with OpenSSL 3, the execution time of a point multiplication and a
+point addition on secp160r1, a SHA-1 hash, an AES-128 encryption (including the key
+schedule), and one Horner step (160-bit modular multiplication and addition). The paper
+uses the mean of five runs (`bench/results.txt`, Intel Xeon at 2.10 GHz); `bench/costs.py`
+combines them with the operation counts of every scheme and prints the computation costs
+of the paper and the processing delays of `scenario/omnetpp.ini`.
+
+```bash
+gcc -O2 bench/bench.c -o bench/bench -lcrypto -lm
+for i in 1 2 3 4 5; do bench/bench; done > bench/results.txt
+python3 bench/costs.py
+```
 
 ## Metrics
 
@@ -79,6 +94,7 @@ veins_aka/   Veins modules: vehicle, fog node/RSU, cloud server, message definit
 scenario/    network (NED), omnetpp.ini, radio and obstacle configuration, SUMO inputs
 map/         OpenStreetMap extract and prepare_map.sh
 analysis/    parse.py (aggregation), make_tex.py (paper figure), make_map.py (scenario figure)
+bench/       bench.c (operation timings), results.txt, costs.py (costs and processing delays)
 build/       fetch.sh, build.sh
 results/     OMNeT++ scalar results of all 54 runs (.sca)
 figs/        scenario figure of the paper

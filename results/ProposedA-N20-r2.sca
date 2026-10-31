@@ -1,8 +1,8 @@
 version 3
-run ProposedA-2-20261022-20:22:56-26584
+run ProposedA-2-20261030-16:37:14-2828
 attr configname ProposedA
-attr datetime 20261022-20:22:56
-attr datetimef 20261022-202256
+attr datetime 20261030-16:37:14
+attr datetimef 20261030-163714
 attr experiment ProposedA
 attr inifile omnetpp.ini
 attr iterationvars $N=20
@@ -10,31 +10,31 @@ attr iterationvarsd N=20
 attr iterationvarsf N=20-
 attr measurement $N=20
 attr network TarragonaAka
-attr processid 26584
+attr processid 2828
 attr repetition 2
 attr replication #2
 attr resultdir results
 attr runnumber 2
 attr seedset 2
 itervar N 20
-config image-path <SIM>/src/veins/images
+config image-path /home/claude/sim/src/veins/images
 config extends Proposed
 config *.node[*].appl.useHandover false
 config *.node[*].appl.useHandover true
 config *.node[*].appl.m1Bits 736
 config *.node[*].appl.m5Bits 576
-config *.node[*].appl.cV1 16.255ms
-config *.node[*].appl.cV2 7.998ms
-config *.node[*].appl.cH1 16.235ms
-config *.node[*].appl.cH2 7.993ms
+config *.node[*].appl.cV1 0.3757ms
+config *.node[*].appl.cV2 0.1733ms
+config *.node[*].appl.cH1 0.3736ms
+config *.node[*].appl.cH2 0.1727ms
 config *.rsu[*].appl.m2Bits 960
 config *.rsu[*].appl.m4Bits 672
 config *.rsu[*].appl.m6Bits 512
-config *.rsu[*].appl.cF1 19.693ms
-config *.rsu[*].appl.cF2 5.907ms
-config *.rsu[*].appl.cFH 19.693ms
+config *.rsu[*].appl.cF1 0.7984ms
+config *.rsu[*].appl.cF2 0.1738ms
+config *.rsu[*].appl.cFH 0.7983ms
 config *.cloud.m3Bits 672
-config *.cloud.cCS 12.904ms
+config *.cloud.cCS 0.6910ms
 config network TarragonaAka
 config cmdenv-express-mode true
 config cmdenv-autoflush true
@@ -128,13 +128,13 @@ par TarragonaAka.node[10].appl wsaInterval 1s
 attr unit s
 par TarragonaAka.node[10].appl m1Bits 736
 par TarragonaAka.node[10].appl m5Bits 576
-par TarragonaAka.node[10].appl cV1 0.016255s
+par TarragonaAka.node[10].appl cV1 0.0003757s
 attr unit s
-par TarragonaAka.node[10].appl cV2 0.007998s
+par TarragonaAka.node[10].appl cV2 0.0001733s
 attr unit s
-par TarragonaAka.node[10].appl cH1 0.016235s
+par TarragonaAka.node[10].appl cH1 0.0003736s
 attr unit s
-par TarragonaAka.node[10].appl cH2 0.007993s
+par TarragonaAka.node[10].appl cH2 0.0001727s
 attr unit s
 par TarragonaAka.node[10].appl useHandover false
 par TarragonaAka.node[10].appl phaseAValidity 20s
@@ -151,19 +151,19 @@ par TarragonaAka.node[10].appl measureStart 25s
 attr unit s
 par TarragonaAka.node[10].appl measureEnd 148s
 attr unit s
-scalar TarragonaAka.node[10].appl generatedWSMs 18
-scalar TarragonaAka.node[10].appl receivedWSMs 75
+scalar TarragonaAka.node[10].appl generatedWSMs 16
+scalar TarragonaAka.node[10].appl receivedWSMs 73
 scalar TarragonaAka.node[10].appl generatedBSMs 1345
-scalar TarragonaAka.node[10].appl receivedBSMs 902
+scalar TarragonaAka.node[10].appl receivedBSMs 904
 scalar TarragonaAka.node[10].appl generatedWSAs 0
 scalar TarragonaAka.node[10].appl receivedWSAs 0
-scalar TarragonaAka.node[10].appl akaSentReqA 18
-scalar TarragonaAka.node[10].appl akaRecvRespA 16
-scalar TarragonaAka.node[10].appl akaStartedA 18
-scalar TarragonaAka.node[10].appl akaCompletedA 16
+scalar TarragonaAka.node[10].appl akaSentReqA 16
+scalar TarragonaAka.node[10].appl akaRecvRespA 14
+scalar TarragonaAka.node[10].appl akaStartedA 16
+scalar TarragonaAka.node[10].appl akaCompletedA 14
 scalar TarragonaAka.node[10].appl akaTimedOutA 2
-scalar TarragonaAka.node[10].appl akaSumAuthLatencyA 1.33276512738
-scalar TarragonaAka.node[10].appl akaSumRespDelayA 0.002922029616
+scalar TarragonaAka.node[10].appl akaSumAuthLatencyA 0.316316019944
+scalar TarragonaAka.node[10].appl akaSumRespDelayA 0.002623522508
 scalar TarragonaAka.node[10].appl akaSentReqB 0
 scalar TarragonaAka.node[10].appl akaRecvRespB 0
 scalar TarragonaAka.node[10].appl akaStartedB 0
@@ -178,7 +178,7 @@ par TarragonaAka.node[10].nic.phy80211p usePropagationDelay true
 par TarragonaAka.node[10].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.node[10].nic.phy80211p useNoiseFloor true
-par TarragonaAka.node[10].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.node[10].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.node[10].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.node[10].nic.phy80211p antennaOffsetY 0m
@@ -187,8 +187,8 @@ par TarragonaAka.node[10].nic.phy80211p antennaOffsetZ 1.895m
 attr unit m
 par TarragonaAka.node[10].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.node[10].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.node[10].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.node[10].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.node[10].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.node[10].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.node[10].nic.phy80211p timeRXToTX 0s
@@ -212,7 +212,7 @@ par TarragonaAka.node[10].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.node[10].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.node[10].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.node[10].nic.phy80211p busyTime 0.0038260817843866
+scalar TarragonaAka.node[10].nic.phy80211p busyTime 0.0038073457249071
 par TarragonaAka.node[10].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.node[10].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.node[10].nic.mac1609_4 headerLength 0bit
@@ -236,33 +236,33 @@ attr unit bit
 par TarragonaAka.node[10].nic.mac1609_4 useAcks false
 par TarragonaAka.node[10].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.node[10].nic.mac1609_4 ackErrorRate 0
-scalar TarragonaAka.node[10].nic.mac1609_4 ReceivedUnicastPackets 16
-scalar TarragonaAka.node[10].nic.mac1609_4 ReceivedBroadcasts 961
-scalar TarragonaAka.node[10].nic.mac1609_4 SentPackets 1363
+scalar TarragonaAka.node[10].nic.mac1609_4 ReceivedUnicastPackets 14
+scalar TarragonaAka.node[10].nic.mac1609_4 ReceivedBroadcasts 963
+scalar TarragonaAka.node[10].nic.mac1609_4 SentPackets 1361
 scalar TarragonaAka.node[10].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.node[10].nic.mac1609_4 RetriesExceeded 0
-scalar TarragonaAka.node[10].nic.mac1609_4 SNIRLostPackets 398
+scalar TarragonaAka.node[10].nic.mac1609_4 SNIRLostPackets 387
 scalar TarragonaAka.node[10].nic.mac1609_4 RXTXLostPackets 0
-scalar TarragonaAka.node[10].nic.mac1609_4 TotalLostPackets 398
+scalar TarragonaAka.node[10].nic.mac1609_4 TotalLostPackets 387
 scalar TarragonaAka.node[10].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.node[10].nic.mac1609_4 TooLittleTime 0
-scalar TarragonaAka.node[10].nic.mac1609_4 TimesIntoBackoff 1363
-scalar TarragonaAka.node[10].nic.mac1609_4 SlotsBackoff 2022
+scalar TarragonaAka.node[10].nic.mac1609_4 TimesIntoBackoff 1362
+scalar TarragonaAka.node[10].nic.mac1609_4 SlotsBackoff 2114
 scalar TarragonaAka.node[10].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.node[10].nic.mac1609_4 totalBusyTime 1.046523
+scalar TarragonaAka.node[10].nic.mac1609_4 totalBusyTime 1.043241
 scalar TarragonaAka.node[10].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
 scalar TarragonaAka.node[10].nic.mac1609_4 sentAcks:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentAck
-scalar TarragonaAka.node[10].nic.mac1609_4 sentPackets:count 1363
+scalar TarragonaAka.node[10].nic.mac1609_4 sentPackets:count 1361
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.node[10].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.node[10].nic.mac1609_4 channelBusy:timeavg 0.0077808401486985
+scalar TarragonaAka.node[10].nic.mac1609_4 channelBusy:timeavg 0.0077564386617097
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.node[10].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -317,13 +317,13 @@ par TarragonaAka.node[15].appl wsaInterval 1s
 attr unit s
 par TarragonaAka.node[15].appl m1Bits 736
 par TarragonaAka.node[15].appl m5Bits 576
-par TarragonaAka.node[15].appl cV1 0.016255s
+par TarragonaAka.node[15].appl cV1 0.0003757s
 attr unit s
-par TarragonaAka.node[15].appl cV2 0.007998s
+par TarragonaAka.node[15].appl cV2 0.0001733s
 attr unit s
-par TarragonaAka.node[15].appl cH1 0.016235s
+par TarragonaAka.node[15].appl cH1 0.0003736s
 attr unit s
-par TarragonaAka.node[15].appl cH2 0.007993s
+par TarragonaAka.node[15].appl cH2 0.0001727s
 attr unit s
 par TarragonaAka.node[15].appl useHandover false
 par TarragonaAka.node[15].appl phaseAValidity 20s
@@ -341,18 +341,18 @@ attr unit s
 par TarragonaAka.node[15].appl measureEnd 148s
 attr unit s
 scalar TarragonaAka.node[15].appl generatedWSMs 6
-scalar TarragonaAka.node[15].appl receivedWSMs 28
+scalar TarragonaAka.node[15].appl receivedWSMs 27
 scalar TarragonaAka.node[15].appl generatedBSMs 1319
-scalar TarragonaAka.node[15].appl receivedBSMs 1797
+scalar TarragonaAka.node[15].appl receivedBSMs 1795
 scalar TarragonaAka.node[15].appl generatedWSAs 0
 scalar TarragonaAka.node[15].appl receivedWSAs 0
 scalar TarragonaAka.node[15].appl akaSentReqA 6
-scalar TarragonaAka.node[15].appl akaRecvRespA 4
+scalar TarragonaAka.node[15].appl akaRecvRespA 5
 scalar TarragonaAka.node[15].appl akaStartedA 6
-scalar TarragonaAka.node[15].appl akaCompletedA 4
-scalar TarragonaAka.node[15].appl akaTimedOutA 2
-scalar TarragonaAka.node[15].appl akaSumAuthLatencyA 0.332569935861
-scalar TarragonaAka.node[15].appl akaSumRespDelayA 0.000748433816
+scalar TarragonaAka.node[15].appl akaCompletedA 5
+scalar TarragonaAka.node[15].appl akaTimedOutA 1
+scalar TarragonaAka.node[15].appl akaSumAuthLatencyA 0.112961498108
+scalar TarragonaAka.node[15].appl akaSumRespDelayA 0.000928316845
 scalar TarragonaAka.node[15].appl akaSentReqB 0
 scalar TarragonaAka.node[15].appl akaRecvRespB 0
 scalar TarragonaAka.node[15].appl akaStartedB 0
@@ -367,7 +367,7 @@ par TarragonaAka.node[15].nic.phy80211p usePropagationDelay true
 par TarragonaAka.node[15].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.node[15].nic.phy80211p useNoiseFloor true
-par TarragonaAka.node[15].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.node[15].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.node[15].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.node[15].nic.phy80211p antennaOffsetY 0m
@@ -376,8 +376,8 @@ par TarragonaAka.node[15].nic.phy80211p antennaOffsetZ 1.895m
 attr unit m
 par TarragonaAka.node[15].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.node[15].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.node[15].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.node[15].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.node[15].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.node[15].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.node[15].nic.phy80211p timeRXToTX 0s
@@ -401,7 +401,7 @@ par TarragonaAka.node[15].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.node[15].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.node[15].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.node[15].nic.phy80211p busyTime 0.0076668385140253
+scalar TarragonaAka.node[15].nic.phy80211p busyTime 0.0076640485216068
 par TarragonaAka.node[15].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.node[15].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.node[15].nic.mac1609_4 headerLength 0bit
@@ -425,20 +425,20 @@ attr unit bit
 par TarragonaAka.node[15].nic.mac1609_4 useAcks false
 par TarragonaAka.node[15].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.node[15].nic.mac1609_4 ackErrorRate 0
-scalar TarragonaAka.node[15].nic.mac1609_4 ReceivedUnicastPackets 4
-scalar TarragonaAka.node[15].nic.mac1609_4 ReceivedBroadcasts 1821
+scalar TarragonaAka.node[15].nic.mac1609_4 ReceivedUnicastPackets 5
+scalar TarragonaAka.node[15].nic.mac1609_4 ReceivedBroadcasts 1817
 scalar TarragonaAka.node[15].nic.mac1609_4 SentPackets 1325
 scalar TarragonaAka.node[15].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.node[15].nic.mac1609_4 RetriesExceeded 0
-scalar TarragonaAka.node[15].nic.mac1609_4 SNIRLostPackets 766
+scalar TarragonaAka.node[15].nic.mac1609_4 SNIRLostPackets 769
 scalar TarragonaAka.node[15].nic.mac1609_4 RXTXLostPackets 0
-scalar TarragonaAka.node[15].nic.mac1609_4 TotalLostPackets 766
+scalar TarragonaAka.node[15].nic.mac1609_4 TotalLostPackets 769
 scalar TarragonaAka.node[15].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.node[15].nic.mac1609_4 TooLittleTime 0
 scalar TarragonaAka.node[15].nic.mac1609_4 TimesIntoBackoff 1325
-scalar TarragonaAka.node[15].nic.mac1609_4 SlotsBackoff 1960
+scalar TarragonaAka.node[15].nic.mac1609_4 SlotsBackoff 1927
 scalar TarragonaAka.node[15].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.node[15].nic.mac1609_4 totalBusyTime 1.530733
+scalar TarragonaAka.node[15].nic.mac1609_4 totalBusyTime 1.530189
 scalar TarragonaAka.node[15].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
@@ -451,7 +451,7 @@ attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.node[15].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.node[15].nic.mac1609_4 channelBusy:timeavg 0.011605253980288
+scalar TarragonaAka.node[15].nic.mac1609_4 channelBusy:timeavg 0.011601129643669
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.node[15].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -468,7 +468,7 @@ par TarragonaAka.node[15].veinsmobility hostPositionOffset 0m
 attr unit m
 par TarragonaAka.node[15].veinsmobility setHostSpeed false
 par TarragonaAka.node[15].veinsmobility accidentCount 0
-par TarragonaAka.node[15].veinsmobility accidentStart 56.6914s
+par TarragonaAka.node[15].veinsmobility accidentStart 39.8149s
 attr unit s
 par TarragonaAka.node[15].veinsmobility accidentDuration "uniform(30s, 60s)"
 attr unit s
@@ -590,7 +590,7 @@ attr mutable ""
 par TarragonaAka.cloud.port$o[3].channel per 0
 attr mutable ""
 par TarragonaAka.obstacles typename "\"org.car2x.veins.modules.obstacle.ObstacleControl\""
-par TarragonaAka.obstacles obstacles "<obstacles>...</obstacles> at <SIM>/scenario//config.xml:11"
+par TarragonaAka.obstacles obstacles "<obstacles>...</obstacles> at /home/claude/sim/scenario//config.xml:11"
 par TarragonaAka.obstacles gridCellSize 250
 par TarragonaAka.annotations typename "\"org.car2x.veins.modules.world.annotations.AnnotationManager\""
 par TarragonaAka.annotations draw false
@@ -661,11 +661,11 @@ par TarragonaAka.rsu[0].appl m2Bits 960
 par TarragonaAka.rsu[0].appl m4Bits 672
 par TarragonaAka.rsu[0].appl m6Bits 512
 par TarragonaAka.rsu[0].appl advBits 384
-par TarragonaAka.rsu[0].appl cF1 0.019693s
+par TarragonaAka.rsu[0].appl cF1 0.0007984s
 attr unit s
-par TarragonaAka.rsu[0].appl cF2 0.005907s
+par TarragonaAka.rsu[0].appl cF2 0.0001738s
 attr unit s
-par TarragonaAka.rsu[0].appl cFH 0.019693s
+par TarragonaAka.rsu[0].appl cFH 0.0007983s
 attr unit s
 par TarragonaAka.rsu[0].appl advInterval 0.5s
 attr unit s
@@ -673,15 +673,15 @@ par TarragonaAka.rsu[0].appl measureStart 25s
 attr unit s
 par TarragonaAka.rsu[0].appl measureEnd 148s
 attr unit s
-scalar TarragonaAka.rsu[0].appl generatedWSMs 743
-scalar TarragonaAka.rsu[0].appl receivedWSMs 444
+scalar TarragonaAka.rsu[0].appl generatedWSMs 745
+scalar TarragonaAka.rsu[0].appl receivedWSMs 445
 scalar TarragonaAka.rsu[0].appl generatedBSMs 0
-scalar TarragonaAka.rsu[0].appl receivedBSMs 8913
+scalar TarragonaAka.rsu[0].appl receivedBSMs 8886
 scalar TarragonaAka.rsu[0].appl generatedWSAs 0
 scalar TarragonaAka.rsu[0].appl receivedWSAs 0
-scalar TarragonaAka.rsu[0].appl akaRecvReqA 422
-scalar TarragonaAka.rsu[0].appl akaSentRespA 422
-scalar TarragonaAka.rsu[0].appl akaSumReqDelayA 0.083215325568
+scalar TarragonaAka.rsu[0].appl akaRecvReqA 423
+scalar TarragonaAka.rsu[0].appl akaSentRespA 423
+scalar TarragonaAka.rsu[0].appl akaSumReqDelayA 0.082844610671
 scalar TarragonaAka.rsu[0].appl akaRecvReqB 0
 scalar TarragonaAka.rsu[0].appl akaSentRespB 0
 scalar TarragonaAka.rsu[0].appl akaSumReqDelayB 0
@@ -691,7 +691,7 @@ par TarragonaAka.rsu[0].nic.phy80211p usePropagationDelay true
 par TarragonaAka.rsu[0].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.rsu[0].nic.phy80211p useNoiseFloor true
-par TarragonaAka.rsu[0].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.rsu[0].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.rsu[0].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.rsu[0].nic.phy80211p antennaOffsetY 0m
@@ -700,8 +700,8 @@ par TarragonaAka.rsu[0].nic.phy80211p antennaOffsetZ 0m
 attr unit m
 par TarragonaAka.rsu[0].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.rsu[0].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.rsu[0].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.rsu[0].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.rsu[0].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.rsu[0].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.rsu[0].nic.phy80211p timeRXToTX 0s
@@ -725,7 +725,7 @@ par TarragonaAka.rsu[0].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.rsu[0].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.rsu[0].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.rsu[0].nic.phy80211p busyTime 0.029969653333335
+scalar TarragonaAka.rsu[0].nic.phy80211p busyTime 0.029963520000002
 par TarragonaAka.rsu[0].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.rsu[0].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.rsu[0].nic.mac1609_4 headerLength 0bit
@@ -749,33 +749,33 @@ attr unit bit
 par TarragonaAka.rsu[0].nic.mac1609_4 useAcks false
 par TarragonaAka.rsu[0].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.rsu[0].nic.mac1609_4 ackErrorRate 0
-scalar TarragonaAka.rsu[0].nic.mac1609_4 ReceivedUnicastPackets 444
-scalar TarragonaAka.rsu[0].nic.mac1609_4 ReceivedBroadcasts 8913
-scalar TarragonaAka.rsu[0].nic.mac1609_4 SentPackets 743
+scalar TarragonaAka.rsu[0].nic.mac1609_4 ReceivedUnicastPackets 445
+scalar TarragonaAka.rsu[0].nic.mac1609_4 ReceivedBroadcasts 8886
+scalar TarragonaAka.rsu[0].nic.mac1609_4 SentPackets 745
 scalar TarragonaAka.rsu[0].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.rsu[0].nic.mac1609_4 RetriesExceeded 0
-scalar TarragonaAka.rsu[0].nic.mac1609_4 SNIRLostPackets 2354
+scalar TarragonaAka.rsu[0].nic.mac1609_4 SNIRLostPackets 2375
 scalar TarragonaAka.rsu[0].nic.mac1609_4 RXTXLostPackets 0
-scalar TarragonaAka.rsu[0].nic.mac1609_4 TotalLostPackets 2354
+scalar TarragonaAka.rsu[0].nic.mac1609_4 TotalLostPackets 2375
 scalar TarragonaAka.rsu[0].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.rsu[0].nic.mac1609_4 TooLittleTime 0
-scalar TarragonaAka.rsu[0].nic.mac1609_4 TimesIntoBackoff 755
-scalar TarragonaAka.rsu[0].nic.mac1609_4 SlotsBackoff 1088
+scalar TarragonaAka.rsu[0].nic.mac1609_4 TimesIntoBackoff 759
+scalar TarragonaAka.rsu[0].nic.mac1609_4 SlotsBackoff 1179
 scalar TarragonaAka.rsu[0].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.rsu[0].nic.mac1609_4 totalBusyTime 4.609863
+scalar TarragonaAka.rsu[0].nic.mac1609_4 totalBusyTime 4.606321
 scalar TarragonaAka.rsu[0].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
 scalar TarragonaAka.rsu[0].nic.mac1609_4 sentAcks:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentAck
-scalar TarragonaAka.rsu[0].nic.mac1609_4 sentPackets:count 743
+scalar TarragonaAka.rsu[0].nic.mac1609_4 sentPackets:count 745
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.rsu[0].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.rsu[0].nic.mac1609_4 channelBusy:timeavg 0.030732420000001
+scalar TarragonaAka.rsu[0].nic.mac1609_4 channelBusy:timeavg 0.030708806666668
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.rsu[0].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -813,11 +813,11 @@ par TarragonaAka.rsu[1].appl m2Bits 960
 par TarragonaAka.rsu[1].appl m4Bits 672
 par TarragonaAka.rsu[1].appl m6Bits 512
 par TarragonaAka.rsu[1].appl advBits 384
-par TarragonaAka.rsu[1].appl cF1 0.019693s
+par TarragonaAka.rsu[1].appl cF1 0.0007984s
 attr unit s
-par TarragonaAka.rsu[1].appl cF2 0.005907s
+par TarragonaAka.rsu[1].appl cF2 0.0001738s
 attr unit s
-par TarragonaAka.rsu[1].appl cFH 0.019693s
+par TarragonaAka.rsu[1].appl cFH 0.0007983s
 attr unit s
 par TarragonaAka.rsu[1].appl advInterval 0.5s
 attr unit s
@@ -825,15 +825,15 @@ par TarragonaAka.rsu[1].appl measureStart 25s
 attr unit s
 par TarragonaAka.rsu[1].appl measureEnd 148s
 attr unit s
-scalar TarragonaAka.rsu[1].appl generatedWSMs 338
-scalar TarragonaAka.rsu[1].appl receivedWSMs 38
+scalar TarragonaAka.rsu[1].appl generatedWSMs 335
+scalar TarragonaAka.rsu[1].appl receivedWSMs 35
 scalar TarragonaAka.rsu[1].appl generatedBSMs 0
-scalar TarragonaAka.rsu[1].appl receivedBSMs 765
+scalar TarragonaAka.rsu[1].appl receivedBSMs 767
 scalar TarragonaAka.rsu[1].appl generatedWSAs 0
 scalar TarragonaAka.rsu[1].appl receivedWSAs 0
-scalar TarragonaAka.rsu[1].appl akaRecvReqA 38
-scalar TarragonaAka.rsu[1].appl akaSentRespA 38
-scalar TarragonaAka.rsu[1].appl akaSumReqDelayA 0.007374493333
+scalar TarragonaAka.rsu[1].appl akaRecvReqA 35
+scalar TarragonaAka.rsu[1].appl akaSentRespA 35
+scalar TarragonaAka.rsu[1].appl akaSumReqDelayA 0.006708001713
 scalar TarragonaAka.rsu[1].appl akaRecvReqB 0
 scalar TarragonaAka.rsu[1].appl akaSentRespB 0
 scalar TarragonaAka.rsu[1].appl akaSumReqDelayB 0
@@ -843,7 +843,7 @@ par TarragonaAka.rsu[1].nic.phy80211p usePropagationDelay true
 par TarragonaAka.rsu[1].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.rsu[1].nic.phy80211p useNoiseFloor true
-par TarragonaAka.rsu[1].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.rsu[1].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.rsu[1].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.rsu[1].nic.phy80211p antennaOffsetY 0m
@@ -852,8 +852,8 @@ par TarragonaAka.rsu[1].nic.phy80211p antennaOffsetZ 0m
 attr unit m
 par TarragonaAka.rsu[1].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.rsu[1].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.rsu[1].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.rsu[1].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.rsu[1].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.rsu[1].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.rsu[1].nic.phy80211p timeRXToTX 0s
@@ -877,7 +877,7 @@ par TarragonaAka.rsu[1].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.rsu[1].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.rsu[1].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.rsu[1].nic.phy80211p busyTime 0.0021672533333333
+scalar TarragonaAka.rsu[1].nic.phy80211p busyTime 0.0021635733333333
 par TarragonaAka.rsu[1].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.rsu[1].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.rsu[1].nic.mac1609_4 headerLength 0bit
@@ -901,33 +901,33 @@ attr unit bit
 par TarragonaAka.rsu[1].nic.mac1609_4 useAcks false
 par TarragonaAka.rsu[1].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.rsu[1].nic.mac1609_4 ackErrorRate 0
-scalar TarragonaAka.rsu[1].nic.mac1609_4 ReceivedUnicastPackets 38
-scalar TarragonaAka.rsu[1].nic.mac1609_4 ReceivedBroadcasts 765
-scalar TarragonaAka.rsu[1].nic.mac1609_4 SentPackets 338
+scalar TarragonaAka.rsu[1].nic.mac1609_4 ReceivedUnicastPackets 35
+scalar TarragonaAka.rsu[1].nic.mac1609_4 ReceivedBroadcasts 767
+scalar TarragonaAka.rsu[1].nic.mac1609_4 SentPackets 335
 scalar TarragonaAka.rsu[1].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.rsu[1].nic.mac1609_4 RetriesExceeded 0
-scalar TarragonaAka.rsu[1].nic.mac1609_4 SNIRLostPackets 47
+scalar TarragonaAka.rsu[1].nic.mac1609_4 SNIRLostPackets 45
 scalar TarragonaAka.rsu[1].nic.mac1609_4 RXTXLostPackets 0
-scalar TarragonaAka.rsu[1].nic.mac1609_4 TotalLostPackets 47
+scalar TarragonaAka.rsu[1].nic.mac1609_4 TotalLostPackets 45
 scalar TarragonaAka.rsu[1].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.rsu[1].nic.mac1609_4 TooLittleTime 0
-scalar TarragonaAka.rsu[1].nic.mac1609_4 TimesIntoBackoff 338
-scalar TarragonaAka.rsu[1].nic.mac1609_4 SlotsBackoff 476
+scalar TarragonaAka.rsu[1].nic.mac1609_4 TimesIntoBackoff 335
+scalar TarragonaAka.rsu[1].nic.mac1609_4 SlotsBackoff 458
 scalar TarragonaAka.rsu[1].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.rsu[1].nic.mac1609_4 totalBusyTime 0.370514
+scalar TarragonaAka.rsu[1].nic.mac1609_4 totalBusyTime 0.369431
 scalar TarragonaAka.rsu[1].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
 scalar TarragonaAka.rsu[1].nic.mac1609_4 sentAcks:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentAck
-scalar TarragonaAka.rsu[1].nic.mac1609_4 sentPackets:count 338
+scalar TarragonaAka.rsu[1].nic.mac1609_4 sentPackets:count 335
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.rsu[1].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.rsu[1].nic.mac1609_4 channelBusy:timeavg 0.0024700933333333
+scalar TarragonaAka.rsu[1].nic.mac1609_4 channelBusy:timeavg 0.0024628733333333
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.rsu[1].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -965,11 +965,11 @@ par TarragonaAka.rsu[2].appl m2Bits 960
 par TarragonaAka.rsu[2].appl m4Bits 672
 par TarragonaAka.rsu[2].appl m6Bits 512
 par TarragonaAka.rsu[2].appl advBits 384
-par TarragonaAka.rsu[2].appl cF1 0.019693s
+par TarragonaAka.rsu[2].appl cF1 0.0007984s
 attr unit s
-par TarragonaAka.rsu[2].appl cF2 0.005907s
+par TarragonaAka.rsu[2].appl cF2 0.0001738s
 attr unit s
-par TarragonaAka.rsu[2].appl cFH 0.019693s
+par TarragonaAka.rsu[2].appl cFH 0.0007983s
 attr unit s
 par TarragonaAka.rsu[2].appl advInterval 0.5s
 attr unit s
@@ -977,15 +977,15 @@ par TarragonaAka.rsu[2].appl measureStart 25s
 attr unit s
 par TarragonaAka.rsu[2].appl measureEnd 148s
 attr unit s
-scalar TarragonaAka.rsu[2].appl generatedWSMs 422
-scalar TarragonaAka.rsu[2].appl receivedWSMs 122
+scalar TarragonaAka.rsu[2].appl generatedWSMs 420
+scalar TarragonaAka.rsu[2].appl receivedWSMs 121
 scalar TarragonaAka.rsu[2].appl generatedBSMs 0
 scalar TarragonaAka.rsu[2].appl receivedBSMs 2417
 scalar TarragonaAka.rsu[2].appl generatedWSAs 0
 scalar TarragonaAka.rsu[2].appl receivedWSAs 0
-scalar TarragonaAka.rsu[2].appl akaRecvReqA 99
-scalar TarragonaAka.rsu[2].appl akaSentRespA 99
-scalar TarragonaAka.rsu[2].appl akaSumReqDelayA 0.019736375379
+scalar TarragonaAka.rsu[2].appl akaRecvReqA 96
+scalar TarragonaAka.rsu[2].appl akaSentRespA 96
+scalar TarragonaAka.rsu[2].appl akaSumReqDelayA 0.018847756206
 scalar TarragonaAka.rsu[2].appl akaRecvReqB 0
 scalar TarragonaAka.rsu[2].appl akaSentRespB 0
 scalar TarragonaAka.rsu[2].appl akaSumReqDelayB 0
@@ -995,7 +995,7 @@ par TarragonaAka.rsu[2].nic.phy80211p usePropagationDelay true
 par TarragonaAka.rsu[2].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.rsu[2].nic.phy80211p useNoiseFloor true
-par TarragonaAka.rsu[2].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.rsu[2].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.rsu[2].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.rsu[2].nic.phy80211p antennaOffsetY 0m
@@ -1004,8 +1004,8 @@ par TarragonaAka.rsu[2].nic.phy80211p antennaOffsetZ 0m
 attr unit m
 par TarragonaAka.rsu[2].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.rsu[2].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.rsu[2].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.rsu[2].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.rsu[2].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.rsu[2].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.rsu[2].nic.phy80211p timeRXToTX 0s
@@ -1029,7 +1029,7 @@ par TarragonaAka.rsu[2].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.rsu[2].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.rsu[2].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.rsu[2].nic.phy80211p busyTime 0.0065993599999996
+scalar TarragonaAka.rsu[2].nic.phy80211p busyTime 0.0065981333333329
 par TarragonaAka.rsu[2].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.rsu[2].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.rsu[2].nic.mac1609_4 headerLength 0bit
@@ -1053,9 +1053,9 @@ attr unit bit
 par TarragonaAka.rsu[2].nic.mac1609_4 useAcks false
 par TarragonaAka.rsu[2].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.rsu[2].nic.mac1609_4 ackErrorRate 0
-scalar TarragonaAka.rsu[2].nic.mac1609_4 ReceivedUnicastPackets 122
+scalar TarragonaAka.rsu[2].nic.mac1609_4 ReceivedUnicastPackets 121
 scalar TarragonaAka.rsu[2].nic.mac1609_4 ReceivedBroadcasts 2417
-scalar TarragonaAka.rsu[2].nic.mac1609_4 SentPackets 422
+scalar TarragonaAka.rsu[2].nic.mac1609_4 SentPackets 420
 scalar TarragonaAka.rsu[2].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.rsu[2].nic.mac1609_4 RetriesExceeded 0
 scalar TarragonaAka.rsu[2].nic.mac1609_4 SNIRLostPackets 51
@@ -1063,23 +1063,23 @@ scalar TarragonaAka.rsu[2].nic.mac1609_4 RXTXLostPackets 0
 scalar TarragonaAka.rsu[2].nic.mac1609_4 TotalLostPackets 51
 scalar TarragonaAka.rsu[2].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.rsu[2].nic.mac1609_4 TooLittleTime 0
-scalar TarragonaAka.rsu[2].nic.mac1609_4 TimesIntoBackoff 423
-scalar TarragonaAka.rsu[2].nic.mac1609_4 SlotsBackoff 619
+scalar TarragonaAka.rsu[2].nic.mac1609_4 TimesIntoBackoff 421
+scalar TarragonaAka.rsu[2].nic.mac1609_4 SlotsBackoff 600
 scalar TarragonaAka.rsu[2].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.rsu[2].nic.mac1609_4 totalBusyTime 1.050198
+scalar TarragonaAka.rsu[2].nic.mac1609_4 totalBusyTime 1.04966
 scalar TarragonaAka.rsu[2].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
 scalar TarragonaAka.rsu[2].nic.mac1609_4 sentAcks:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentAck
-scalar TarragonaAka.rsu[2].nic.mac1609_4 sentPackets:count 422
+scalar TarragonaAka.rsu[2].nic.mac1609_4 sentPackets:count 420
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.rsu[2].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.rsu[2].nic.mac1609_4 channelBusy:timeavg 0.0070013199999996
+scalar TarragonaAka.rsu[2].nic.mac1609_4 channelBusy:timeavg 0.0069977333333329
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.rsu[2].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -1117,11 +1117,11 @@ par TarragonaAka.rsu[3].appl m2Bits 960
 par TarragonaAka.rsu[3].appl m4Bits 672
 par TarragonaAka.rsu[3].appl m6Bits 512
 par TarragonaAka.rsu[3].appl advBits 384
-par TarragonaAka.rsu[3].appl cF1 0.019693s
+par TarragonaAka.rsu[3].appl cF1 0.0007984s
 attr unit s
-par TarragonaAka.rsu[3].appl cF2 0.005907s
+par TarragonaAka.rsu[3].appl cF2 0.0001738s
 attr unit s
-par TarragonaAka.rsu[3].appl cFH 0.019693s
+par TarragonaAka.rsu[3].appl cFH 0.0007983s
 attr unit s
 par TarragonaAka.rsu[3].appl advInterval 0.5s
 attr unit s
@@ -1129,15 +1129,15 @@ par TarragonaAka.rsu[3].appl measureStart 25s
 attr unit s
 par TarragonaAka.rsu[3].appl measureEnd 148s
 attr unit s
-scalar TarragonaAka.rsu[3].appl generatedWSMs 302
-scalar TarragonaAka.rsu[3].appl receivedWSMs 2
+scalar TarragonaAka.rsu[3].appl generatedWSMs 304
+scalar TarragonaAka.rsu[3].appl receivedWSMs 4
 scalar TarragonaAka.rsu[3].appl generatedBSMs 0
 scalar TarragonaAka.rsu[3].appl receivedBSMs 70
 scalar TarragonaAka.rsu[3].appl generatedWSAs 0
 scalar TarragonaAka.rsu[3].appl receivedWSAs 0
-scalar TarragonaAka.rsu[3].appl akaRecvReqA 2
-scalar TarragonaAka.rsu[3].appl akaSentRespA 2
-scalar TarragonaAka.rsu[3].appl akaSumReqDelayA 0.00037802654
+scalar TarragonaAka.rsu[3].appl akaRecvReqA 4
+scalar TarragonaAka.rsu[3].appl akaSentRespA 4
+scalar TarragonaAka.rsu[3].appl akaSumReqDelayA 0.000761385637
 scalar TarragonaAka.rsu[3].appl akaRecvReqB 0
 scalar TarragonaAka.rsu[3].appl akaSentRespB 0
 scalar TarragonaAka.rsu[3].appl akaSumReqDelayB 0
@@ -1147,7 +1147,7 @@ par TarragonaAka.rsu[3].nic.phy80211p usePropagationDelay true
 par TarragonaAka.rsu[3].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.rsu[3].nic.phy80211p useNoiseFloor true
-par TarragonaAka.rsu[3].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.rsu[3].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.rsu[3].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.rsu[3].nic.phy80211p antennaOffsetY 0m
@@ -1156,8 +1156,8 @@ par TarragonaAka.rsu[3].nic.phy80211p antennaOffsetZ 0m
 attr unit m
 par TarragonaAka.rsu[3].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.rsu[3].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.rsu[3].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.rsu[3].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.rsu[3].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.rsu[3].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.rsu[3].nic.phy80211p timeRXToTX 0s
@@ -1181,7 +1181,7 @@ par TarragonaAka.rsu[3].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.rsu[3].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.rsu[3].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.rsu[3].nic.phy80211p busyTime 0.00051712
+scalar TarragonaAka.rsu[3].nic.phy80211p busyTime 0.00051957333333334
 par TarragonaAka.rsu[3].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.rsu[3].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.rsu[3].nic.mac1609_4 headerLength 0bit
@@ -1205,9 +1205,9 @@ attr unit bit
 par TarragonaAka.rsu[3].nic.mac1609_4 useAcks false
 par TarragonaAka.rsu[3].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.rsu[3].nic.mac1609_4 ackErrorRate 0
-scalar TarragonaAka.rsu[3].nic.mac1609_4 ReceivedUnicastPackets 2
+scalar TarragonaAka.rsu[3].nic.mac1609_4 ReceivedUnicastPackets 4
 scalar TarragonaAka.rsu[3].nic.mac1609_4 ReceivedBroadcasts 70
-scalar TarragonaAka.rsu[3].nic.mac1609_4 SentPackets 302
+scalar TarragonaAka.rsu[3].nic.mac1609_4 SentPackets 304
 scalar TarragonaAka.rsu[3].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.rsu[3].nic.mac1609_4 RetriesExceeded 0
 scalar TarragonaAka.rsu[3].nic.mac1609_4 SNIRLostPackets 128
@@ -1215,23 +1215,23 @@ scalar TarragonaAka.rsu[3].nic.mac1609_4 RXTXLostPackets 0
 scalar TarragonaAka.rsu[3].nic.mac1609_4 TotalLostPackets 128
 scalar TarragonaAka.rsu[3].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.rsu[3].nic.mac1609_4 TooLittleTime 0
-scalar TarragonaAka.rsu[3].nic.mac1609_4 TimesIntoBackoff 302
-scalar TarragonaAka.rsu[3].nic.mac1609_4 SlotsBackoff 442
+scalar TarragonaAka.rsu[3].nic.mac1609_4 TimesIntoBackoff 304
+scalar TarragonaAka.rsu[3].nic.mac1609_4 SlotsBackoff 479
 scalar TarragonaAka.rsu[3].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.rsu[3].nic.mac1609_4 totalBusyTime 0.116622
+scalar TarragonaAka.rsu[3].nic.mac1609_4 totalBusyTime 0.117344
 scalar TarragonaAka.rsu[3].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
 scalar TarragonaAka.rsu[3].nic.mac1609_4 sentAcks:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentAck
-scalar TarragonaAka.rsu[3].nic.mac1609_4 sentPackets:count 302
+scalar TarragonaAka.rsu[3].nic.mac1609_4 sentPackets:count 304
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.rsu[3].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.rsu[3].nic.mac1609_4 channelBusy:timeavg 0.00077748
+scalar TarragonaAka.rsu[3].nic.mac1609_4 channelBusy:timeavg 0.00078229333333334
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.rsu[3].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -1248,7 +1248,7 @@ par TarragonaAka.rsu[3] typename "\"org.car2x.veins.modules.application.aka.FogR
 par TarragonaAka.rsu[3] nicType "\"Nic80211p\""
 par TarragonaAka.cloud typename "\"org.car2x.veins.modules.application.aka.CloudServer\""
 par TarragonaAka.cloud m3Bits 672
-par TarragonaAka.cloud cCS 0.012904s
+par TarragonaAka.cloud cCS 0.000691s
 attr unit s
 scalar TarragonaAka.cloud akaProcessed 605
 par TarragonaAka.node[0].appl typename "\"org.car2x.veins.modules.application.aka.AkaVehicleApp\""
@@ -1272,13 +1272,13 @@ par TarragonaAka.node[0].appl wsaInterval 1s
 attr unit s
 par TarragonaAka.node[0].appl m1Bits 736
 par TarragonaAka.node[0].appl m5Bits 576
-par TarragonaAka.node[0].appl cV1 0.016255s
+par TarragonaAka.node[0].appl cV1 0.0003757s
 attr unit s
-par TarragonaAka.node[0].appl cV2 0.007998s
+par TarragonaAka.node[0].appl cV2 0.0001733s
 attr unit s
-par TarragonaAka.node[0].appl cH1 0.016235s
+par TarragonaAka.node[0].appl cH1 0.0003736s
 attr unit s
-par TarragonaAka.node[0].appl cH2 0.007993s
+par TarragonaAka.node[0].appl cH2 0.0001727s
 attr unit s
 par TarragonaAka.node[0].appl useHandover false
 par TarragonaAka.node[0].appl phaseAValidity 20s
@@ -1296,18 +1296,18 @@ attr unit s
 par TarragonaAka.node[0].appl measureEnd 148s
 attr unit s
 scalar TarragonaAka.node[0].appl generatedWSMs 3
-scalar TarragonaAka.node[0].appl receivedWSMs 14
+scalar TarragonaAka.node[0].appl receivedWSMs 13
 scalar TarragonaAka.node[0].appl generatedBSMs 1499
-scalar TarragonaAka.node[0].appl receivedBSMs 1424
+scalar TarragonaAka.node[0].appl receivedBSMs 1420
 scalar TarragonaAka.node[0].appl generatedWSAs 0
 scalar TarragonaAka.node[0].appl receivedWSAs 0
 scalar TarragonaAka.node[0].appl akaSentReqA 3
-scalar TarragonaAka.node[0].appl akaRecvRespA 3
+scalar TarragonaAka.node[0].appl akaRecvRespA 2
 scalar TarragonaAka.node[0].appl akaStartedA 3
-scalar TarragonaAka.node[0].appl akaCompletedA 3
-scalar TarragonaAka.node[0].appl akaTimedOutA 0
-scalar TarragonaAka.node[0].appl akaSumAuthLatencyA 0.249416844481
-scalar TarragonaAka.node[0].appl akaSumRespDelayA 0.000552461982
+scalar TarragonaAka.node[0].appl akaCompletedA 2
+scalar TarragonaAka.node[0].appl akaTimedOutA 1
+scalar TarragonaAka.node[0].appl akaSumAuthLatencyA 0.045185283977
+scalar TarragonaAka.node[0].appl akaSumRespDelayA 0.000372864378
 scalar TarragonaAka.node[0].appl akaSentReqB 0
 scalar TarragonaAka.node[0].appl akaRecvRespB 0
 scalar TarragonaAka.node[0].appl akaStartedB 0
@@ -1322,7 +1322,7 @@ par TarragonaAka.node[0].nic.phy80211p usePropagationDelay true
 par TarragonaAka.node[0].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.node[0].nic.phy80211p useNoiseFloor true
-par TarragonaAka.node[0].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.node[0].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.node[0].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.node[0].nic.phy80211p antennaOffsetY 0m
@@ -1331,8 +1331,8 @@ par TarragonaAka.node[0].nic.phy80211p antennaOffsetZ 1.895m
 attr unit m
 par TarragonaAka.node[0].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.node[0].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.node[0].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.node[0].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.node[0].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.node[0].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.node[0].nic.phy80211p timeRXToTX 0s
@@ -1356,7 +1356,7 @@ par TarragonaAka.node[0].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.node[0].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.node[0].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.node[0].nic.phy80211p busyTime 0.0058440560373579
+scalar TarragonaAka.node[0].nic.phy80211p busyTime 0.0058416544362906
 par TarragonaAka.node[0].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.node[0].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.node[0].nic.mac1609_4 headerLength 0bit
@@ -1380,20 +1380,20 @@ attr unit bit
 par TarragonaAka.node[0].nic.mac1609_4 useAcks false
 par TarragonaAka.node[0].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.node[0].nic.mac1609_4 ackErrorRate 0
-scalar TarragonaAka.node[0].nic.mac1609_4 ReceivedUnicastPackets 3
-scalar TarragonaAka.node[0].nic.mac1609_4 ReceivedBroadcasts 1435
+scalar TarragonaAka.node[0].nic.mac1609_4 ReceivedUnicastPackets 2
+scalar TarragonaAka.node[0].nic.mac1609_4 ReceivedBroadcasts 1431
 scalar TarragonaAka.node[0].nic.mac1609_4 SentPackets 1502
 scalar TarragonaAka.node[0].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.node[0].nic.mac1609_4 RetriesExceeded 0
-scalar TarragonaAka.node[0].nic.mac1609_4 SNIRLostPackets 857
+scalar TarragonaAka.node[0].nic.mac1609_4 SNIRLostPackets 861
 scalar TarragonaAka.node[0].nic.mac1609_4 RXTXLostPackets 0
-scalar TarragonaAka.node[0].nic.mac1609_4 TotalLostPackets 857
+scalar TarragonaAka.node[0].nic.mac1609_4 TotalLostPackets 861
 scalar TarragonaAka.node[0].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.node[0].nic.mac1609_4 TooLittleTime 0
-scalar TarragonaAka.node[0].nic.mac1609_4 TimesIntoBackoff 1503
-scalar TarragonaAka.node[0].nic.mac1609_4 SlotsBackoff 2278
+scalar TarragonaAka.node[0].nic.mac1609_4 TimesIntoBackoff 1502
+scalar TarragonaAka.node[0].nic.mac1609_4 SlotsBackoff 2296
 scalar TarragonaAka.node[0].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.node[0].nic.mac1609_4 totalBusyTime 1.465686
+scalar TarragonaAka.node[0].nic.mac1609_4 totalBusyTime 1.465326
 scalar TarragonaAka.node[0].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
@@ -1406,7 +1406,7 @@ attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.node[0].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.node[0].nic.mac1609_4 channelBusy:timeavg 0.00977775850567
+scalar TarragonaAka.node[0].nic.mac1609_4 channelBusy:timeavg 0.0097753569046026
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.node[0].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -1461,13 +1461,13 @@ par TarragonaAka.node[1].appl wsaInterval 1s
 attr unit s
 par TarragonaAka.node[1].appl m1Bits 736
 par TarragonaAka.node[1].appl m5Bits 576
-par TarragonaAka.node[1].appl cV1 0.016255s
+par TarragonaAka.node[1].appl cV1 0.0003757s
 attr unit s
-par TarragonaAka.node[1].appl cV2 0.007998s
+par TarragonaAka.node[1].appl cV2 0.0001733s
 attr unit s
-par TarragonaAka.node[1].appl cH1 0.016235s
+par TarragonaAka.node[1].appl cH1 0.0003736s
 attr unit s
-par TarragonaAka.node[1].appl cH2 0.007993s
+par TarragonaAka.node[1].appl cH2 0.0001727s
 attr unit s
 par TarragonaAka.node[1].appl useHandover false
 par TarragonaAka.node[1].appl phaseAValidity 20s
@@ -1484,19 +1484,19 @@ par TarragonaAka.node[1].appl measureStart 25s
 attr unit s
 par TarragonaAka.node[1].appl measureEnd 148s
 attr unit s
-scalar TarragonaAka.node[1].appl generatedWSMs 30
-scalar TarragonaAka.node[1].appl receivedWSMs 139
+scalar TarragonaAka.node[1].appl generatedWSMs 33
+scalar TarragonaAka.node[1].appl receivedWSMs 143
 scalar TarragonaAka.node[1].appl generatedBSMs 1492
-scalar TarragonaAka.node[1].appl receivedBSMs 2533
+scalar TarragonaAka.node[1].appl receivedBSMs 2550
 scalar TarragonaAka.node[1].appl generatedWSAs 0
 scalar TarragonaAka.node[1].appl receivedWSAs 0
-scalar TarragonaAka.node[1].appl akaSentReqA 18
-scalar TarragonaAka.node[1].appl akaRecvRespA 14
-scalar TarragonaAka.node[1].appl akaStartedA 18
-scalar TarragonaAka.node[1].appl akaCompletedA 14
-scalar TarragonaAka.node[1].appl akaTimedOutA 4
-scalar TarragonaAka.node[1].appl akaSumAuthLatencyA 1.173232026716
-scalar TarragonaAka.node[1].appl akaSumRespDelayA 0.002939626633
+scalar TarragonaAka.node[1].appl akaSentReqA 20
+scalar TarragonaAka.node[1].appl akaRecvRespA 17
+scalar TarragonaAka.node[1].appl akaStartedA 20
+scalar TarragonaAka.node[1].appl akaCompletedA 17
+scalar TarragonaAka.node[1].appl akaTimedOutA 3
+scalar TarragonaAka.node[1].appl akaSumAuthLatencyA 0.384082634672
+scalar TarragonaAka.node[1].appl akaSumRespDelayA 0.003193880593
 scalar TarragonaAka.node[1].appl akaSentReqB 0
 scalar TarragonaAka.node[1].appl akaRecvRespB 0
 scalar TarragonaAka.node[1].appl akaStartedB 0
@@ -1511,7 +1511,7 @@ par TarragonaAka.node[1].nic.phy80211p usePropagationDelay true
 par TarragonaAka.node[1].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.node[1].nic.phy80211p useNoiseFloor true
-par TarragonaAka.node[1].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.node[1].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.node[1].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.node[1].nic.phy80211p antennaOffsetY 0m
@@ -1520,8 +1520,8 @@ par TarragonaAka.node[1].nic.phy80211p antennaOffsetZ 1.895m
 attr unit m
 par TarragonaAka.node[1].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.node[1].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.node[1].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.node[1].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.node[1].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.node[1].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.node[1].nic.phy80211p timeRXToTX 0s
@@ -1545,7 +1545,7 @@ par TarragonaAka.node[1].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.node[1].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.node[1].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.node[1].nic.phy80211p busyTime 0.0081154959785517
+scalar TarragonaAka.node[1].nic.phy80211p busyTime 0.0081260589812326
 par TarragonaAka.node[1].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.node[1].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.node[1].nic.mac1609_4 headerLength 0bit
@@ -1569,33 +1569,33 @@ attr unit bit
 par TarragonaAka.node[1].nic.mac1609_4 useAcks false
 par TarragonaAka.node[1].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.node[1].nic.mac1609_4 ackErrorRate 0
-scalar TarragonaAka.node[1].nic.mac1609_4 ReceivedUnicastPackets 26
-scalar TarragonaAka.node[1].nic.mac1609_4 ReceivedBroadcasts 2646
-scalar TarragonaAka.node[1].nic.mac1609_4 SentPackets 1522
+scalar TarragonaAka.node[1].nic.mac1609_4 ReceivedUnicastPackets 30
+scalar TarragonaAka.node[1].nic.mac1609_4 ReceivedBroadcasts 2663
+scalar TarragonaAka.node[1].nic.mac1609_4 SentPackets 1525
 scalar TarragonaAka.node[1].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.node[1].nic.mac1609_4 RetriesExceeded 0
-scalar TarragonaAka.node[1].nic.mac1609_4 SNIRLostPackets 471
+scalar TarragonaAka.node[1].nic.mac1609_4 SNIRLostPackets 450
 scalar TarragonaAka.node[1].nic.mac1609_4 RXTXLostPackets 0
-scalar TarragonaAka.node[1].nic.mac1609_4 TotalLostPackets 471
+scalar TarragonaAka.node[1].nic.mac1609_4 TotalLostPackets 450
 scalar TarragonaAka.node[1].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.node[1].nic.mac1609_4 TooLittleTime 0
-scalar TarragonaAka.node[1].nic.mac1609_4 TimesIntoBackoff 1524
-scalar TarragonaAka.node[1].nic.mac1609_4 SlotsBackoff 2306
+scalar TarragonaAka.node[1].nic.mac1609_4 TimesIntoBackoff 1525
+scalar TarragonaAka.node[1].nic.mac1609_4 SlotsBackoff 2253
 scalar TarragonaAka.node[1].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.node[1].nic.mac1609_4 totalBusyTime 1.79529
+scalar TarragonaAka.node[1].nic.mac1609_4 totalBusyTime 1.797813
 scalar TarragonaAka.node[1].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
 scalar TarragonaAka.node[1].nic.mac1609_4 sentAcks:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentAck
-scalar TarragonaAka.node[1].nic.mac1609_4 sentPackets:count 1522
+scalar TarragonaAka.node[1].nic.mac1609_4 sentPackets:count 1525
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.node[1].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.node[1].nic.mac1609_4 channelBusy:timeavg 0.012032774798927
+scalar TarragonaAka.node[1].nic.mac1609_4 channelBusy:timeavg 0.012049684986595
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.node[1].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -1650,13 +1650,13 @@ par TarragonaAka.node[2].appl wsaInterval 1s
 attr unit s
 par TarragonaAka.node[2].appl m1Bits 736
 par TarragonaAka.node[2].appl m5Bits 576
-par TarragonaAka.node[2].appl cV1 0.016255s
+par TarragonaAka.node[2].appl cV1 0.0003757s
 attr unit s
-par TarragonaAka.node[2].appl cV2 0.007998s
+par TarragonaAka.node[2].appl cV2 0.0001733s
 attr unit s
-par TarragonaAka.node[2].appl cH1 0.016235s
+par TarragonaAka.node[2].appl cH1 0.0003736s
 attr unit s
-par TarragonaAka.node[2].appl cH2 0.007993s
+par TarragonaAka.node[2].appl cH2 0.0001727s
 attr unit s
 par TarragonaAka.node[2].appl useHandover false
 par TarragonaAka.node[2].appl phaseAValidity 20s
@@ -1673,19 +1673,19 @@ par TarragonaAka.node[2].appl measureStart 25s
 attr unit s
 par TarragonaAka.node[2].appl measureEnd 148s
 attr unit s
-scalar TarragonaAka.node[2].appl generatedWSMs 40
+scalar TarragonaAka.node[2].appl generatedWSMs 38
 scalar TarragonaAka.node[2].appl receivedWSMs 190
 scalar TarragonaAka.node[2].appl generatedBSMs 1485
-scalar TarragonaAka.node[2].appl receivedBSMs 2058
+scalar TarragonaAka.node[2].appl receivedBSMs 2045
 scalar TarragonaAka.node[2].appl generatedWSAs 0
 scalar TarragonaAka.node[2].appl receivedWSAs 0
-scalar TarragonaAka.node[2].appl akaSentReqA 28
+scalar TarragonaAka.node[2].appl akaSentReqA 26
 scalar TarragonaAka.node[2].appl akaRecvRespA 26
-scalar TarragonaAka.node[2].appl akaStartedA 28
+scalar TarragonaAka.node[2].appl akaStartedA 26
 scalar TarragonaAka.node[2].appl akaCompletedA 26
-scalar TarragonaAka.node[2].appl akaTimedOutA 2
-scalar TarragonaAka.node[2].appl akaSumAuthLatencyA 2.204436202296
-scalar TarragonaAka.node[2].appl akaSumRespDelayA 0.004925350058
+scalar TarragonaAka.node[2].appl akaTimedOutA 0
+scalar TarragonaAka.node[2].appl akaSumAuthLatencyA 0.58755400065
+scalar TarragonaAka.node[2].appl akaSumRespDelayA 0.00493602962
 scalar TarragonaAka.node[2].appl akaSentReqB 0
 scalar TarragonaAka.node[2].appl akaRecvRespB 0
 scalar TarragonaAka.node[2].appl akaStartedB 0
@@ -1700,7 +1700,7 @@ par TarragonaAka.node[2].nic.phy80211p usePropagationDelay true
 par TarragonaAka.node[2].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.node[2].nic.phy80211p useNoiseFloor true
-par TarragonaAka.node[2].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.node[2].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.node[2].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.node[2].nic.phy80211p antennaOffsetY 0m
@@ -1709,8 +1709,8 @@ par TarragonaAka.node[2].nic.phy80211p antennaOffsetZ 1.895m
 attr unit m
 par TarragonaAka.node[2].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.node[2].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.node[2].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.node[2].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.node[2].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.node[2].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.node[2].nic.phy80211p timeRXToTX 0s
@@ -1734,7 +1734,7 @@ par TarragonaAka.node[2].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.node[2].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.node[2].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.node[2].nic.phy80211p busyTime 0.010284067340066
+scalar TarragonaAka.node[2].nic.phy80211p busyTime 0.010293764309763
 par TarragonaAka.node[2].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.node[2].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.node[2].nic.mac1609_4 headerLength 0bit
@@ -1759,32 +1759,32 @@ par TarragonaAka.node[2].nic.mac1609_4 useAcks false
 par TarragonaAka.node[2].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.node[2].nic.mac1609_4 ackErrorRate 0
 scalar TarragonaAka.node[2].nic.mac1609_4 ReceivedUnicastPackets 38
-scalar TarragonaAka.node[2].nic.mac1609_4 ReceivedBroadcasts 2210
-scalar TarragonaAka.node[2].nic.mac1609_4 SentPackets 1525
+scalar TarragonaAka.node[2].nic.mac1609_4 ReceivedBroadcasts 2197
+scalar TarragonaAka.node[2].nic.mac1609_4 SentPackets 1523
 scalar TarragonaAka.node[2].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.node[2].nic.mac1609_4 RetriesExceeded 0
-scalar TarragonaAka.node[2].nic.mac1609_4 SNIRLostPackets 1693
+scalar TarragonaAka.node[2].nic.mac1609_4 SNIRLostPackets 1709
 scalar TarragonaAka.node[2].nic.mac1609_4 RXTXLostPackets 0
-scalar TarragonaAka.node[2].nic.mac1609_4 TotalLostPackets 1693
+scalar TarragonaAka.node[2].nic.mac1609_4 TotalLostPackets 1709
 scalar TarragonaAka.node[2].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.node[2].nic.mac1609_4 TooLittleTime 0
-scalar TarragonaAka.node[2].nic.mac1609_4 TimesIntoBackoff 1525
-scalar TarragonaAka.node[2].nic.mac1609_4 SlotsBackoff 2303
+scalar TarragonaAka.node[2].nic.mac1609_4 TimesIntoBackoff 1523
+scalar TarragonaAka.node[2].nic.mac1609_4 SlotsBackoff 2276
 scalar TarragonaAka.node[2].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.node[2].nic.mac1609_4 totalBusyTime 2.117797
+scalar TarragonaAka.node[2].nic.mac1609_4 totalBusyTime 2.118299
 scalar TarragonaAka.node[2].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
 scalar TarragonaAka.node[2].nic.mac1609_4 sentAcks:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentAck
-scalar TarragonaAka.node[2].nic.mac1609_4 sentPackets:count 1525
+scalar TarragonaAka.node[2].nic.mac1609_4 sentPackets:count 1523
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.node[2].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.node[2].nic.mac1609_4 channelBusy:timeavg 0.014261259259259
+scalar TarragonaAka.node[2].nic.mac1609_4 channelBusy:timeavg 0.014264639730639
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.node[2].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -1839,13 +1839,13 @@ par TarragonaAka.node[3].appl wsaInterval 1s
 attr unit s
 par TarragonaAka.node[3].appl m1Bits 736
 par TarragonaAka.node[3].appl m5Bits 576
-par TarragonaAka.node[3].appl cV1 0.016255s
+par TarragonaAka.node[3].appl cV1 0.0003757s
 attr unit s
-par TarragonaAka.node[3].appl cV2 0.007998s
+par TarragonaAka.node[3].appl cV2 0.0001733s
 attr unit s
-par TarragonaAka.node[3].appl cH1 0.016235s
+par TarragonaAka.node[3].appl cH1 0.0003736s
 attr unit s
-par TarragonaAka.node[3].appl cH2 0.007993s
+par TarragonaAka.node[3].appl cH2 0.0001727s
 attr unit s
 par TarragonaAka.node[3].appl useHandover false
 par TarragonaAka.node[3].appl phaseAValidity 20s
@@ -1862,19 +1862,19 @@ par TarragonaAka.node[3].appl measureStart 25s
 attr unit s
 par TarragonaAka.node[3].appl measureEnd 148s
 attr unit s
-scalar TarragonaAka.node[3].appl generatedWSMs 12
-scalar TarragonaAka.node[3].appl receivedWSMs 52
+scalar TarragonaAka.node[3].appl generatedWSMs 13
+scalar TarragonaAka.node[3].appl receivedWSMs 54
 scalar TarragonaAka.node[3].appl generatedBSMs 1479
 scalar TarragonaAka.node[3].appl receivedBSMs 1981
 scalar TarragonaAka.node[3].appl generatedWSAs 0
 scalar TarragonaAka.node[3].appl receivedWSAs 0
-scalar TarragonaAka.node[3].appl akaSentReqA 12
-scalar TarragonaAka.node[3].appl akaRecvRespA 9
-scalar TarragonaAka.node[3].appl akaStartedA 12
-scalar TarragonaAka.node[3].appl akaCompletedA 9
-scalar TarragonaAka.node[3].appl akaTimedOutA 3
-scalar TarragonaAka.node[3].appl akaSumAuthLatencyA 0.751333707955
-scalar TarragonaAka.node[3].appl akaSumRespDelayA 0.001658119754
+scalar TarragonaAka.node[3].appl akaSentReqA 13
+scalar TarragonaAka.node[3].appl akaRecvRespA 11
+scalar TarragonaAka.node[3].appl akaStartedA 13
+scalar TarragonaAka.node[3].appl akaCompletedA 11
+scalar TarragonaAka.node[3].appl akaTimedOutA 2
+scalar TarragonaAka.node[3].appl akaSumAuthLatencyA 0.248518059297
+scalar TarragonaAka.node[3].appl akaSumRespDelayA 0.002048009872
 scalar TarragonaAka.node[3].appl akaSentReqB 0
 scalar TarragonaAka.node[3].appl akaRecvRespB 0
 scalar TarragonaAka.node[3].appl akaStartedB 0
@@ -1889,7 +1889,7 @@ par TarragonaAka.node[3].nic.phy80211p usePropagationDelay true
 par TarragonaAka.node[3].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.node[3].nic.phy80211p useNoiseFloor true
-par TarragonaAka.node[3].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.node[3].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.node[3].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.node[3].nic.phy80211p antennaOffsetY 0m
@@ -1898,8 +1898,8 @@ par TarragonaAka.node[3].nic.phy80211p antennaOffsetZ 1.895m
 attr unit m
 par TarragonaAka.node[3].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.node[3].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.node[3].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.node[3].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.node[3].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.node[3].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.node[3].nic.phy80211p timeRXToTX 0s
@@ -1923,7 +1923,7 @@ par TarragonaAka.node[3].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.node[3].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.node[3].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.node[3].nic.phy80211p busyTime 0.0062113319810679
+scalar TarragonaAka.node[3].nic.phy80211p busyTime 0.0062209060175791
 par TarragonaAka.node[3].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.node[3].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.node[3].nic.mac1609_4 headerLength 0bit
@@ -1947,33 +1947,33 @@ attr unit bit
 par TarragonaAka.node[3].nic.mac1609_4 useAcks false
 par TarragonaAka.node[3].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.node[3].nic.mac1609_4 ackErrorRate 0
-scalar TarragonaAka.node[3].nic.mac1609_4 ReceivedUnicastPackets 9
+scalar TarragonaAka.node[3].nic.mac1609_4 ReceivedUnicastPackets 11
 scalar TarragonaAka.node[3].nic.mac1609_4 ReceivedBroadcasts 2024
-scalar TarragonaAka.node[3].nic.mac1609_4 SentPackets 1491
+scalar TarragonaAka.node[3].nic.mac1609_4 SentPackets 1492
 scalar TarragonaAka.node[3].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.node[3].nic.mac1609_4 RetriesExceeded 0
-scalar TarragonaAka.node[3].nic.mac1609_4 SNIRLostPackets 325
+scalar TarragonaAka.node[3].nic.mac1609_4 SNIRLostPackets 324
 scalar TarragonaAka.node[3].nic.mac1609_4 RXTXLostPackets 0
-scalar TarragonaAka.node[3].nic.mac1609_4 TotalLostPackets 325
+scalar TarragonaAka.node[3].nic.mac1609_4 TotalLostPackets 324
 scalar TarragonaAka.node[3].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.node[3].nic.mac1609_4 TooLittleTime 0
-scalar TarragonaAka.node[3].nic.mac1609_4 TimesIntoBackoff 1491
-scalar TarragonaAka.node[3].nic.mac1609_4 SlotsBackoff 2191
+scalar TarragonaAka.node[3].nic.mac1609_4 TimesIntoBackoff 1493
+scalar TarragonaAka.node[3].nic.mac1609_4 SlotsBackoff 2187
 scalar TarragonaAka.node[3].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.node[3].nic.mac1609_4 totalBusyTime 1.493107
+scalar TarragonaAka.node[3].nic.mac1609_4 totalBusyTime 1.4951
 scalar TarragonaAka.node[3].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
 scalar TarragonaAka.node[3].nic.mac1609_4 sentAcks:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentAck
-scalar TarragonaAka.node[3].nic.mac1609_4 sentPackets:count 1491
+scalar TarragonaAka.node[3].nic.mac1609_4 sentPackets:count 1492
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.node[3].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.node[3].nic.mac1609_4 channelBusy:timeavg 0.010095382014875
+scalar TarragonaAka.node[3].nic.mac1609_4 channelBusy:timeavg 0.010108857336038
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.node[3].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -2028,13 +2028,13 @@ par TarragonaAka.node[4].appl wsaInterval 1s
 attr unit s
 par TarragonaAka.node[4].appl m1Bits 736
 par TarragonaAka.node[4].appl m5Bits 576
-par TarragonaAka.node[4].appl cV1 0.016255s
+par TarragonaAka.node[4].appl cV1 0.0003757s
 attr unit s
-par TarragonaAka.node[4].appl cV2 0.007998s
+par TarragonaAka.node[4].appl cV2 0.0001733s
 attr unit s
-par TarragonaAka.node[4].appl cH1 0.016235s
+par TarragonaAka.node[4].appl cH1 0.0003736s
 attr unit s
-par TarragonaAka.node[4].appl cH2 0.007993s
+par TarragonaAka.node[4].appl cH2 0.0001727s
 attr unit s
 par TarragonaAka.node[4].appl useHandover false
 par TarragonaAka.node[4].appl phaseAValidity 20s
@@ -2057,13 +2057,13 @@ scalar TarragonaAka.node[4].appl generatedBSMs 1472
 scalar TarragonaAka.node[4].appl receivedBSMs 1018
 scalar TarragonaAka.node[4].appl generatedWSAs 0
 scalar TarragonaAka.node[4].appl receivedWSAs 0
-scalar TarragonaAka.node[4].appl akaSentReqA 24
+scalar TarragonaAka.node[4].appl akaSentReqA 23
 scalar TarragonaAka.node[4].appl akaRecvRespA 21
-scalar TarragonaAka.node[4].appl akaStartedA 24
+scalar TarragonaAka.node[4].appl akaStartedA 23
 scalar TarragonaAka.node[4].appl akaCompletedA 21
-scalar TarragonaAka.node[4].appl akaTimedOutA 3
-scalar TarragonaAka.node[4].appl akaSumAuthLatencyA 1.757528530728
-scalar TarragonaAka.node[4].appl akaSumRespDelayA 0.003833554679
+scalar TarragonaAka.node[4].appl akaTimedOutA 2
+scalar TarragonaAka.node[4].appl akaSumAuthLatencyA 0.474592698459
+scalar TarragonaAka.node[4].appl akaSumRespDelayA 0.004088917225
 scalar TarragonaAka.node[4].appl akaSentReqB 0
 scalar TarragonaAka.node[4].appl akaRecvRespB 0
 scalar TarragonaAka.node[4].appl akaStartedB 0
@@ -2078,7 +2078,7 @@ par TarragonaAka.node[4].nic.phy80211p usePropagationDelay true
 par TarragonaAka.node[4].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.node[4].nic.phy80211p useNoiseFloor true
-par TarragonaAka.node[4].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.node[4].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.node[4].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.node[4].nic.phy80211p antennaOffsetY 0m
@@ -2087,8 +2087,8 @@ par TarragonaAka.node[4].nic.phy80211p antennaOffsetZ 1.895m
 attr unit m
 par TarragonaAka.node[4].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.node[4].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.node[4].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.node[4].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.node[4].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.node[4].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.node[4].nic.phy80211p timeRXToTX 0s
@@ -2112,7 +2112,7 @@ par TarragonaAka.node[4].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.node[4].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.node[4].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.node[4].nic.phy80211p busyTime 0.0037023369565217
+scalar TarragonaAka.node[4].nic.phy80211p busyTime 0.0036984782608696
 par TarragonaAka.node[4].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.node[4].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.node[4].nic.mac1609_4 headerLength 0bit
@@ -2141,15 +2141,15 @@ scalar TarragonaAka.node[4].nic.mac1609_4 ReceivedBroadcasts 1111
 scalar TarragonaAka.node[4].nic.mac1609_4 SentPackets 1496
 scalar TarragonaAka.node[4].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.node[4].nic.mac1609_4 RetriesExceeded 0
-scalar TarragonaAka.node[4].nic.mac1609_4 SNIRLostPackets 326
+scalar TarragonaAka.node[4].nic.mac1609_4 SNIRLostPackets 325
 scalar TarragonaAka.node[4].nic.mac1609_4 RXTXLostPackets 0
-scalar TarragonaAka.node[4].nic.mac1609_4 TotalLostPackets 326
+scalar TarragonaAka.node[4].nic.mac1609_4 TotalLostPackets 325
 scalar TarragonaAka.node[4].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.node[4].nic.mac1609_4 TooLittleTime 0
 scalar TarragonaAka.node[4].nic.mac1609_4 TimesIntoBackoff 1496
-scalar TarragonaAka.node[4].nic.mac1609_4 SlotsBackoff 2233
+scalar TarragonaAka.node[4].nic.mac1609_4 SlotsBackoff 2289
 scalar TarragonaAka.node[4].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.node[4].nic.mac1609_4 totalBusyTime 1.127744
+scalar TarragonaAka.node[4].nic.mac1609_4 totalBusyTime 1.127352
 scalar TarragonaAka.node[4].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
@@ -2162,7 +2162,7 @@ attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.node[4].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.node[4].nic.mac1609_4 channelBusy:timeavg 0.0076613043478257
+scalar TarragonaAka.node[4].nic.mac1609_4 channelBusy:timeavg 0.0076586413043475
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.node[4].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -2217,13 +2217,13 @@ par TarragonaAka.node[5].appl wsaInterval 1s
 attr unit s
 par TarragonaAka.node[5].appl m1Bits 736
 par TarragonaAka.node[5].appl m5Bits 576
-par TarragonaAka.node[5].appl cV1 0.016255s
+par TarragonaAka.node[5].appl cV1 0.0003757s
 attr unit s
-par TarragonaAka.node[5].appl cV2 0.007998s
+par TarragonaAka.node[5].appl cV2 0.0001733s
 attr unit s
-par TarragonaAka.node[5].appl cH1 0.016235s
+par TarragonaAka.node[5].appl cH1 0.0003736s
 attr unit s
-par TarragonaAka.node[5].appl cH2 0.007993s
+par TarragonaAka.node[5].appl cH2 0.0001727s
 attr unit s
 par TarragonaAka.node[5].appl useHandover false
 par TarragonaAka.node[5].appl phaseAValidity 20s
@@ -2240,19 +2240,19 @@ par TarragonaAka.node[5].appl measureStart 25s
 attr unit s
 par TarragonaAka.node[5].appl measureEnd 148s
 attr unit s
-scalar TarragonaAka.node[5].appl generatedWSMs 56
-scalar TarragonaAka.node[5].appl receivedWSMs 279
+scalar TarragonaAka.node[5].appl generatedWSMs 58
+scalar TarragonaAka.node[5].appl receivedWSMs 281
 scalar TarragonaAka.node[5].appl generatedBSMs 1465
-scalar TarragonaAka.node[5].appl receivedBSMs 7163
+scalar TarragonaAka.node[5].appl receivedBSMs 7164
 scalar TarragonaAka.node[5].appl generatedWSAs 0
 scalar TarragonaAka.node[5].appl receivedWSAs 0
-scalar TarragonaAka.node[5].appl akaSentReqA 55
-scalar TarragonaAka.node[5].appl akaRecvRespA 54
-scalar TarragonaAka.node[5].appl akaStartedA 55
-scalar TarragonaAka.node[5].appl akaCompletedA 54
-scalar TarragonaAka.node[5].appl akaTimedOutA 1
-scalar TarragonaAka.node[5].appl akaSumAuthLatencyA 4.585115083915
-scalar TarragonaAka.node[5].appl akaSumRespDelayA 0.010356832056
+scalar TarragonaAka.node[5].appl akaSentReqA 57
+scalar TarragonaAka.node[5].appl akaRecvRespA 55
+scalar TarragonaAka.node[5].appl akaStartedA 57
+scalar TarragonaAka.node[5].appl akaCompletedA 55
+scalar TarragonaAka.node[5].appl akaTimedOutA 2
+scalar TarragonaAka.node[5].appl akaSumAuthLatencyA 1.242848622283
+scalar TarragonaAka.node[5].appl akaSumRespDelayA 0.010429535512
 scalar TarragonaAka.node[5].appl akaSentReqB 0
 scalar TarragonaAka.node[5].appl akaRecvRespB 0
 scalar TarragonaAka.node[5].appl akaStartedB 0
@@ -2267,7 +2267,7 @@ par TarragonaAka.node[5].nic.phy80211p usePropagationDelay true
 par TarragonaAka.node[5].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.node[5].nic.phy80211p useNoiseFloor true
-par TarragonaAka.node[5].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.node[5].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.node[5].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.node[5].nic.phy80211p antennaOffsetY 0m
@@ -2276,8 +2276,8 @@ par TarragonaAka.node[5].nic.phy80211p antennaOffsetZ 1.895m
 attr unit m
 par TarragonaAka.node[5].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.node[5].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.node[5].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.node[5].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.node[5].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.node[5].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.node[5].nic.phy80211p timeRXToTX 0s
@@ -2301,7 +2301,7 @@ par TarragonaAka.node[5].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.node[5].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.node[5].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.node[5].nic.phy80211p busyTime 0.021550088737203
+scalar TarragonaAka.node[5].nic.phy80211p busyTime 0.021543645051197
 par TarragonaAka.node[5].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.node[5].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.node[5].nic.mac1609_4 headerLength 0bit
@@ -2325,33 +2325,33 @@ attr unit bit
 par TarragonaAka.node[5].nic.mac1609_4 useAcks false
 par TarragonaAka.node[5].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.node[5].nic.mac1609_4 ackErrorRate 0
-scalar TarragonaAka.node[5].nic.mac1609_4 ReceivedUnicastPackets 55
-scalar TarragonaAka.node[5].nic.mac1609_4 ReceivedBroadcasts 7387
-scalar TarragonaAka.node[5].nic.mac1609_4 SentPackets 1521
+scalar TarragonaAka.node[5].nic.mac1609_4 ReceivedUnicastPackets 56
+scalar TarragonaAka.node[5].nic.mac1609_4 ReceivedBroadcasts 7389
+scalar TarragonaAka.node[5].nic.mac1609_4 SentPackets 1523
 scalar TarragonaAka.node[5].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.node[5].nic.mac1609_4 RetriesExceeded 0
-scalar TarragonaAka.node[5].nic.mac1609_4 SNIRLostPackets 521
+scalar TarragonaAka.node[5].nic.mac1609_4 SNIRLostPackets 515
 scalar TarragonaAka.node[5].nic.mac1609_4 RXTXLostPackets 0
-scalar TarragonaAka.node[5].nic.mac1609_4 TotalLostPackets 521
+scalar TarragonaAka.node[5].nic.mac1609_4 TotalLostPackets 515
 scalar TarragonaAka.node[5].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.node[5].nic.mac1609_4 TooLittleTime 0
-scalar TarragonaAka.node[5].nic.mac1609_4 TimesIntoBackoff 1522
-scalar TarragonaAka.node[5].nic.mac1609_4 SlotsBackoff 2307
+scalar TarragonaAka.node[5].nic.mac1609_4 TimesIntoBackoff 1528
+scalar TarragonaAka.node[5].nic.mac1609_4 SlotsBackoff 2336
 scalar TarragonaAka.node[5].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.node[5].nic.mac1609_4 totalBusyTime 3.742617
+scalar TarragonaAka.node[5].nic.mac1609_4 totalBusyTime 3.735171
 scalar TarragonaAka.node[5].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
 scalar TarragonaAka.node[5].nic.mac1609_4 sentAcks:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentAck
-scalar TarragonaAka.node[5].nic.mac1609_4 sentPackets:count 1521
+scalar TarragonaAka.node[5].nic.mac1609_4 sentPackets:count 1523
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.node[5].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.node[5].nic.mac1609_4 channelBusy:timeavg 0.02554687372014
+scalar TarragonaAka.node[5].nic.mac1609_4 channelBusy:timeavg 0.025496047781573
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.node[5].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -2406,13 +2406,13 @@ par TarragonaAka.node[6].appl wsaInterval 1s
 attr unit s
 par TarragonaAka.node[6].appl m1Bits 736
 par TarragonaAka.node[6].appl m5Bits 576
-par TarragonaAka.node[6].appl cV1 0.016255s
+par TarragonaAka.node[6].appl cV1 0.0003757s
 attr unit s
-par TarragonaAka.node[6].appl cV2 0.007998s
+par TarragonaAka.node[6].appl cV2 0.0001733s
 attr unit s
-par TarragonaAka.node[6].appl cH1 0.016235s
+par TarragonaAka.node[6].appl cH1 0.0003736s
 attr unit s
-par TarragonaAka.node[6].appl cH2 0.007993s
+par TarragonaAka.node[6].appl cH2 0.0001727s
 attr unit s
 par TarragonaAka.node[6].appl useHandover false
 par TarragonaAka.node[6].appl phaseAValidity 20s
@@ -2430,9 +2430,9 @@ attr unit s
 par TarragonaAka.node[6].appl measureEnd 148s
 attr unit s
 scalar TarragonaAka.node[6].appl generatedWSMs 62
-scalar TarragonaAka.node[6].appl receivedWSMs 309
+scalar TarragonaAka.node[6].appl receivedWSMs 307
 scalar TarragonaAka.node[6].appl generatedBSMs 1459
-scalar TarragonaAka.node[6].appl receivedBSMs 7251
+scalar TarragonaAka.node[6].appl receivedBSMs 7254
 scalar TarragonaAka.node[6].appl generatedWSAs 0
 scalar TarragonaAka.node[6].appl receivedWSAs 0
 scalar TarragonaAka.node[6].appl akaSentReqA 61
@@ -2440,8 +2440,8 @@ scalar TarragonaAka.node[6].appl akaRecvRespA 60
 scalar TarragonaAka.node[6].appl akaStartedA 61
 scalar TarragonaAka.node[6].appl akaCompletedA 60
 scalar TarragonaAka.node[6].appl akaTimedOutA 1
-scalar TarragonaAka.node[6].appl akaSumAuthLatencyA 5.082711351053
-scalar TarragonaAka.node[6].appl akaSumRespDelayA 0.011442129195
+scalar TarragonaAka.node[6].appl akaSumAuthLatencyA 1.356700315315
+scalar TarragonaAka.node[6].appl akaSumRespDelayA 0.012089560512
 scalar TarragonaAka.node[6].appl akaSentReqB 0
 scalar TarragonaAka.node[6].appl akaRecvRespB 0
 scalar TarragonaAka.node[6].appl akaStartedB 0
@@ -2456,7 +2456,7 @@ par TarragonaAka.node[6].nic.phy80211p usePropagationDelay true
 par TarragonaAka.node[6].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.node[6].nic.phy80211p useNoiseFloor true
-par TarragonaAka.node[6].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.node[6].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.node[6].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.node[6].nic.phy80211p antennaOffsetY 0m
@@ -2465,8 +2465,8 @@ par TarragonaAka.node[6].nic.phy80211p antennaOffsetZ 1.895m
 attr unit m
 par TarragonaAka.node[6].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.node[6].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.node[6].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.node[6].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.node[6].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.node[6].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.node[6].nic.phy80211p timeRXToTX 0s
@@ -2490,7 +2490,7 @@ par TarragonaAka.node[6].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.node[6].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.node[6].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.node[6].nic.phy80211p busyTime 0.022007347498289
+scalar TarragonaAka.node[6].nic.phy80211p busyTime 0.022006031528446
 par TarragonaAka.node[6].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.node[6].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.node[6].nic.mac1609_4 headerLength 0bit
@@ -2515,19 +2515,19 @@ par TarragonaAka.node[6].nic.mac1609_4 useAcks false
 par TarragonaAka.node[6].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.node[6].nic.mac1609_4 ackErrorRate 0
 scalar TarragonaAka.node[6].nic.mac1609_4 ReceivedUnicastPackets 61
-scalar TarragonaAka.node[6].nic.mac1609_4 ReceivedBroadcasts 7499
+scalar TarragonaAka.node[6].nic.mac1609_4 ReceivedBroadcasts 7500
 scalar TarragonaAka.node[6].nic.mac1609_4 SentPackets 1521
 scalar TarragonaAka.node[6].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.node[6].nic.mac1609_4 RetriesExceeded 0
-scalar TarragonaAka.node[6].nic.mac1609_4 SNIRLostPackets 540
+scalar TarragonaAka.node[6].nic.mac1609_4 SNIRLostPackets 538
 scalar TarragonaAka.node[6].nic.mac1609_4 RXTXLostPackets 0
-scalar TarragonaAka.node[6].nic.mac1609_4 TotalLostPackets 540
+scalar TarragonaAka.node[6].nic.mac1609_4 TotalLostPackets 538
 scalar TarragonaAka.node[6].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.node[6].nic.mac1609_4 TooLittleTime 0
-scalar TarragonaAka.node[6].nic.mac1609_4 TimesIntoBackoff 1525
-scalar TarragonaAka.node[6].nic.mac1609_4 SlotsBackoff 2278
+scalar TarragonaAka.node[6].nic.mac1609_4 TimesIntoBackoff 1523
+scalar TarragonaAka.node[6].nic.mac1609_4 SlotsBackoff 2281
 scalar TarragonaAka.node[6].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.node[6].nic.mac1609_4 totalBusyTime 3.795147748026
+scalar TarragonaAka.node[6].nic.mac1609_4 totalBusyTime 3.788305
 scalar TarragonaAka.node[6].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
@@ -2540,7 +2540,7 @@ attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.node[6].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.node[6].nic.mac1609_4 channelBusy:timeavg 0.026011979081744
+scalar TarragonaAka.node[6].nic.mac1609_4 channelBusy:timeavg 0.025965078821114
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.node[6].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -2595,13 +2595,13 @@ par TarragonaAka.node[7].appl wsaInterval 1s
 attr unit s
 par TarragonaAka.node[7].appl m1Bits 736
 par TarragonaAka.node[7].appl m5Bits 576
-par TarragonaAka.node[7].appl cV1 0.016255s
+par TarragonaAka.node[7].appl cV1 0.0003757s
 attr unit s
-par TarragonaAka.node[7].appl cV2 0.007998s
+par TarragonaAka.node[7].appl cV2 0.0001733s
 attr unit s
-par TarragonaAka.node[7].appl cH1 0.016235s
+par TarragonaAka.node[7].appl cH1 0.0003736s
 attr unit s
-par TarragonaAka.node[7].appl cH2 0.007993s
+par TarragonaAka.node[7].appl cH2 0.0001727s
 attr unit s
 par TarragonaAka.node[7].appl useHandover false
 par TarragonaAka.node[7].appl phaseAValidity 20s
@@ -2619,18 +2619,18 @@ attr unit s
 par TarragonaAka.node[7].appl measureEnd 148s
 attr unit s
 scalar TarragonaAka.node[7].appl generatedWSMs 38
-scalar TarragonaAka.node[7].appl receivedWSMs 178
+scalar TarragonaAka.node[7].appl receivedWSMs 180
 scalar TarragonaAka.node[7].appl generatedBSMs 1452
-scalar TarragonaAka.node[7].appl receivedBSMs 2609
+scalar TarragonaAka.node[7].appl receivedBSMs 2606
 scalar TarragonaAka.node[7].appl generatedWSAs 0
 scalar TarragonaAka.node[7].appl receivedWSAs 0
 scalar TarragonaAka.node[7].appl akaSentReqA 28
-scalar TarragonaAka.node[7].appl akaRecvRespA 24
+scalar TarragonaAka.node[7].appl akaRecvRespA 26
 scalar TarragonaAka.node[7].appl akaStartedA 28
-scalar TarragonaAka.node[7].appl akaCompletedA 24
-scalar TarragonaAka.node[7].appl akaTimedOutA 4
-scalar TarragonaAka.node[7].appl akaSumAuthLatencyA 2.030076156045
-scalar TarragonaAka.node[7].appl akaSumRespDelayA 0.004405658835
+scalar TarragonaAka.node[7].appl akaCompletedA 26
+scalar TarragonaAka.node[7].appl akaTimedOutA 2
+scalar TarragonaAka.node[7].appl akaSumAuthLatencyA 0.587819362523
+scalar TarragonaAka.node[7].appl akaSumRespDelayA 0.004890815791
 scalar TarragonaAka.node[7].appl akaSentReqB 0
 scalar TarragonaAka.node[7].appl akaRecvRespB 0
 scalar TarragonaAka.node[7].appl akaStartedB 0
@@ -2645,7 +2645,7 @@ par TarragonaAka.node[7].nic.phy80211p usePropagationDelay true
 par TarragonaAka.node[7].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.node[7].nic.phy80211p useNoiseFloor true
-par TarragonaAka.node[7].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.node[7].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.node[7].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.node[7].nic.phy80211p antennaOffsetY 0m
@@ -2654,8 +2654,8 @@ par TarragonaAka.node[7].nic.phy80211p antennaOffsetZ 1.895m
 attr unit m
 par TarragonaAka.node[7].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.node[7].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.node[7].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.node[7].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.node[7].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.node[7].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.node[7].nic.phy80211p timeRXToTX 0s
@@ -2679,7 +2679,7 @@ par TarragonaAka.node[7].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.node[7].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.node[7].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.node[7].nic.phy80211p busyTime 0.0077522865013769
+scalar TarragonaAka.node[7].nic.phy80211p busyTime 0.0077484848484843
 par TarragonaAka.node[7].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.node[7].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.node[7].nic.mac1609_4 headerLength 0bit
@@ -2703,20 +2703,20 @@ attr unit bit
 par TarragonaAka.node[7].nic.mac1609_4 useAcks false
 par TarragonaAka.node[7].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.node[7].nic.mac1609_4 ackErrorRate 0
-scalar TarragonaAka.node[7].nic.mac1609_4 ReceivedUnicastPackets 34
-scalar TarragonaAka.node[7].nic.mac1609_4 ReceivedBroadcasts 2753
+scalar TarragonaAka.node[7].nic.mac1609_4 ReceivedUnicastPackets 36
+scalar TarragonaAka.node[7].nic.mac1609_4 ReceivedBroadcasts 2750
 scalar TarragonaAka.node[7].nic.mac1609_4 SentPackets 1490
 scalar TarragonaAka.node[7].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.node[7].nic.mac1609_4 RetriesExceeded 0
-scalar TarragonaAka.node[7].nic.mac1609_4 SNIRLostPackets 132
+scalar TarragonaAka.node[7].nic.mac1609_4 SNIRLostPackets 134
 scalar TarragonaAka.node[7].nic.mac1609_4 RXTXLostPackets 0
-scalar TarragonaAka.node[7].nic.mac1609_4 TotalLostPackets 132
+scalar TarragonaAka.node[7].nic.mac1609_4 TotalLostPackets 134
 scalar TarragonaAka.node[7].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.node[7].nic.mac1609_4 TooLittleTime 0
-scalar TarragonaAka.node[7].nic.mac1609_4 TimesIntoBackoff 1490
-scalar TarragonaAka.node[7].nic.mac1609_4 SlotsBackoff 2164
+scalar TarragonaAka.node[7].nic.mac1609_4 TimesIntoBackoff 1491
+scalar TarragonaAka.node[7].nic.mac1609_4 SlotsBackoff 2210
 scalar TarragonaAka.node[7].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.node[7].nic.mac1609_4 totalBusyTime 1.703298
+scalar TarragonaAka.node[7].nic.mac1609_4 totalBusyTime 1.702746
 scalar TarragonaAka.node[7].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
@@ -2729,7 +2729,7 @@ attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.node[7].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.node[7].nic.mac1609_4 channelBusy:timeavg 0.011730702479338
+scalar TarragonaAka.node[7].nic.mac1609_4 channelBusy:timeavg 0.011726900826446
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.node[7].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -2784,13 +2784,13 @@ par TarragonaAka.node[8].appl wsaInterval 1s
 attr unit s
 par TarragonaAka.node[8].appl m1Bits 736
 par TarragonaAka.node[8].appl m5Bits 576
-par TarragonaAka.node[8].appl cV1 0.016255s
+par TarragonaAka.node[8].appl cV1 0.0003757s
 attr unit s
-par TarragonaAka.node[8].appl cV2 0.007998s
+par TarragonaAka.node[8].appl cV2 0.0001733s
 attr unit s
-par TarragonaAka.node[8].appl cH1 0.016235s
+par TarragonaAka.node[8].appl cH1 0.0003736s
 attr unit s
-par TarragonaAka.node[8].appl cH2 0.007993s
+par TarragonaAka.node[8].appl cH2 0.0001727s
 attr unit s
 par TarragonaAka.node[8].appl useHandover false
 par TarragonaAka.node[8].appl phaseAValidity 20s
@@ -2810,16 +2810,16 @@ attr unit s
 scalar TarragonaAka.node[8].appl generatedWSMs 47
 scalar TarragonaAka.node[8].appl receivedWSMs 232
 scalar TarragonaAka.node[8].appl generatedBSMs 1445
-scalar TarragonaAka.node[8].appl receivedBSMs 3695
+scalar TarragonaAka.node[8].appl receivedBSMs 3691
 scalar TarragonaAka.node[8].appl generatedWSAs 0
 scalar TarragonaAka.node[8].appl receivedWSAs 0
 scalar TarragonaAka.node[8].appl akaSentReqA 46
-scalar TarragonaAka.node[8].appl akaRecvRespA 46
+scalar TarragonaAka.node[8].appl akaRecvRespA 45
 scalar TarragonaAka.node[8].appl akaStartedA 46
-scalar TarragonaAka.node[8].appl akaCompletedA 46
-scalar TarragonaAka.node[8].appl akaTimedOutA 0
-scalar TarragonaAka.node[8].appl akaSumAuthLatencyA 3.87964536785
-scalar TarragonaAka.node[8].appl akaSumRespDelayA 0.009400126224
+scalar TarragonaAka.node[8].appl akaCompletedA 45
+scalar TarragonaAka.node[8].appl akaTimedOutA 1
+scalar TarragonaAka.node[8].appl akaSumAuthLatencyA 1.01703300359
+scalar TarragonaAka.node[8].appl akaSumRespDelayA 0.008774754142
 scalar TarragonaAka.node[8].appl akaSentReqB 0
 scalar TarragonaAka.node[8].appl akaRecvRespB 0
 scalar TarragonaAka.node[8].appl akaStartedB 0
@@ -2834,7 +2834,7 @@ par TarragonaAka.node[8].nic.phy80211p usePropagationDelay true
 par TarragonaAka.node[8].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.node[8].nic.phy80211p useNoiseFloor true
-par TarragonaAka.node[8].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.node[8].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.node[8].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.node[8].nic.phy80211p antennaOffsetY 0m
@@ -2843,8 +2843,8 @@ par TarragonaAka.node[8].nic.phy80211p antennaOffsetZ 1.895m
 attr unit m
 par TarragonaAka.node[8].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.node[8].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.node[8].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.node[8].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.node[8].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.node[8].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.node[8].nic.phy80211p timeRXToTX 0s
@@ -2868,7 +2868,7 @@ par TarragonaAka.node[8].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.node[8].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.node[8].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.node[8].nic.phy80211p busyTime 0.011565951557092
+scalar TarragonaAka.node[8].nic.phy80211p busyTime 0.01156096885813
 par TarragonaAka.node[8].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.node[8].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.node[8].nic.mac1609_4 headerLength 0bit
@@ -2893,19 +2893,19 @@ par TarragonaAka.node[8].nic.mac1609_4 useAcks false
 par TarragonaAka.node[8].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.node[8].nic.mac1609_4 ackErrorRate 0
 scalar TarragonaAka.node[8].nic.mac1609_4 ReceivedUnicastPackets 46
-scalar TarragonaAka.node[8].nic.mac1609_4 ReceivedBroadcasts 3881
+scalar TarragonaAka.node[8].nic.mac1609_4 ReceivedBroadcasts 3877
 scalar TarragonaAka.node[8].nic.mac1609_4 SentPackets 1492
 scalar TarragonaAka.node[8].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.node[8].nic.mac1609_4 RetriesExceeded 0
-scalar TarragonaAka.node[8].nic.mac1609_4 SNIRLostPackets 332
+scalar TarragonaAka.node[8].nic.mac1609_4 SNIRLostPackets 336
 scalar TarragonaAka.node[8].nic.mac1609_4 RXTXLostPackets 0
-scalar TarragonaAka.node[8].nic.mac1609_4 TotalLostPackets 332
+scalar TarragonaAka.node[8].nic.mac1609_4 TotalLostPackets 336
 scalar TarragonaAka.node[8].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.node[8].nic.mac1609_4 TooLittleTime 0
-scalar TarragonaAka.node[8].nic.mac1609_4 TimesIntoBackoff 1497
-scalar TarragonaAka.node[8].nic.mac1609_4 SlotsBackoff 2279
+scalar TarragonaAka.node[8].nic.mac1609_4 TimesIntoBackoff 1492
+scalar TarragonaAka.node[8].nic.mac1609_4 SlotsBackoff 2232
 scalar TarragonaAka.node[8].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.node[8].nic.mac1609_4 totalBusyTime 2.24786
+scalar TarragonaAka.node[8].nic.mac1609_4 totalBusyTime 2.24714
 scalar TarragonaAka.node[8].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
@@ -2918,7 +2918,7 @@ attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.node[8].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.node[8].nic.mac1609_4 channelBusy:timeavg 0.015556124567474
+scalar TarragonaAka.node[8].nic.mac1609_4 channelBusy:timeavg 0.015551141868512
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.node[8].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -2973,13 +2973,13 @@ par TarragonaAka.node[9].appl wsaInterval 1s
 attr unit s
 par TarragonaAka.node[9].appl m1Bits 736
 par TarragonaAka.node[9].appl m5Bits 576
-par TarragonaAka.node[9].appl cV1 0.016255s
+par TarragonaAka.node[9].appl cV1 0.0003757s
 attr unit s
-par TarragonaAka.node[9].appl cV2 0.007998s
+par TarragonaAka.node[9].appl cV2 0.0001733s
 attr unit s
-par TarragonaAka.node[9].appl cH1 0.016235s
+par TarragonaAka.node[9].appl cH1 0.0003736s
 attr unit s
-par TarragonaAka.node[9].appl cH2 0.007993s
+par TarragonaAka.node[9].appl cH2 0.0001727s
 attr unit s
 par TarragonaAka.node[9].appl useHandover false
 par TarragonaAka.node[9].appl phaseAValidity 20s
@@ -2996,19 +2996,19 @@ par TarragonaAka.node[9].appl measureStart 25s
 attr unit s
 par TarragonaAka.node[9].appl measureEnd 148s
 attr unit s
-scalar TarragonaAka.node[9].appl generatedWSMs 12
-scalar TarragonaAka.node[9].appl receivedWSMs 56
+scalar TarragonaAka.node[9].appl generatedWSMs 10
+scalar TarragonaAka.node[9].appl receivedWSMs 55
 scalar TarragonaAka.node[9].appl generatedBSMs 1439
-scalar TarragonaAka.node[9].appl receivedBSMs 2689
+scalar TarragonaAka.node[9].appl receivedBSMs 2691
 scalar TarragonaAka.node[9].appl generatedWSAs 0
 scalar TarragonaAka.node[9].appl receivedWSAs 0
-scalar TarragonaAka.node[9].appl akaSentReqA 11
-scalar TarragonaAka.node[9].appl akaRecvRespA 10
-scalar TarragonaAka.node[9].appl akaStartedA 11
-scalar TarragonaAka.node[9].appl akaCompletedA 10
-scalar TarragonaAka.node[9].appl akaTimedOutA 1
-scalar TarragonaAka.node[9].appl akaSumAuthLatencyA 0.834703850181
-scalar TarragonaAka.node[9].appl akaSumRespDelayA 0.001831127006
+scalar TarragonaAka.node[9].appl akaSentReqA 9
+scalar TarragonaAka.node[9].appl akaRecvRespA 9
+scalar TarragonaAka.node[9].appl akaStartedA 9
+scalar TarragonaAka.node[9].appl akaCompletedA 9
+scalar TarragonaAka.node[9].appl akaTimedOutA 0
+scalar TarragonaAka.node[9].appl akaSumAuthLatencyA 0.203315876499
+scalar TarragonaAka.node[9].appl akaSumRespDelayA 0.001666580527
 scalar TarragonaAka.node[9].appl akaSentReqB 0
 scalar TarragonaAka.node[9].appl akaRecvRespB 0
 scalar TarragonaAka.node[9].appl akaStartedB 0
@@ -3023,7 +3023,7 @@ par TarragonaAka.node[9].nic.phy80211p usePropagationDelay true
 par TarragonaAka.node[9].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.node[9].nic.phy80211p useNoiseFloor true
-par TarragonaAka.node[9].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.node[9].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.node[9].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.node[9].nic.phy80211p antennaOffsetY 0m
@@ -3032,8 +3032,8 @@ par TarragonaAka.node[9].nic.phy80211p antennaOffsetZ 1.895m
 attr unit m
 par TarragonaAka.node[9].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.node[9].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.node[9].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.node[9].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.node[9].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.node[9].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.node[9].nic.phy80211p timeRXToTX 0s
@@ -3057,7 +3057,7 @@ par TarragonaAka.node[9].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.node[9].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.node[9].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.node[9].nic.phy80211p busyTime 0.0097057956914516
+scalar TarragonaAka.node[9].nic.phy80211p busyTime 0.0097082418346065
 par TarragonaAka.node[9].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.node[9].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.node[9].nic.mac1609_4 headerLength 0bit
@@ -3081,33 +3081,33 @@ attr unit bit
 par TarragonaAka.node[9].nic.mac1609_4 useAcks false
 par TarragonaAka.node[9].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.node[9].nic.mac1609_4 ackErrorRate 0
-scalar TarragonaAka.node[9].nic.mac1609_4 ReceivedUnicastPackets 11
-scalar TarragonaAka.node[9].nic.mac1609_4 ReceivedBroadcasts 2734
-scalar TarragonaAka.node[9].nic.mac1609_4 SentPackets 1451
+scalar TarragonaAka.node[9].nic.mac1609_4 ReceivedUnicastPackets 10
+scalar TarragonaAka.node[9].nic.mac1609_4 ReceivedBroadcasts 2736
+scalar TarragonaAka.node[9].nic.mac1609_4 SentPackets 1449
 scalar TarragonaAka.node[9].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.node[9].nic.mac1609_4 RetriesExceeded 0
-scalar TarragonaAka.node[9].nic.mac1609_4 SNIRLostPackets 800
+scalar TarragonaAka.node[9].nic.mac1609_4 SNIRLostPackets 796
 scalar TarragonaAka.node[9].nic.mac1609_4 RXTXLostPackets 0
-scalar TarragonaAka.node[9].nic.mac1609_4 TotalLostPackets 800
+scalar TarragonaAka.node[9].nic.mac1609_4 TotalLostPackets 796
 scalar TarragonaAka.node[9].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.node[9].nic.mac1609_4 TooLittleTime 0
-scalar TarragonaAka.node[9].nic.mac1609_4 TimesIntoBackoff 1451
-scalar TarragonaAka.node[9].nic.mac1609_4 SlotsBackoff 2196
+scalar TarragonaAka.node[9].nic.mac1609_4 TimesIntoBackoff 1518
+scalar TarragonaAka.node[9].nic.mac1609_4 SlotsBackoff 2262
 scalar TarragonaAka.node[9].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.node[9].nic.mac1609_4 totalBusyTime 1.964227
+scalar TarragonaAka.node[9].nic.mac1609_4 totalBusyTime 1.964393
 scalar TarragonaAka.node[9].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
 scalar TarragonaAka.node[9].nic.mac1609_4 sentAcks:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentAck
-scalar TarragonaAka.node[9].nic.mac1609_4 sentPackets:count 1451
+scalar TarragonaAka.node[9].nic.mac1609_4 sentPackets:count 1449
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.node[9].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.node[9].nic.mac1609_4 channelBusy:timeavg 0.013649944405837
+scalar TarragonaAka.node[9].nic.mac1609_4 channelBusy:timeavg 0.013651097984711
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.node[9].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -3162,13 +3162,13 @@ par TarragonaAka.node[11].appl wsaInterval 1s
 attr unit s
 par TarragonaAka.node[11].appl m1Bits 736
 par TarragonaAka.node[11].appl m5Bits 576
-par TarragonaAka.node[11].appl cV1 0.016255s
+par TarragonaAka.node[11].appl cV1 0.0003757s
 attr unit s
-par TarragonaAka.node[11].appl cV2 0.007998s
+par TarragonaAka.node[11].appl cV2 0.0001733s
 attr unit s
-par TarragonaAka.node[11].appl cH1 0.016235s
+par TarragonaAka.node[11].appl cH1 0.0003736s
 attr unit s
-par TarragonaAka.node[11].appl cH2 0.007993s
+par TarragonaAka.node[11].appl cH2 0.0001727s
 attr unit s
 par TarragonaAka.node[11].appl useHandover false
 par TarragonaAka.node[11].appl phaseAValidity 20s
@@ -3186,18 +3186,18 @@ attr unit s
 par TarragonaAka.node[11].appl measureEnd 148s
 attr unit s
 scalar TarragonaAka.node[11].appl generatedWSMs 63
-scalar TarragonaAka.node[11].appl receivedWSMs 302
+scalar TarragonaAka.node[11].appl receivedWSMs 306
 scalar TarragonaAka.node[11].appl generatedBSMs 1425
 scalar TarragonaAka.node[11].appl receivedBSMs 4611
 scalar TarragonaAka.node[11].appl generatedWSAs 0
 scalar TarragonaAka.node[11].appl receivedWSAs 0
-scalar TarragonaAka.node[11].appl akaSentReqA 61
-scalar TarragonaAka.node[11].appl akaRecvRespA 57
-scalar TarragonaAka.node[11].appl akaStartedA 61
-scalar TarragonaAka.node[11].appl akaCompletedA 57
-scalar TarragonaAka.node[11].appl akaTimedOutA 4
-scalar TarragonaAka.node[11].appl akaSumAuthLatencyA 4.796172909186
-scalar TarragonaAka.node[11].appl akaSumRespDelayA 0.01101862206
+scalar TarragonaAka.node[11].appl akaSentReqA 60
+scalar TarragonaAka.node[11].appl akaRecvRespA 58
+scalar TarragonaAka.node[11].appl akaStartedA 60
+scalar TarragonaAka.node[11].appl akaCompletedA 58
+scalar TarragonaAka.node[11].appl akaTimedOutA 2
+scalar TarragonaAka.node[11].appl akaSumAuthLatencyA 1.310409093085
+scalar TarragonaAka.node[11].appl akaSumRespDelayA 0.010827378978
 scalar TarragonaAka.node[11].appl akaSentReqB 0
 scalar TarragonaAka.node[11].appl akaRecvRespB 0
 scalar TarragonaAka.node[11].appl akaStartedB 0
@@ -3212,7 +3212,7 @@ par TarragonaAka.node[11].nic.phy80211p usePropagationDelay true
 par TarragonaAka.node[11].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.node[11].nic.phy80211p useNoiseFloor true
-par TarragonaAka.node[11].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.node[11].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.node[11].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.node[11].nic.phy80211p antennaOffsetY 0m
@@ -3221,8 +3221,8 @@ par TarragonaAka.node[11].nic.phy80211p antennaOffsetZ 1.895m
 attr unit m
 par TarragonaAka.node[11].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.node[11].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.node[11].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.node[11].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.node[11].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.node[11].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.node[11].nic.phy80211p timeRXToTX 0s
@@ -3246,7 +3246,7 @@ par TarragonaAka.node[11].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.node[11].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.node[11].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.node[11].nic.phy80211p busyTime 0.014516266666665
+scalar TarragonaAka.node[11].nic.phy80211p busyTime 0.014512336842104
 par TarragonaAka.node[11].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.node[11].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.node[11].nic.mac1609_4 headerLength 0bit
@@ -3270,20 +3270,20 @@ attr unit bit
 par TarragonaAka.node[11].nic.mac1609_4 useAcks false
 par TarragonaAka.node[11].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.node[11].nic.mac1609_4 ackErrorRate 0
-scalar TarragonaAka.node[11].nic.mac1609_4 ReceivedUnicastPackets 59
-scalar TarragonaAka.node[11].nic.mac1609_4 ReceivedBroadcasts 4854
+scalar TarragonaAka.node[11].nic.mac1609_4 ReceivedUnicastPackets 60
+scalar TarragonaAka.node[11].nic.mac1609_4 ReceivedBroadcasts 4857
 scalar TarragonaAka.node[11].nic.mac1609_4 SentPackets 1488
 scalar TarragonaAka.node[11].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.node[11].nic.mac1609_4 RetriesExceeded 0
-scalar TarragonaAka.node[11].nic.mac1609_4 SNIRLostPackets 327
+scalar TarragonaAka.node[11].nic.mac1609_4 SNIRLostPackets 324
 scalar TarragonaAka.node[11].nic.mac1609_4 RXTXLostPackets 0
-scalar TarragonaAka.node[11].nic.mac1609_4 TotalLostPackets 327
+scalar TarragonaAka.node[11].nic.mac1609_4 TotalLostPackets 324
 scalar TarragonaAka.node[11].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.node[11].nic.mac1609_4 TooLittleTime 0
 scalar TarragonaAka.node[11].nic.mac1609_4 TimesIntoBackoff 1490
-scalar TarragonaAka.node[11].nic.mac1609_4 SlotsBackoff 2290
+scalar TarragonaAka.node[11].nic.mac1609_4 SlotsBackoff 2192
 scalar TarragonaAka.node[11].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.node[11].nic.mac1609_4 totalBusyTime 2.640248
+scalar TarragonaAka.node[11].nic.mac1609_4 totalBusyTime 2.639688
 scalar TarragonaAka.node[11].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
@@ -3296,7 +3296,7 @@ attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.node[11].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.node[11].nic.mac1609_4 channelBusy:timeavg 0.018528056140351
+scalar TarragonaAka.node[11].nic.mac1609_4 channelBusy:timeavg 0.01852412631579
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.node[11].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -3313,7 +3313,7 @@ par TarragonaAka.node[11].veinsmobility hostPositionOffset 0m
 attr unit m
 par TarragonaAka.node[11].veinsmobility setHostSpeed false
 par TarragonaAka.node[11].veinsmobility accidentCount 0
-par TarragonaAka.node[11].veinsmobility accidentStart 40.7676s
+par TarragonaAka.node[11].veinsmobility accidentStart 54.5881s
 attr unit s
 par TarragonaAka.node[11].veinsmobility accidentDuration "uniform(30s, 60s)"
 attr unit s
@@ -3351,13 +3351,13 @@ par TarragonaAka.node[12].appl wsaInterval 1s
 attr unit s
 par TarragonaAka.node[12].appl m1Bits 736
 par TarragonaAka.node[12].appl m5Bits 576
-par TarragonaAka.node[12].appl cV1 0.016255s
+par TarragonaAka.node[12].appl cV1 0.0003757s
 attr unit s
-par TarragonaAka.node[12].appl cV2 0.007998s
+par TarragonaAka.node[12].appl cV2 0.0001733s
 attr unit s
-par TarragonaAka.node[12].appl cH1 0.016235s
+par TarragonaAka.node[12].appl cH1 0.0003736s
 attr unit s
-par TarragonaAka.node[12].appl cH2 0.007993s
+par TarragonaAka.node[12].appl cH2 0.0001727s
 attr unit s
 par TarragonaAka.node[12].appl useHandover false
 par TarragonaAka.node[12].appl phaseAValidity 20s
@@ -3374,19 +3374,19 @@ par TarragonaAka.node[12].appl measureStart 25s
 attr unit s
 par TarragonaAka.node[12].appl measureEnd 148s
 attr unit s
-scalar TarragonaAka.node[12].appl generatedWSMs 27
+scalar TarragonaAka.node[12].appl generatedWSMs 26
 scalar TarragonaAka.node[12].appl receivedWSMs 130
 scalar TarragonaAka.node[12].appl generatedBSMs 1419
-scalar TarragonaAka.node[12].appl receivedBSMs 4872
+scalar TarragonaAka.node[12].appl receivedBSMs 4876
 scalar TarragonaAka.node[12].appl generatedWSAs 0
 scalar TarragonaAka.node[12].appl receivedWSAs 0
-scalar TarragonaAka.node[12].appl akaSentReqA 26
+scalar TarragonaAka.node[12].appl akaSentReqA 25
 scalar TarragonaAka.node[12].appl akaRecvRespA 25
-scalar TarragonaAka.node[12].appl akaStartedA 26
+scalar TarragonaAka.node[12].appl akaStartedA 25
 scalar TarragonaAka.node[12].appl akaCompletedA 25
-scalar TarragonaAka.node[12].appl akaTimedOutA 1
-scalar TarragonaAka.node[12].appl akaSumAuthLatencyA 2.15896714455
-scalar TarragonaAka.node[12].appl akaSumRespDelayA 0.004607170531
+scalar TarragonaAka.node[12].appl akaTimedOutA 0
+scalar TarragonaAka.node[12].appl akaSumAuthLatencyA 0.565498512394
+scalar TarragonaAka.node[12].appl akaSumRespDelayA 0.00489877223
 scalar TarragonaAka.node[12].appl akaSentReqB 0
 scalar TarragonaAka.node[12].appl akaRecvRespB 0
 scalar TarragonaAka.node[12].appl akaStartedB 0
@@ -3401,7 +3401,7 @@ par TarragonaAka.node[12].nic.phy80211p usePropagationDelay true
 par TarragonaAka.node[12].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.node[12].nic.phy80211p useNoiseFloor true
-par TarragonaAka.node[12].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.node[12].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.node[12].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.node[12].nic.phy80211p antennaOffsetY 0m
@@ -3410,8 +3410,8 @@ par TarragonaAka.node[12].nic.phy80211p antennaOffsetZ 1.895m
 attr unit m
 par TarragonaAka.node[12].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.node[12].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.node[12].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.node[12].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.node[12].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.node[12].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.node[12].nic.phy80211p timeRXToTX 0s
@@ -3435,7 +3435,7 @@ par TarragonaAka.node[12].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.node[12].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.node[12].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.node[12].nic.phy80211p busyTime 0.014586441155742
+scalar TarragonaAka.node[12].nic.phy80211p busyTime 0.014586384778011
 par TarragonaAka.node[12].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.node[12].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.node[12].nic.mac1609_4 headerLength 0bit
@@ -3460,32 +3460,32 @@ par TarragonaAka.node[12].nic.mac1609_4 useAcks false
 par TarragonaAka.node[12].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.node[12].nic.mac1609_4 ackErrorRate 0
 scalar TarragonaAka.node[12].nic.mac1609_4 ReceivedUnicastPackets 26
-scalar TarragonaAka.node[12].nic.mac1609_4 ReceivedBroadcasts 4976
-scalar TarragonaAka.node[12].nic.mac1609_4 SentPackets 1446
+scalar TarragonaAka.node[12].nic.mac1609_4 ReceivedBroadcasts 4980
+scalar TarragonaAka.node[12].nic.mac1609_4 SentPackets 1445
 scalar TarragonaAka.node[12].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.node[12].nic.mac1609_4 RetriesExceeded 0
-scalar TarragonaAka.node[12].nic.mac1609_4 SNIRLostPackets 208
+scalar TarragonaAka.node[12].nic.mac1609_4 SNIRLostPackets 200
 scalar TarragonaAka.node[12].nic.mac1609_4 RXTXLostPackets 0
-scalar TarragonaAka.node[12].nic.mac1609_4 TotalLostPackets 208
+scalar TarragonaAka.node[12].nic.mac1609_4 TotalLostPackets 200
 scalar TarragonaAka.node[12].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.node[12].nic.mac1609_4 TooLittleTime 0
-scalar TarragonaAka.node[12].nic.mac1609_4 TimesIntoBackoff 1447
-scalar TarragonaAka.node[12].nic.mac1609_4 SlotsBackoff 2086
+scalar TarragonaAka.node[12].nic.mac1609_4 TimesIntoBackoff 1446
+scalar TarragonaAka.node[12].nic.mac1609_4 SlotsBackoff 2125
 scalar TarragonaAka.node[12].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.node[12].nic.mac1609_4 totalBusyTime 2.631542
+scalar TarragonaAka.node[12].nic.mac1609_4 totalBusyTime 2.632285
 scalar TarragonaAka.node[12].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
 scalar TarragonaAka.node[12].nic.mac1609_4 sentAcks:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentAck
-scalar TarragonaAka.node[12].nic.mac1609_4 sentPackets:count 1446
+scalar TarragonaAka.node[12].nic.mac1609_4 sentPackets:count 1445
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.node[12].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.node[12].nic.mac1609_4 channelBusy:timeavg 0.018545045806907
+scalar TarragonaAka.node[12].nic.mac1609_4 channelBusy:timeavg 0.018550281888654
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.node[12].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -3502,7 +3502,7 @@ par TarragonaAka.node[12].veinsmobility hostPositionOffset 0m
 attr unit m
 par TarragonaAka.node[12].veinsmobility setHostSpeed false
 par TarragonaAka.node[12].veinsmobility accidentCount 0
-par TarragonaAka.node[12].veinsmobility accidentStart 48.4564s
+par TarragonaAka.node[12].veinsmobility accidentStart 50.8756s
 attr unit s
 par TarragonaAka.node[12].veinsmobility accidentDuration "uniform(30s, 60s)"
 attr unit s
@@ -3540,13 +3540,13 @@ par TarragonaAka.node[13].appl wsaInterval 1s
 attr unit s
 par TarragonaAka.node[13].appl m1Bits 736
 par TarragonaAka.node[13].appl m5Bits 576
-par TarragonaAka.node[13].appl cV1 0.016255s
+par TarragonaAka.node[13].appl cV1 0.0003757s
 attr unit s
-par TarragonaAka.node[13].appl cV2 0.007998s
+par TarragonaAka.node[13].appl cV2 0.0001733s
 attr unit s
-par TarragonaAka.node[13].appl cH1 0.016235s
+par TarragonaAka.node[13].appl cH1 0.0003736s
 attr unit s
-par TarragonaAka.node[13].appl cH2 0.007993s
+par TarragonaAka.node[13].appl cH2 0.0001727s
 attr unit s
 par TarragonaAka.node[13].appl useHandover false
 par TarragonaAka.node[13].appl phaseAValidity 20s
@@ -3564,9 +3564,9 @@ attr unit s
 par TarragonaAka.node[13].appl measureEnd 148s
 attr unit s
 scalar TarragonaAka.node[13].appl generatedWSMs 59
-scalar TarragonaAka.node[13].appl receivedWSMs 292
+scalar TarragonaAka.node[13].appl receivedWSMs 293
 scalar TarragonaAka.node[13].appl generatedBSMs 1412
-scalar TarragonaAka.node[13].appl receivedBSMs 6982
+scalar TarragonaAka.node[13].appl receivedBSMs 6980
 scalar TarragonaAka.node[13].appl generatedWSAs 0
 scalar TarragonaAka.node[13].appl receivedWSAs 0
 scalar TarragonaAka.node[13].appl akaSentReqA 58
@@ -3574,8 +3574,8 @@ scalar TarragonaAka.node[13].appl akaRecvRespA 57
 scalar TarragonaAka.node[13].appl akaStartedA 58
 scalar TarragonaAka.node[13].appl akaCompletedA 57
 scalar TarragonaAka.node[13].appl akaTimedOutA 1
-scalar TarragonaAka.node[13].appl akaSumAuthLatencyA 4.865940039705
-scalar TarragonaAka.node[13].appl akaSumRespDelayA 0.010949179446
+scalar TarragonaAka.node[13].appl akaSumAuthLatencyA 1.288696544923
+scalar TarragonaAka.node[13].appl akaSumRespDelayA 0.011458530229
 scalar TarragonaAka.node[13].appl akaSentReqB 0
 scalar TarragonaAka.node[13].appl akaRecvRespB 0
 scalar TarragonaAka.node[13].appl akaStartedB 0
@@ -3590,7 +3590,7 @@ par TarragonaAka.node[13].nic.phy80211p usePropagationDelay true
 par TarragonaAka.node[13].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.node[13].nic.phy80211p useNoiseFloor true
-par TarragonaAka.node[13].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.node[13].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.node[13].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.node[13].nic.phy80211p antennaOffsetY 0m
@@ -3599,8 +3599,8 @@ par TarragonaAka.node[13].nic.phy80211p antennaOffsetZ 1.895m
 attr unit m
 par TarragonaAka.node[13].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.node[13].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.node[13].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.node[13].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.node[13].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.node[13].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.node[13].nic.phy80211p timeRXToTX 0s
@@ -3624,7 +3624,7 @@ par TarragonaAka.node[13].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.node[13].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.node[13].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.node[13].nic.phy80211p busyTime 0.021740226628897
+scalar TarragonaAka.node[13].nic.phy80211p busyTime 0.021737507082155
 par TarragonaAka.node[13].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.node[13].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.node[13].nic.mac1609_4 headerLength 0bit
@@ -3649,7 +3649,7 @@ par TarragonaAka.node[13].nic.mac1609_4 useAcks false
 par TarragonaAka.node[13].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.node[13].nic.mac1609_4 ackErrorRate 0
 scalar TarragonaAka.node[13].nic.mac1609_4 ReceivedUnicastPackets 58
-scalar TarragonaAka.node[13].nic.mac1609_4 ReceivedBroadcasts 7216
+scalar TarragonaAka.node[13].nic.mac1609_4 ReceivedBroadcasts 7215
 scalar TarragonaAka.node[13].nic.mac1609_4 SentPackets 1471
 scalar TarragonaAka.node[13].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.node[13].nic.mac1609_4 RetriesExceeded 0
@@ -3658,10 +3658,10 @@ scalar TarragonaAka.node[13].nic.mac1609_4 RXTXLostPackets 0
 scalar TarragonaAka.node[13].nic.mac1609_4 TotalLostPackets 465
 scalar TarragonaAka.node[13].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.node[13].nic.mac1609_4 TooLittleTime 0
-scalar TarragonaAka.node[13].nic.mac1609_4 TimesIntoBackoff 1472
-scalar TarragonaAka.node[13].nic.mac1609_4 SlotsBackoff 2203
+scalar TarragonaAka.node[13].nic.mac1609_4 TimesIntoBackoff 1473
+scalar TarragonaAka.node[13].nic.mac1609_4 SlotsBackoff 2230
 scalar TarragonaAka.node[13].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.node[13].nic.mac1609_4 totalBusyTime 3.634975
+scalar TarragonaAka.node[13].nic.mac1609_4 totalBusyTime 3.629503
 scalar TarragonaAka.node[13].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
@@ -3674,7 +3674,7 @@ attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.node[13].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.node[13].nic.mac1609_4 channelBusy:timeavg 0.025743449008502
+scalar TarragonaAka.node[13].nic.mac1609_4 channelBusy:timeavg 0.025704695467425
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.node[13].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -3691,7 +3691,7 @@ par TarragonaAka.node[13].veinsmobility hostPositionOffset 0m
 attr unit m
 par TarragonaAka.node[13].veinsmobility setHostSpeed false
 par TarragonaAka.node[13].veinsmobility accidentCount 0
-par TarragonaAka.node[13].veinsmobility accidentStart 50.1094s
+par TarragonaAka.node[13].veinsmobility accidentStart 35.9917s
 attr unit s
 par TarragonaAka.node[13].veinsmobility accidentDuration "uniform(30s, 60s)"
 attr unit s
@@ -3729,13 +3729,13 @@ par TarragonaAka.node[14].appl wsaInterval 1s
 attr unit s
 par TarragonaAka.node[14].appl m1Bits 736
 par TarragonaAka.node[14].appl m5Bits 576
-par TarragonaAka.node[14].appl cV1 0.016255s
+par TarragonaAka.node[14].appl cV1 0.0003757s
 attr unit s
-par TarragonaAka.node[14].appl cV2 0.007998s
+par TarragonaAka.node[14].appl cV2 0.0001733s
 attr unit s
-par TarragonaAka.node[14].appl cH1 0.016235s
+par TarragonaAka.node[14].appl cH1 0.0003736s
 attr unit s
-par TarragonaAka.node[14].appl cH2 0.007993s
+par TarragonaAka.node[14].appl cH2 0.0001727s
 attr unit s
 par TarragonaAka.node[14].appl useHandover false
 par TarragonaAka.node[14].appl phaseAValidity 20s
@@ -3753,9 +3753,9 @@ attr unit s
 par TarragonaAka.node[14].appl measureEnd 148s
 attr unit s
 scalar TarragonaAka.node[14].appl generatedWSMs 5
-scalar TarragonaAka.node[14].appl receivedWSMs 21
+scalar TarragonaAka.node[14].appl receivedWSMs 23
 scalar TarragonaAka.node[14].appl generatedBSMs 1405
-scalar TarragonaAka.node[14].appl receivedBSMs 2246
+scalar TarragonaAka.node[14].appl receivedBSMs 2259
 scalar TarragonaAka.node[14].appl generatedWSAs 0
 scalar TarragonaAka.node[14].appl receivedWSAs 0
 scalar TarragonaAka.node[14].appl akaSentReqA 5
@@ -3763,8 +3763,8 @@ scalar TarragonaAka.node[14].appl akaRecvRespA 3
 scalar TarragonaAka.node[14].appl akaStartedA 5
 scalar TarragonaAka.node[14].appl akaCompletedA 3
 scalar TarragonaAka.node[14].appl akaTimedOutA 2
-scalar TarragonaAka.node[14].appl akaSumAuthLatencyA 0.249401830314
-scalar TarragonaAka.node[14].appl akaSumRespDelayA 0.000557062974
+scalar TarragonaAka.node[14].appl akaSumAuthLatencyA 0.067783746419
+scalar TarragonaAka.node[14].appl akaSumRespDelayA 0.000554273766
 scalar TarragonaAka.node[14].appl akaSentReqB 0
 scalar TarragonaAka.node[14].appl akaRecvRespB 0
 scalar TarragonaAka.node[14].appl akaStartedB 0
@@ -3779,7 +3779,7 @@ par TarragonaAka.node[14].nic.phy80211p usePropagationDelay true
 par TarragonaAka.node[14].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.node[14].nic.phy80211p useNoiseFloor true
-par TarragonaAka.node[14].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.node[14].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.node[14].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.node[14].nic.phy80211p antennaOffsetY 0m
@@ -3788,8 +3788,8 @@ par TarragonaAka.node[14].nic.phy80211p antennaOffsetZ 1.895m
 attr unit m
 par TarragonaAka.node[14].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.node[14].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.node[14].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.node[14].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.node[14].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.node[14].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.node[14].nic.phy80211p timeRXToTX 0s
@@ -3813,7 +3813,7 @@ par TarragonaAka.node[14].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.node[14].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.node[14].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.node[14].nic.phy80211p busyTime 0.0092450960854085
+scalar TarragonaAka.node[14].nic.phy80211p busyTime 0.0092476014234868
 par TarragonaAka.node[14].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.node[14].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.node[14].nic.mac1609_4 headerLength 0bit
@@ -3838,19 +3838,19 @@ par TarragonaAka.node[14].nic.mac1609_4 useAcks false
 par TarragonaAka.node[14].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.node[14].nic.mac1609_4 ackErrorRate 0
 scalar TarragonaAka.node[14].nic.mac1609_4 ReceivedUnicastPackets 3
-scalar TarragonaAka.node[14].nic.mac1609_4 ReceivedBroadcasts 2264
+scalar TarragonaAka.node[14].nic.mac1609_4 ReceivedBroadcasts 2279
 scalar TarragonaAka.node[14].nic.mac1609_4 SentPackets 1410
 scalar TarragonaAka.node[14].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.node[14].nic.mac1609_4 RetriesExceeded 0
-scalar TarragonaAka.node[14].nic.mac1609_4 SNIRLostPackets 1076
+scalar TarragonaAka.node[14].nic.mac1609_4 SNIRLostPackets 1067
 scalar TarragonaAka.node[14].nic.mac1609_4 RXTXLostPackets 0
-scalar TarragonaAka.node[14].nic.mac1609_4 TotalLostPackets 1076
+scalar TarragonaAka.node[14].nic.mac1609_4 TotalLostPackets 1067
 scalar TarragonaAka.node[14].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.node[14].nic.mac1609_4 TooLittleTime 0
-scalar TarragonaAka.node[14].nic.mac1609_4 TimesIntoBackoff 1410
-scalar TarragonaAka.node[14].nic.mac1609_4 SlotsBackoff 2093
+scalar TarragonaAka.node[14].nic.mac1609_4 TimesIntoBackoff 1411
+scalar TarragonaAka.node[14].nic.mac1609_4 SlotsBackoff 2121
 scalar TarragonaAka.node[14].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.node[14].nic.mac1609_4 totalBusyTime 1.852026
+scalar TarragonaAka.node[14].nic.mac1609_4 totalBusyTime 1.852378
 scalar TarragonaAka.node[14].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
@@ -3863,7 +3863,7 @@ attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.node[14].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.node[14].nic.mac1609_4 channelBusy:timeavg 0.013181679715302
+scalar TarragonaAka.node[14].nic.mac1609_4 channelBusy:timeavg 0.01318418505338
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.node[14].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -3880,7 +3880,7 @@ par TarragonaAka.node[14].veinsmobility hostPositionOffset 0m
 attr unit m
 par TarragonaAka.node[14].veinsmobility setHostSpeed false
 par TarragonaAka.node[14].veinsmobility accidentCount 0
-par TarragonaAka.node[14].veinsmobility accidentStart 34.197s
+par TarragonaAka.node[14].veinsmobility accidentStart 35.7791s
 attr unit s
 par TarragonaAka.node[14].veinsmobility accidentDuration "uniform(30s, 60s)"
 attr unit s
@@ -3918,13 +3918,13 @@ par TarragonaAka.node[16].appl wsaInterval 1s
 attr unit s
 par TarragonaAka.node[16].appl m1Bits 736
 par TarragonaAka.node[16].appl m5Bits 576
-par TarragonaAka.node[16].appl cV1 0.016255s
+par TarragonaAka.node[16].appl cV1 0.0003757s
 attr unit s
-par TarragonaAka.node[16].appl cV2 0.007998s
+par TarragonaAka.node[16].appl cV2 0.0001733s
 attr unit s
-par TarragonaAka.node[16].appl cH1 0.016235s
+par TarragonaAka.node[16].appl cH1 0.0003736s
 attr unit s
-par TarragonaAka.node[16].appl cH2 0.007993s
+par TarragonaAka.node[16].appl cH2 0.0001727s
 attr unit s
 par TarragonaAka.node[16].appl useHandover false
 par TarragonaAka.node[16].appl phaseAValidity 20s
@@ -3941,19 +3941,19 @@ par TarragonaAka.node[16].appl measureStart 25s
 attr unit s
 par TarragonaAka.node[16].appl measureEnd 148s
 attr unit s
-scalar TarragonaAka.node[16].appl generatedWSMs 42
-scalar TarragonaAka.node[16].appl receivedWSMs 203
+scalar TarragonaAka.node[16].appl generatedWSMs 39
+scalar TarragonaAka.node[16].appl receivedWSMs 204
 scalar TarragonaAka.node[16].appl generatedBSMs 1379
 scalar TarragonaAka.node[16].appl receivedBSMs 5499
 scalar TarragonaAka.node[16].appl generatedWSAs 0
 scalar TarragonaAka.node[16].appl receivedWSAs 0
-scalar TarragonaAka.node[16].appl akaSentReqA 41
-scalar TarragonaAka.node[16].appl akaRecvRespA 40
-scalar TarragonaAka.node[16].appl akaStartedA 41
-scalar TarragonaAka.node[16].appl akaCompletedA 40
-scalar TarragonaAka.node[16].appl akaTimedOutA 1
-scalar TarragonaAka.node[16].appl akaSumAuthLatencyA 3.396849377826
-scalar TarragonaAka.node[16].appl akaSumRespDelayA 0.00753699724
+scalar TarragonaAka.node[16].appl akaSentReqA 38
+scalar TarragonaAka.node[16].appl akaRecvRespA 38
+scalar TarragonaAka.node[16].appl akaStartedA 38
+scalar TarragonaAka.node[16].appl akaCompletedA 38
+scalar TarragonaAka.node[16].appl akaTimedOutA 0
+scalar TarragonaAka.node[16].appl akaSumAuthLatencyA 0.858969832192
+scalar TarragonaAka.node[16].appl akaSumRespDelayA 0.00698285947
 scalar TarragonaAka.node[16].appl akaSentReqB 0
 scalar TarragonaAka.node[16].appl akaRecvRespB 0
 scalar TarragonaAka.node[16].appl akaStartedB 0
@@ -3968,7 +3968,7 @@ par TarragonaAka.node[16].nic.phy80211p usePropagationDelay true
 par TarragonaAka.node[16].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.node[16].nic.phy80211p useNoiseFloor true
-par TarragonaAka.node[16].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.node[16].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.node[16].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.node[16].nic.phy80211p antennaOffsetY 0m
@@ -3977,8 +3977,8 @@ par TarragonaAka.node[16].nic.phy80211p antennaOffsetZ 1.895m
 attr unit m
 par TarragonaAka.node[16].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.node[16].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.node[16].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.node[16].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.node[16].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.node[16].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.node[16].nic.phy80211p timeRXToTX 0s
@@ -4026,33 +4026,33 @@ attr unit bit
 par TarragonaAka.node[16].nic.mac1609_4 useAcks false
 par TarragonaAka.node[16].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.node[16].nic.mac1609_4 ackErrorRate 0
-scalar TarragonaAka.node[16].nic.mac1609_4 ReceivedUnicastPackets 41
-scalar TarragonaAka.node[16].nic.mac1609_4 ReceivedBroadcasts 5661
-scalar TarragonaAka.node[16].nic.mac1609_4 SentPackets 1421
+scalar TarragonaAka.node[16].nic.mac1609_4 ReceivedUnicastPackets 39
+scalar TarragonaAka.node[16].nic.mac1609_4 ReceivedBroadcasts 5664
+scalar TarragonaAka.node[16].nic.mac1609_4 SentPackets 1418
 scalar TarragonaAka.node[16].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.node[16].nic.mac1609_4 RetriesExceeded 0
-scalar TarragonaAka.node[16].nic.mac1609_4 SNIRLostPackets 1132
+scalar TarragonaAka.node[16].nic.mac1609_4 SNIRLostPackets 1129
 scalar TarragonaAka.node[16].nic.mac1609_4 RXTXLostPackets 0
-scalar TarragonaAka.node[16].nic.mac1609_4 TotalLostPackets 1132
+scalar TarragonaAka.node[16].nic.mac1609_4 TotalLostPackets 1129
 scalar TarragonaAka.node[16].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.node[16].nic.mac1609_4 TooLittleTime 0
-scalar TarragonaAka.node[16].nic.mac1609_4 TimesIntoBackoff 1422
-scalar TarragonaAka.node[16].nic.mac1609_4 SlotsBackoff 2162
+scalar TarragonaAka.node[16].nic.mac1609_4 TimesIntoBackoff 1421
+scalar TarragonaAka.node[16].nic.mac1609_4 SlotsBackoff 2116
 scalar TarragonaAka.node[16].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.node[16].nic.mac1609_4 totalBusyTime 3.236685
+scalar TarragonaAka.node[16].nic.mac1609_4 totalBusyTime 3.23653
 scalar TarragonaAka.node[16].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
 scalar TarragonaAka.node[16].nic.mac1609_4 sentAcks:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentAck
-scalar TarragonaAka.node[16].nic.mac1609_4 sentPackets:count 1421
+scalar TarragonaAka.node[16].nic.mac1609_4 sentPackets:count 1418
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.node[16].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.node[16].nic.mac1609_4 channelBusy:timeavg 0.02347124728064
+scalar TarragonaAka.node[16].nic.mac1609_4 channelBusy:timeavg 0.02347012327774
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.node[16].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -4069,7 +4069,7 @@ par TarragonaAka.node[16].veinsmobility hostPositionOffset 0m
 attr unit m
 par TarragonaAka.node[16].veinsmobility setHostSpeed false
 par TarragonaAka.node[16].veinsmobility accidentCount 0
-par TarragonaAka.node[16].veinsmobility accidentStart 56.495s
+par TarragonaAka.node[16].veinsmobility accidentStart 54.7849s
 attr unit s
 par TarragonaAka.node[16].veinsmobility accidentDuration "uniform(30s, 60s)"
 attr unit s
@@ -4107,13 +4107,13 @@ par TarragonaAka.node[17].appl wsaInterval 1s
 attr unit s
 par TarragonaAka.node[17].appl m1Bits 736
 par TarragonaAka.node[17].appl m5Bits 576
-par TarragonaAka.node[17].appl cV1 0.016255s
+par TarragonaAka.node[17].appl cV1 0.0003757s
 attr unit s
-par TarragonaAka.node[17].appl cV2 0.007998s
+par TarragonaAka.node[17].appl cV2 0.0001733s
 attr unit s
-par TarragonaAka.node[17].appl cH1 0.016235s
+par TarragonaAka.node[17].appl cH1 0.0003736s
 attr unit s
-par TarragonaAka.node[17].appl cH2 0.007993s
+par TarragonaAka.node[17].appl cH2 0.0001727s
 attr unit s
 par TarragonaAka.node[17].appl useHandover false
 par TarragonaAka.node[17].appl phaseAValidity 20s
@@ -4130,19 +4130,19 @@ par TarragonaAka.node[17].appl measureStart 25s
 attr unit s
 par TarragonaAka.node[17].appl measureEnd 148s
 attr unit s
-scalar TarragonaAka.node[17].appl generatedWSMs 25
-scalar TarragonaAka.node[17].appl receivedWSMs 122
+scalar TarragonaAka.node[17].appl generatedWSMs 24
+scalar TarragonaAka.node[17].appl receivedWSMs 123
 scalar TarragonaAka.node[17].appl generatedBSMs 1372
 scalar TarragonaAka.node[17].appl receivedBSMs 4324
 scalar TarragonaAka.node[17].appl generatedWSAs 0
 scalar TarragonaAka.node[17].appl receivedWSAs 0
-scalar TarragonaAka.node[17].appl akaSentReqA 24
-scalar TarragonaAka.node[17].appl akaRecvRespA 22
-scalar TarragonaAka.node[17].appl akaStartedA 24
-scalar TarragonaAka.node[17].appl akaCompletedA 22
-scalar TarragonaAka.node[17].appl akaTimedOutA 2
-scalar TarragonaAka.node[17].appl akaSumAuthLatencyA 1.875147873442
-scalar TarragonaAka.node[17].appl akaSumRespDelayA 0.0044558303
+scalar TarragonaAka.node[17].appl akaSentReqA 23
+scalar TarragonaAka.node[17].appl akaRecvRespA 23
+scalar TarragonaAka.node[17].appl akaStartedA 23
+scalar TarragonaAka.node[17].appl akaCompletedA 23
+scalar TarragonaAka.node[17].appl akaTimedOutA 0
+scalar TarragonaAka.node[17].appl akaSumAuthLatencyA 0.519560962866
+scalar TarragonaAka.node[17].appl akaSumRespDelayA 0.004207384317
 scalar TarragonaAka.node[17].appl akaSentReqB 0
 scalar TarragonaAka.node[17].appl akaRecvRespB 0
 scalar TarragonaAka.node[17].appl akaStartedB 0
@@ -4157,7 +4157,7 @@ par TarragonaAka.node[17].nic.phy80211p usePropagationDelay true
 par TarragonaAka.node[17].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.node[17].nic.phy80211p useNoiseFloor true
-par TarragonaAka.node[17].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.node[17].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.node[17].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.node[17].nic.phy80211p antennaOffsetY 0m
@@ -4166,8 +4166,8 @@ par TarragonaAka.node[17].nic.phy80211p antennaOffsetZ 1.895m
 attr unit m
 par TarragonaAka.node[17].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.node[17].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.node[17].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.node[17].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.node[17].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.node[17].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.node[17].nic.phy80211p timeRXToTX 0s
@@ -4191,7 +4191,7 @@ par TarragonaAka.node[17].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.node[17].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.node[17].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.node[17].nic.phy80211p busyTime 0.013464081632652
+scalar TarragonaAka.node[17].nic.phy80211p busyTime 0.013458833819241
 par TarragonaAka.node[17].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.node[17].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.node[17].nic.mac1609_4 headerLength 0bit
@@ -4215,33 +4215,33 @@ attr unit bit
 par TarragonaAka.node[17].nic.mac1609_4 useAcks false
 par TarragonaAka.node[17].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.node[17].nic.mac1609_4 ackErrorRate 0
-scalar TarragonaAka.node[17].nic.mac1609_4 ReceivedUnicastPackets 23
+scalar TarragonaAka.node[17].nic.mac1609_4 ReceivedUnicastPackets 24
 scalar TarragonaAka.node[17].nic.mac1609_4 ReceivedBroadcasts 4423
-scalar TarragonaAka.node[17].nic.mac1609_4 SentPackets 1397
+scalar TarragonaAka.node[17].nic.mac1609_4 SentPackets 1396
 scalar TarragonaAka.node[17].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.node[17].nic.mac1609_4 RetriesExceeded 0
-scalar TarragonaAka.node[17].nic.mac1609_4 SNIRLostPackets 198
+scalar TarragonaAka.node[17].nic.mac1609_4 SNIRLostPackets 191
 scalar TarragonaAka.node[17].nic.mac1609_4 RXTXLostPackets 0
-scalar TarragonaAka.node[17].nic.mac1609_4 TotalLostPackets 198
+scalar TarragonaAka.node[17].nic.mac1609_4 TotalLostPackets 191
 scalar TarragonaAka.node[17].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.node[17].nic.mac1609_4 TooLittleTime 0
-scalar TarragonaAka.node[17].nic.mac1609_4 TimesIntoBackoff 1399
-scalar TarragonaAka.node[17].nic.mac1609_4 SlotsBackoff 2101
+scalar TarragonaAka.node[17].nic.mac1609_4 TimesIntoBackoff 1396
+scalar TarragonaAka.node[17].nic.mac1609_4 SlotsBackoff 2162
 scalar TarragonaAka.node[17].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.node[17].nic.mac1609_4 totalBusyTime 2.390165
+scalar TarragonaAka.node[17].nic.mac1609_4 totalBusyTime 2.390188
 scalar TarragonaAka.node[17].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
 scalar TarragonaAka.node[17].nic.mac1609_4 sentAcks:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentAck
-scalar TarragonaAka.node[17].nic.mac1609_4 sentPackets:count 1397
+scalar TarragonaAka.node[17].nic.mac1609_4 sentPackets:count 1396
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.node[17].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.node[17].nic.mac1609_4 channelBusy:timeavg 0.017421027696793
+scalar TarragonaAka.node[17].nic.mac1609_4 channelBusy:timeavg 0.017421195335277
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.node[17].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -4258,7 +4258,7 @@ par TarragonaAka.node[17].veinsmobility hostPositionOffset 0m
 attr unit m
 par TarragonaAka.node[17].veinsmobility setHostSpeed false
 par TarragonaAka.node[17].veinsmobility accidentCount 0
-par TarragonaAka.node[17].veinsmobility accidentStart 57.201s
+par TarragonaAka.node[17].veinsmobility accidentStart 45.1755s
 attr unit s
 par TarragonaAka.node[17].veinsmobility accidentDuration "uniform(30s, 60s)"
 attr unit s
@@ -4296,13 +4296,13 @@ par TarragonaAka.node[18].appl wsaInterval 1s
 attr unit s
 par TarragonaAka.node[18].appl m1Bits 736
 par TarragonaAka.node[18].appl m5Bits 576
-par TarragonaAka.node[18].appl cV1 0.016255s
+par TarragonaAka.node[18].appl cV1 0.0003757s
 attr unit s
-par TarragonaAka.node[18].appl cV2 0.007998s
+par TarragonaAka.node[18].appl cV2 0.0001733s
 attr unit s
-par TarragonaAka.node[18].appl cH1 0.016235s
+par TarragonaAka.node[18].appl cH1 0.0003736s
 attr unit s
-par TarragonaAka.node[18].appl cH2 0.007993s
+par TarragonaAka.node[18].appl cH2 0.0001727s
 attr unit s
 par TarragonaAka.node[18].appl useHandover false
 par TarragonaAka.node[18].appl phaseAValidity 20s
@@ -4319,19 +4319,19 @@ par TarragonaAka.node[18].appl measureStart 25s
 attr unit s
 par TarragonaAka.node[18].appl measureEnd 148s
 attr unit s
-scalar TarragonaAka.node[18].appl generatedWSMs 29
-scalar TarragonaAka.node[18].appl receivedWSMs 134
+scalar TarragonaAka.node[18].appl generatedWSMs 28
+scalar TarragonaAka.node[18].appl receivedWSMs 132
 scalar TarragonaAka.node[18].appl generatedBSMs 1365
-scalar TarragonaAka.node[18].appl receivedBSMs 1505
+scalar TarragonaAka.node[18].appl receivedBSMs 1503
 scalar TarragonaAka.node[18].appl generatedWSAs 0
 scalar TarragonaAka.node[18].appl receivedWSAs 0
-scalar TarragonaAka.node[18].appl akaSentReqA 28
-scalar TarragonaAka.node[18].appl akaRecvRespA 25
-scalar TarragonaAka.node[18].appl akaStartedA 28
-scalar TarragonaAka.node[18].appl akaCompletedA 25
+scalar TarragonaAka.node[18].appl akaSentReqA 27
+scalar TarragonaAka.node[18].appl akaRecvRespA 24
+scalar TarragonaAka.node[18].appl akaStartedA 27
+scalar TarragonaAka.node[18].appl akaCompletedA 24
 scalar TarragonaAka.node[18].appl akaTimedOutA 3
-scalar TarragonaAka.node[18].appl akaSumAuthLatencyA 2.083022030707
-scalar TarragonaAka.node[18].appl akaSumRespDelayA 0.004584790639
+scalar TarragonaAka.node[18].appl akaSumAuthLatencyA 0.542307673692
+scalar TarragonaAka.node[18].appl akaSumRespDelayA 0.004513574848
 scalar TarragonaAka.node[18].appl akaSentReqB 0
 scalar TarragonaAka.node[18].appl akaRecvRespB 0
 scalar TarragonaAka.node[18].appl akaStartedB 0
@@ -4346,7 +4346,7 @@ par TarragonaAka.node[18].nic.phy80211p usePropagationDelay true
 par TarragonaAka.node[18].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.node[18].nic.phy80211p useNoiseFloor true
-par TarragonaAka.node[18].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.node[18].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.node[18].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.node[18].nic.phy80211p antennaOffsetY 0m
@@ -4355,8 +4355,8 @@ par TarragonaAka.node[18].nic.phy80211p antennaOffsetZ 1.895m
 attr unit m
 par TarragonaAka.node[18].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.node[18].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.node[18].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.node[18].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.node[18].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.node[18].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.node[18].nic.phy80211p timeRXToTX 0s
@@ -4380,7 +4380,7 @@ par TarragonaAka.node[18].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.node[18].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.node[18].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.node[18].nic.phy80211p busyTime 0.0070483809523806
+scalar TarragonaAka.node[18].nic.phy80211p busyTime 0.0070430476190472
 par TarragonaAka.node[18].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.node[18].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.node[18].nic.mac1609_4 headerLength 0bit
@@ -4404,33 +4404,33 @@ attr unit bit
 par TarragonaAka.node[18].nic.mac1609_4 useAcks false
 par TarragonaAka.node[18].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.node[18].nic.mac1609_4 ackErrorRate 0
-scalar TarragonaAka.node[18].nic.mac1609_4 ReceivedUnicastPackets 26
-scalar TarragonaAka.node[18].nic.mac1609_4 ReceivedBroadcasts 1613
-scalar TarragonaAka.node[18].nic.mac1609_4 SentPackets 1394
+scalar TarragonaAka.node[18].nic.mac1609_4 ReceivedUnicastPackets 25
+scalar TarragonaAka.node[18].nic.mac1609_4 ReceivedBroadcasts 1610
+scalar TarragonaAka.node[18].nic.mac1609_4 SentPackets 1393
 scalar TarragonaAka.node[18].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.node[18].nic.mac1609_4 RetriesExceeded 0
-scalar TarragonaAka.node[18].nic.mac1609_4 SNIRLostPackets 989
+scalar TarragonaAka.node[18].nic.mac1609_4 SNIRLostPackets 990
 scalar TarragonaAka.node[18].nic.mac1609_4 RXTXLostPackets 0
-scalar TarragonaAka.node[18].nic.mac1609_4 TotalLostPackets 989
+scalar TarragonaAka.node[18].nic.mac1609_4 TotalLostPackets 990
 scalar TarragonaAka.node[18].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.node[18].nic.mac1609_4 TooLittleTime 0
 scalar TarragonaAka.node[18].nic.mac1609_4 TimesIntoBackoff 1394
-scalar TarragonaAka.node[18].nic.mac1609_4 SlotsBackoff 2129
+scalar TarragonaAka.node[18].nic.mac1609_4 SlotsBackoff 2044
 scalar TarragonaAka.node[18].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.node[18].nic.mac1609_4 totalBusyTime 1.50317
+scalar TarragonaAka.node[18].nic.mac1609_4 totalBusyTime 1.503001
 scalar TarragonaAka.node[18].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
 scalar TarragonaAka.node[18].nic.mac1609_4 sentAcks:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentAck
-scalar TarragonaAka.node[18].nic.mac1609_4 sentPackets:count 1394
+scalar TarragonaAka.node[18].nic.mac1609_4 sentPackets:count 1393
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.node[18].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.node[18].nic.mac1609_4 channelBusy:timeavg 0.011012234432234
+scalar TarragonaAka.node[18].nic.mac1609_4 channelBusy:timeavg 0.011010996336996
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.node[18].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -4447,7 +4447,7 @@ par TarragonaAka.node[18].veinsmobility hostPositionOffset 0m
 attr unit m
 par TarragonaAka.node[18].veinsmobility setHostSpeed false
 par TarragonaAka.node[18].veinsmobility accidentCount 0
-par TarragonaAka.node[18].veinsmobility accidentStart 37.3124s
+par TarragonaAka.node[18].veinsmobility accidentStart 56.6274s
 attr unit s
 par TarragonaAka.node[18].veinsmobility accidentDuration "uniform(30s, 60s)"
 attr unit s
@@ -4485,13 +4485,13 @@ par TarragonaAka.node[19].appl wsaInterval 1s
 attr unit s
 par TarragonaAka.node[19].appl m1Bits 736
 par TarragonaAka.node[19].appl m5Bits 576
-par TarragonaAka.node[19].appl cV1 0.016255s
+par TarragonaAka.node[19].appl cV1 0.0003757s
 attr unit s
-par TarragonaAka.node[19].appl cV2 0.007998s
+par TarragonaAka.node[19].appl cV2 0.0001733s
 attr unit s
-par TarragonaAka.node[19].appl cH1 0.016235s
+par TarragonaAka.node[19].appl cH1 0.0003736s
 attr unit s
-par TarragonaAka.node[19].appl cH2 0.007993s
+par TarragonaAka.node[19].appl cH2 0.0001727s
 attr unit s
 par TarragonaAka.node[19].appl useHandover false
 par TarragonaAka.node[19].appl phaseAValidity 20s
@@ -4508,19 +4508,19 @@ par TarragonaAka.node[19].appl measureStart 25s
 attr unit s
 par TarragonaAka.node[19].appl measureEnd 148s
 attr unit s
-scalar TarragonaAka.node[19].appl generatedWSMs 42
-scalar TarragonaAka.node[19].appl receivedWSMs 192
+scalar TarragonaAka.node[19].appl generatedWSMs 38
+scalar TarragonaAka.node[19].appl receivedWSMs 193
 scalar TarragonaAka.node[19].appl generatedBSMs 1359
 scalar TarragonaAka.node[19].appl receivedBSMs 1831
 scalar TarragonaAka.node[19].appl generatedWSAs 0
 scalar TarragonaAka.node[19].appl receivedWSAs 0
-scalar TarragonaAka.node[19].appl akaSentReqA 42
-scalar TarragonaAka.node[19].appl akaRecvRespA 36
-scalar TarragonaAka.node[19].appl akaStartedA 42
-scalar TarragonaAka.node[19].appl akaCompletedA 36
-scalar TarragonaAka.node[19].appl akaTimedOutA 6
-scalar TarragonaAka.node[19].appl akaSumAuthLatencyA 3.012398968123
-scalar TarragonaAka.node[19].appl akaSumRespDelayA 0.00660309158
+scalar TarragonaAka.node[19].appl akaSentReqA 38
+scalar TarragonaAka.node[19].appl akaRecvRespA 35
+scalar TarragonaAka.node[19].appl akaStartedA 38
+scalar TarragonaAka.node[19].appl akaCompletedA 35
+scalar TarragonaAka.node[19].appl akaTimedOutA 3
+scalar TarragonaAka.node[19].appl akaSumAuthLatencyA 0.790796343771
+scalar TarragonaAka.node[19].appl akaSumRespDelayA 0.006557778676
 scalar TarragonaAka.node[19].appl akaSentReqB 0
 scalar TarragonaAka.node[19].appl akaRecvRespB 0
 scalar TarragonaAka.node[19].appl akaStartedB 0
@@ -4535,7 +4535,7 @@ par TarragonaAka.node[19].nic.phy80211p usePropagationDelay true
 par TarragonaAka.node[19].nic.phy80211p noiseFloor -98dBm
 attr unit dBm
 par TarragonaAka.node[19].nic.phy80211p useNoiseFloor true
-par TarragonaAka.node[19].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at <SIM>/scenario//antenna.xml:35"
+par TarragonaAka.node[19].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/claude/sim/scenario//antenna.xml:35"
 par TarragonaAka.node[19].nic.phy80211p antennaOffsetX 0m
 attr unit m
 par TarragonaAka.node[19].nic.phy80211p antennaOffsetY 0m
@@ -4544,8 +4544,8 @@ par TarragonaAka.node[19].nic.phy80211p antennaOffsetZ 1.895m
 attr unit m
 par TarragonaAka.node[19].nic.phy80211p antennaOffsetYaw 0rad
 attr unit rad
-par TarragonaAka.node[19].nic.phy80211p analogueModels "<root>...</root> at <SIM>/scenario//config.xml:5"
-par TarragonaAka.node[19].nic.phy80211p decider "<root>...</root> at <SIM>/scenario//config.xml:5"
+par TarragonaAka.node[19].nic.phy80211p analogueModels "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
+par TarragonaAka.node[19].nic.phy80211p decider "<root>...</root> at /home/claude/sim/scenario//config.xml:5"
 par TarragonaAka.node[19].nic.phy80211p minPowerLevel -110dBm
 attr unit dBm
 par TarragonaAka.node[19].nic.phy80211p timeRXToTX 0s
@@ -4569,7 +4569,7 @@ par TarragonaAka.node[19].nic.phy80211p ccaThreshold -65dBm
 attr unit dBm
 par TarragonaAka.node[19].nic.phy80211p collectCollisionStatistics false
 par TarragonaAka.node[19].nic.phy80211p allowTxDuringRx false
-scalar TarragonaAka.node[19].nic.phy80211p busyTime 0.008167240618101
+scalar TarragonaAka.node[19].nic.phy80211p busyTime 0.0081632965415741
 par TarragonaAka.node[19].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
 par TarragonaAka.node[19].nic.mac1609_4 notAffectedByHostState false
 par TarragonaAka.node[19].nic.mac1609_4 headerLength 0bit
@@ -4593,33 +4593,33 @@ attr unit bit
 par TarragonaAka.node[19].nic.mac1609_4 useAcks false
 par TarragonaAka.node[19].nic.mac1609_4 frameErrorRate 0
 par TarragonaAka.node[19].nic.mac1609_4 ackErrorRate 0
-scalar TarragonaAka.node[19].nic.mac1609_4 ReceivedUnicastPackets 36
-scalar TarragonaAka.node[19].nic.mac1609_4 ReceivedBroadcasts 1987
-scalar TarragonaAka.node[19].nic.mac1609_4 SentPackets 1401
+scalar TarragonaAka.node[19].nic.mac1609_4 ReceivedUnicastPackets 35
+scalar TarragonaAka.node[19].nic.mac1609_4 ReceivedBroadcasts 1989
+scalar TarragonaAka.node[19].nic.mac1609_4 SentPackets 1397
 scalar TarragonaAka.node[19].nic.mac1609_4 SentAcknowledgements 0
 scalar TarragonaAka.node[19].nic.mac1609_4 RetriesExceeded 0
-scalar TarragonaAka.node[19].nic.mac1609_4 SNIRLostPackets 895
+scalar TarragonaAka.node[19].nic.mac1609_4 SNIRLostPackets 893
 scalar TarragonaAka.node[19].nic.mac1609_4 RXTXLostPackets 0
-scalar TarragonaAka.node[19].nic.mac1609_4 TotalLostPackets 895
+scalar TarragonaAka.node[19].nic.mac1609_4 TotalLostPackets 893
 scalar TarragonaAka.node[19].nic.mac1609_4 DroppedPacketsInMac 0
 scalar TarragonaAka.node[19].nic.mac1609_4 TooLittleTime 0
-scalar TarragonaAka.node[19].nic.mac1609_4 TimesIntoBackoff 1402
-scalar TarragonaAka.node[19].nic.mac1609_4 SlotsBackoff 2064
+scalar TarragonaAka.node[19].nic.mac1609_4 TimesIntoBackoff 1397
+scalar TarragonaAka.node[19].nic.mac1609_4 SlotsBackoff 2108
 scalar TarragonaAka.node[19].nic.mac1609_4 NumInternalContention 0
-scalar TarragonaAka.node[19].nic.mac1609_4 totalBusyTime 1.651001
+scalar TarragonaAka.node[19].nic.mac1609_4 totalBusyTime 1.650509
 scalar TarragonaAka.node[19].nic.mac1609_4 retriesExceeded:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
 scalar TarragonaAka.node[19].nic.mac1609_4 sentAcks:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentAck
-scalar TarragonaAka.node[19].nic.mac1609_4 sentPackets:count 1401
+scalar TarragonaAka.node[19].nic.mac1609_4 sentPackets:count 1397
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar TarragonaAka.node[19].nic.mac1609_4 collisions:count 0
 attr recordingmode count
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar TarragonaAka.node[19].nic.mac1609_4 channelBusy:timeavg 0.012148646063281
+scalar TarragonaAka.node[19].nic.mac1609_4 channelBusy:timeavg 0.012145025754231
 attr recordingmode timeavg
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 par TarragonaAka.node[19].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
@@ -4636,7 +4636,7 @@ par TarragonaAka.node[19].veinsmobility hostPositionOffset 0m
 attr unit m
 par TarragonaAka.node[19].veinsmobility setHostSpeed false
 par TarragonaAka.node[19].veinsmobility accidentCount 0
-par TarragonaAka.node[19].veinsmobility accidentStart 46.531s
+par TarragonaAka.node[19].veinsmobility accidentStart 53.5885s
 attr unit s
 par TarragonaAka.node[19].veinsmobility accidentDuration "uniform(30s, 60s)"
 attr unit s
