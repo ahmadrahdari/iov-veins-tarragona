@@ -1,7 +1,7 @@
 # V2X simulation of FogRoam (Tarragona, Spain)
 
 Veins/SUMO/OMNeT++ simulation used in the paper
-*"FogRoam: Forward-Secure Authentication with Cloud-Free Handover for 6G Vehicular Networks"* to
+*"FogRoam: Secure Authentication with Cloud-Free Handover for 6G Vehicular Networks"* to
 compare the packet loss rate, the end-to-end delay, and the authentication latency of three configurations:
 
 | Configuration | Protocol |
