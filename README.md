@@ -8,7 +8,7 @@ compare the packet loss rate, the end-to-end delay, and the authentication laten
 |---------------|----------|
 | `Proposed`  | FogRoam: phase A (cloud-assisted, messages M1–M4) and phase B (cloud-free handover, messages M5–M6) |
 | `ProposedA` | FogRoam restricted to phase A |
-| `Baseline`  | the fog-based protocol of Chen et al. analysed in the paper (reference [11]; messages M1–M4) |
+| `Baseline`  | the protocol of Chen et al. analysed in the paper (messages M1–M4) |
 
 ## Software
 
