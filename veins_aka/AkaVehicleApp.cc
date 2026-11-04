@@ -38,6 +38,11 @@ void AkaVehicleApp::initialize(int stage)
         timeoutEvt = new cMessage("sessionTimeout", AKA_TIMEOUT);
         authLatencyVec.setName("authLatency");
         scheduleAt(simTime() + uniform(0, authInterval.dbl()), authEvt);
+        if (par("edgeEntryHandover").boolValue() && traciVehicle && traciVehicle->getTypeId() == "ext") {
+            edgeEntry = true;
+            phaseADone = true;
+            lastPhaseA = simTime() - uniform(0, phaseAValidity.dbl());
+        }
     }
 }
 
@@ -69,13 +74,19 @@ void AkaVehicleApp::handleSelfMsg(cMessage* msg)
     case AKA_AUTH_EVT: {
         if (!busy && rsuMac >= 0 && simTime() - lastAdv <= advValidity) {
             busy = true;
-            bool phaseAValid = lastPhaseA >= 0 && simTime() - lastPhaseA <= phaseAValidity;
+            bool phaseAValid = phaseADone && simTime() - lastPhaseA <= phaseAValidity;
             curPhase = (useHandover && phaseAValid) ? 2 : 1;
             curSession = ++sessionCounter;
             curStart = simTime();
             if (inWindow(curStart)) {
                 started[curPhase - 1]++;
-                if (sessionRsu >= 0 && sessionRsu != rsuMac) handovers++;
+                if (sessionRsu >= 0 && sessionRsu != rsuMac) {
+                    handovers++;
+                    handoversPh[curPhase - 1]++;
+                }
+                else if (sessionRsu < 0 && edgeEntry) {
+                    entryHandoversPh[curPhase - 1]++;  // arrives from a fog node outside the area
+                }
             }
             sessionRsu = rsuMac;
             // phase A: R1, Q1, K1, k_ij, sigma_1, A_i, C1 ; phase B: R4, Q4, K3, k_ik, sigma_4, C3
@@ -102,7 +113,10 @@ void AkaVehicleApp::handleSelfMsg(cMessage* msg)
     }
     case AKA_DONE: {
         int k = curPhase - 1;
-        if (curPhase == 1) lastPhaseA = simTime();
+        if (curPhase == 1) {
+            lastPhaseA = simTime();
+            phaseADone = true;
+        }
         if (inWindow(curStart)) {
             completed[k]++;
             double lat = (simTime() - curStart).dbl();
@@ -137,4 +151,9 @@ void AkaVehicleApp::finish()
         recordScalar((std::string("akaSumRespDelay") + ph[k]).c_str(), sumRespDelay[k]);
     }
     recordScalar("akaHandovers", handovers);
+    recordScalar("akaHandoversA", handoversPh[0]);
+    recordScalar("akaHandoversB", handoversPh[1]);
+    recordScalar("akaEntryHandoversA", entryHandoversPh[0]);
+    recordScalar("akaEntryHandoversB", entryHandoversPh[1]);
+    recordScalar("akaEdgeEntry", edgeEntry ? 1 : 0);
 }

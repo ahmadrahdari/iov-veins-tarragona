@@ -41,13 +41,13 @@ Both scripts use the repository folder as `$SIM`; set `SIM=/other/path` to chang
   trip length 1200 m); IEEE 802.11p at 6 Mbps and 20 mW; free-space path loss with
   building shadowing (`SimpleObstacleShadowing`).
 * Every vehicle broadcasts 250-byte V2V beacons at 10 Hz and authenticates with the
-  fog node in range every 2 ± 0.5 s. With `Proposed`, phase A is run when the
-  vehicle joins and whenever its last phase A is older than 20 s, and phase B
+  fog node in range every 30 ± 7.5 s. With `Proposed`, phase A is run when the
+  vehicle joins and whenever its last phase A is older than 300 s, and phase B
   otherwise.
 * Message sizes (bits) and processing delays (ms) are set in `scenario/omnetpp.ini`
   from the operation counts of each scheme and the execution times measured with
   `bench/bench.c` (polynomial degrees t_x = 1000, t_y = 100); see *Operation costs*.
-* 150 s per run, statistics collected after a 25 s warm-up, 3 seeds per configuration.
+* 900 s per run, statistics collected after a 300 s warm-up, 3 seeds per configuration.
 
 ## Running
 

@@ -36,6 +36,8 @@ protected:
     int rsuIndex = -1;
     simtime_t lastAdv = -1;
     simtime_t lastPhaseA = -1;     // completion time of the last phase A
+    bool phaseADone = false;       // a phase A has been completed (possibly before entering the area)
+    bool edgeEntry = false;        // vehicle entered from the map edge (SUMO type "ext")
 
     // current session
     bool busy = false;
@@ -56,6 +58,8 @@ protected:
     long started[2] = {0, 0}, completed[2] = {0, 0}, timedOut[2] = {0, 0};
     double sumAuthLatency[2] = {0, 0}, sumRespDelay[2] = {0, 0};
     long handovers = 0;
+    long handoversPh[2] = {0, 0};  // sessions with a change of RSU, per phase (A, B)
+    long entryHandoversPh[2] = {0, 0};  // first session of a vehicle that entered from the map edge
     cOutVector authLatencyVec;
 };
 

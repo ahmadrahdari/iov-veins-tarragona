@@ -8,6 +8,8 @@ void CloudServer::initialize()
 {
     m3Bits = par("m3Bits");
     cCS = par("cCS");
+    measureStart = par("measureStart");
+    measureEnd = par("measureEnd");
 }
 
 void CloudServer::handleMessage(cMessage* msg)
@@ -35,10 +37,13 @@ void CloudServer::handleMessage(cMessage* msg)
     job->setContextPointer(m3);
     scheduleAt(cpuBusyUntil, job);
     processed++;
+    if (m2->getSessionStart() >= measureStart && m2->getSessionStart() <= measureEnd) processedWin++;
     delete m2;
 }
 
 void CloudServer::finish()
 {
     recordScalar("akaProcessed", processed);
+    recordScalar("akaProcessedWin", processedWin);
+    recordScalar("akaWindow", (measureEnd - measureStart).dbl());
 }

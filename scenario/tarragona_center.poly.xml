@@ -6,7 +6,7 @@
     <input>
         <net-file value="tarragona_center.net.xml"/>
         <osm-files value="tarragona.osm.xml"/>
-        <type-file value="$SUMO_HOME/data/typemap/osmPolyconvert.typ.xml"/>
+        <type-file value="/home/claude/sim/src/sumo/data/typemap/osmPolyconvert.typ.xml"/>
     </input>
 
     <output>

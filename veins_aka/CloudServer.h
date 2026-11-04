@@ -12,8 +12,9 @@ protected:
     void handleMessage(cMessage* msg) override;
     void finish() override;
     int m3Bits = 0;
-    simtime_t cCS, cpuBusyUntil = 0;
-    long processed = 0;
+    simtime_t cCS, cpuBusyUntil = 0, measureStart, measureEnd;
+    long processed = 0;       // all messages M2
+    long processedWin = 0;    // messages M2 of sessions started in the measurement window
 };
 
 } // namespace veins

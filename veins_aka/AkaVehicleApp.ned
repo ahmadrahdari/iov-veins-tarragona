@@ -15,6 +15,9 @@ simple AkaVehicleApp extends DemoBaseApplLayer
         double cH2 @unit(s) = default(0s);        // computation after receiving M6
         bool useHandover = default(false);        // phase B available (proposed scheme)
         double phaseAValidity @unit(s) = default(20s); // phase A repeated after this period
+        // vehicles of SUMO type "ext" enter from the map edge and were already authenticated by a fog
+        // node outside the area: their last phase A is uniform in the past phaseAValidity
+        bool edgeEntryHandover = default(false);
         double authInterval @unit(s) = default(2s);
         double authJitter @unit(s) = default(0.5s);
         double sessionTimeout @unit(s) = default(1s);

@@ -8,9 +8,12 @@ Metrics per configuration and number of vehicles N (mean over seeds):
   lat_ms   mean authentication latency (session start -> session key)
   latA_ms, latB_ms  latency of phase A and phase B sessions
   succ     fraction of started sessions that completed
-  fracB    fraction of sessions that used phase B
+  fracB    fraction of started sessions that used phase B
+  fracBc   fraction of completed sessions that used phase B
+  cloud    messages M2 processed by CS for sessions started in the measurement window
+  cloud_rate  cloud divided by the length of the measurement window (msg/s)
 """
-import glob, re, sys, collections, statistics, json
+import glob, re, sys, collections, statistics, json, math
 
 def parse_sca(path):
     d = collections.defaultdict(float)
@@ -46,7 +49,16 @@ def metrics(d):
         succ=(comp['A'] + comp['B']) / started if started else float('nan'),
         fracB=g('veh', 'akaStartedB') / started if started else float('nan'),
         sessions=started, frames=sent, handovers=g('veh', 'akaHandovers'),
-        cloud=g('cloud', 'akaProcessed'),
+        fracBc=comp['B'] / (comp['A'] + comp['B']) if comp['A'] + comp['B'] else float('nan'),
+        cloud=g('cloud', 'akaProcessedWin'),
+        cloud_rate=g('cloud', 'akaProcessedWin') / g('cloud', 'akaWindow') if g('cloud', 'akaWindow') else float('nan'),
+        edge_entries=g('veh', 'akaEdgeEntry'),
+        startedB=g('veh','akaStartedB'),
+        startedA=g('veh','akaStartedA'),
+        handoversB=g('veh','akaHandoversB'),
+        handoversA=g('veh','akaHandoversA'),
+        entryB=g('veh','akaEntryHandoversB'),
+        hoFracB=(g('veh','akaHandoversB')/g('veh','akaStartedB')) if g('veh','akaStartedB') else float('nan'),
     )
     return m
 
@@ -58,9 +70,14 @@ for f in sorted(glob.glob(sys.argv[1] + '/*.sca')):
 out = {}
 for (cfg, N), runs in sorted(res.items()):
     keys = runs[0].keys()
-    agg = {k: statistics.mean(r[k] for r in runs) for k in keys}
+    def clean(k):
+        return [r[k] for r in runs if isinstance(r[k],(int,float)) and not math.isnan(r[k])]
+    agg = {k: (statistics.mean(clean(k)) if clean(k) else float('nan')) for k in keys}
     for k in ('plr', 'e2e_ms', 'lat_ms'):
-        agg[k + '_sd'] = statistics.stdev(r[k] for r in runs) if len(runs) > 1 else 0.0
+        vals = clean(k)
+        agg[k + '_sd'] = statistics.stdev(vals) if len(vals) > 1 else 0.0
+        if len(vals) < len(runs):
+            print(f'  WARN {cfg}-{N}: {len(runs)-len(vals)} nan in {k}')
     agg['runs'] = len(runs)
     out[f'{cfg}-{N}'] = agg
     print(f"{cfg:9s} N={N:3d} runs={len(runs)} PLR={agg['plr']*100:6.3f}%  E2E={agg['e2e_ms']:6.3f} ms  "
