@@ -1,41 +1,122 @@
 #!/usr/bin/env python3
-# usage: runset.py "20,40,60,80" [workers]
-import os, sys, time, subprocess, threading
+"""Resumable batch runner.
+
+usage: runset.py "20,40,60" [workers] [configs] [budget_minutes]
+
+Run numbers: r = 3*index(N) + seed, for N in 20..120 and seed in 0..2.
+A run is complete when its log reports that the time limit was reached and
+ends with "End.", and its .sca file exists;
+complete runs are skipped, so the script can be restarted at any time.
+With a time budget, a run is only started if it is expected to finish
+before the budget expires (estimates are refined from finished runs).
+A run that stops with a simulation error is marked as failed and is not
+repeated until its runlogs/<cfg>_<r>.failed file is removed.
+"""
+import json, os, sys, time, subprocess, threading
+
 NS_ALL = [20, 40, 60, 80, 100, 120]
+CFGS_ALL = ('Proposed', 'ProposedA', 'Baseline')
+EST = {20: 6.0, 40: 12.0, 60: 19.0, 80: 27.0, 100: 35.0, 120: 45.0}   # minutes per run (2 runs in parallel)
+
 want = set(int(x) for x in sys.argv[1].split(','))
 W = int(sys.argv[2]) if len(sys.argv) > 2 else 2
-os.chdir('/home/claude/sim/scenario')
-os.makedirs('runlogs30/claims', exist_ok=True)
+CFGS = tuple(sys.argv[3].split(',')) if len(sys.argv) > 3 else CFGS_ALL
+BUDGET = float(sys.argv[4]) * 60 if len(sys.argv) > 4 else None
+T0 = time.time()
+HERE = os.path.dirname(os.path.abspath(__file__))
+os.chdir(HERE)
+os.makedirs('runlogs/claims', exist_ok=True)
+os.makedirs('results', exist_ok=True)
+TIMES = 'runlogs/times.json'
+if os.path.exists(TIMES):
+    for k, v in json.load(open(TIMES)).items():
+        EST[int(k)] = v
+
+
+def names(cfg, r):
+    return f'runlogs/{cfg}_{r}.txt', f'results/{cfg}-N{NS_ALL[r // 3]}-r{r % 3}.sca'
+
+
 def done(cfg, r):
-    log = f'runlogs30/{cfg}_{r}.txt'; sca = f'results/{cfg}-N{NS_ALL[r//3]}-r{r%3}.sca'
-    return os.path.exists(sca) and os.path.exists(log) and open(log).read().rstrip().endswith('End.')
+    log, sca = names(cfg, r)
+    if not (os.path.exists(sca) and os.path.exists(log)):
+        return False
+    text = open(log).read()
+    # a run stopped by a signal also ends with "End." (OMNeT++ exits gracefully), so the
+    # log must show that the simulation reached its time limit
+    return text.rstrip().endswith('End.') and 'Simulation time limit reached' in text
+
+
+def failed(cfg, r):
+    return os.path.exists(f'runlogs/{cfg}_{r}.failed')
+
+
 def claim(cfg, r):
-    p = f'runlogs30/claims/{cfg}_{r}'
+    p = f'runlogs/claims/{cfg}_{r}'
     try:
-        fd = os.open(p, os.O_CREAT | os.O_EXCL | os.O_WRONLY); os.write(fd, str(os.getpid()).encode()); os.close(fd); return True
+        fd = os.open(p, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+        os.write(fd, str(os.getpid()).encode())
+        os.close(fd)
+        return True
     except FileExistsError:
-        try: pid = int(open(p).read().strip() or 0)
-        except ValueError: pid = 0
-        if pid and os.path.exists(f'/proc/{pid}'): return False
-        os.remove(p); return claim(cfg, r)
-jobs = [(cfg, r) for r in range(18) if NS_ALL[r//3] in want for cfg in ('Proposed','ProposedA','Chen') if not done(cfg, r)]
-jobs.sort(key=lambda j: NS_ALL[j[1]//3])   # small N first
+        try:
+            pid = int(open(p).read().strip() or 0)
+        except ValueError:
+            pid = 0
+        if pid and os.path.exists(f'/proc/{pid}'):
+            return False
+        os.remove(p)
+        return claim(cfg, r)
+
+
+def fits(n):
+    return BUDGET is None or time.time() - T0 + EST[n] * 60 * 1.1 <= BUDGET
+
+
+jobs = [(cfg, r) for r in range(18) if NS_ALL[r // 3] in want for cfg in CFGS if not done(cfg, r) and not failed(cfg, r)]
+jobs.sort(key=lambda j: (NS_ALL[j[1] // 3], j[1] % 3))   # small N first
+if os.environ.get('LARGE_FIRST'):   # packs long runs first, shorter ones into the rest of the budget
+    jobs.sort(key=lambda j: (-NS_ALL[j[1] // 3], j[1] % 3))
 lock = threading.Lock()
+
+
 def worker(w):
     while True:
         with lock:
             j = None
             for cand in list(jobs):
+                if not fits(NS_ALL[cand[1] // 3]):
+                    continue
                 jobs.remove(cand)
-                if not done(*cand) and claim(*cand): j = cand; break
-            if j is None: return
-        cfg, r = j; s = time.time()
-        with open(f'runlogs30/{cfg}_{r}.txt', 'w') as f:
-            subprocess.run(['./run.sh', cfg, str(r)], stdout=f, stderr=subprocess.STDOUT)
-        try: os.remove(f'runlogs30/claims/{cfg}_{r}')
-        except OSError: pass
-        print(f'done {cfg} r{r} N={NS_ALL[r//3]} in {(time.time()-s)/60:.1f}min', flush=True)
+                if not done(*cand) and claim(*cand):
+                    j = cand
+                    break
+            if j is None:
+                return
+        cfg, r = j
+        n = NS_ALL[r // 3]
+        s = time.time()
+        log, sca = names(cfg, r)
+        with open(log, 'w') as f:
+            rc = subprocess.run(['./run.sh', cfg, str(r)], stdout=f, stderr=subprocess.STDOUT).returncode
+        try:
+            os.remove(f'runlogs/claims/{cfg}_{r}')
+        except OSError:
+            pass
+        mins = (time.time() - s) / 60
+        if done(cfg, r):
+            with lock:
+                EST[n] = max(mins, EST[n] if os.path.exists(TIMES) else 0)
+                json.dump(EST, open(TIMES, 'w'))
+            print(f'done {cfg} r{r} N={n} in {mins:.1f}min', flush=True)
+        else:
+            open(f'runlogs/{cfg}_{r}.failed', 'w').write(f'rc={rc}\n')
+            print(f'FAILED {cfg} r{r} N={n} rc={rc} after {mins:.1f}min (see {log})', flush=True)
+
+
 th = [threading.Thread(target=worker, args=(w,)) for w in range(W)]
-[t.start() for t in th]; [t.join() for t in th]
-rem = [(c,r) for r in range(18) if NS_ALL[r//3] in want for c in ('Proposed','ProposedA','Chen') if not done(c,r)]
-print('RUNSET_END remaining', len(rem), flush=True)
+[t.start() for t in th]
+[t.join() for t in th]
+rem = [(c, r) for r in range(18) if NS_ALL[r // 3] in want for c in CFGS if not done(c, r)]
+bad = [(c, r) for (c, r) in rem if failed(c, r)]
+print(f'RUNSET_END remaining {len(rem)} failed {len(bad)} elapsed {(time.time() - T0) / 60:.1f}min', flush=True)

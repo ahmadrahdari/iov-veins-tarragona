@@ -27,7 +27,7 @@ cmake ../.. -DCMAKE_BUILD_TYPE=Release -DXercesC_INCLUDE_DIR=$L/include -DXerces
 make -j2 sumo netconvert duarouter polyconvert > $LOG/sumo_make.log 2>&1 || { echo "SUMO build failed"; exit 1; }
 # Veins 5.3.1 with the protocol modules
 mkdir -p $S/veins/src/veins/modules/application/aka
-cp $SIM/veins_aka/* $S/veins/src/veins/modules/application/aka/
+[ -d $SIM/veins_aka ] && cp $SIM/veins_aka/* $S/veins/src/veins/modules/application/aka/
 cd $S/veins && ./configure > $LOG/veins_configure.log 2>&1 && make -j2 MODE=release > $LOG/veins_make.log 2>&1 \
   || { echo "Veins build failed"; exit 1; }
 echo BUILD_DONE

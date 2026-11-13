@@ -3,6 +3,15 @@ local/
 logs/
 scenario/runlogs/
 scenario/results/
+scenario/snapshot/
+ieee80211p/src/
+ieee80211p/local/
+ieee80211p/logs/
+ieee80211p/scenario/runlogs/
+ieee80211p/scenario/results/
+fogroam5g/out/
+fogroam5g/src/Makefile
+*.so
 *.vec
 *.vci
 *_m.cc
