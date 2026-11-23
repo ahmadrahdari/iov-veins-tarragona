@@ -18,6 +18,7 @@ Metrics per configuration and number of vehicles N (mean over the seeds):
   fracB       fraction of started sessions that used phase B
   cloud       messages M2 processed by CS for sessions started in the measurement window
   cloud_rate  cloud divided by the length of the measurement window (msg/s)
+  latAho_ms, latBho_ms  latency of the phase A (full) and phase B sessions that follow a handover
   handovers   sessions run with a fog node other than that of the previous session
   hoFracB     fraction of phase B sessions that are handovers between two fog nodes of the
               area (the others are re-keying); hoFracB_entry also counts the first session
@@ -29,6 +30,8 @@ Metrics per configuration and number of vehicles N (mean over the seeds):
 import glob, re, sys, collections, statistics, json, math
 
 NAN = float('nan')
+T975 = {1: 12.706, 2: 4.303, 3: 3.182, 4: 2.776, 5: 2.571, 6: 2.447, 7: 2.365, 8: 2.306, 9: 2.262,
+        10: 2.228, 14: 2.145, 19: 2.093, 29: 2.045}
 RADIO = {  # scalar name -> (key, level)
     'rcvdSinrUl:mean': 'sinr_ul', 'rcvdSinrDl:mean': 'sinr_dl',
     'averageCqiUl:mean': 'cqi_ul', 'averageCqiDl:mean': 'cqi_dl',
@@ -78,6 +81,9 @@ def metrics(d, radio):
         lat_ms=ratio(lat['A'] + lat['B'], comp['A'] + comp['B'], 1e3),
         latA_ms=ratio(lat['A'], comp['A'], 1e3),
         latB_ms=ratio(lat['B'], comp['B'], 1e3),
+        latAho_ms=ratio(g('veh', 'akaSumAuthLatencyHoA'), g('veh', 'akaCompletedHoA'), 1e3),
+        latBho_ms=ratio(g('veh', 'akaSumAuthLatencyHoB'), g('veh', 'akaCompletedHoB'), 1e3),
+        completedHoA=g('veh', 'akaCompletedHoA'), completedHoB=g('veh', 'akaCompletedHoB'),
         ulA_ms=ratio(g('fog', 'akaSumReqDelayA'), g('fog', 'akaRecvReqA'), 1e3),
         ulB_ms=ratio(g('fog', 'akaSumReqDelayB'), g('fog', 'akaRecvReqB'), 1e3),
         dlA_ms=ratio(g('veh', 'akaSumRespDelayA'), g('veh', 'akaRecvRespA'), 1e3),
@@ -124,9 +130,11 @@ def main():
     for (cfg, N), runs in sorted(res.items()):
         clean = lambda k: [r[k] for r in runs if not math.isnan(r[k])]
         agg = {k: (statistics.mean(clean(k)) if clean(k) else NAN) for k in runs[0]}
-        for k in ('lat_ms', 'latA_ms', 'latB_ms', 'plr', 'e2e_ms', 'succ', 'cloud_rate', 'fracB'):
+        for k in ('lat_ms', 'latA_ms', 'latB_ms', 'latAho_ms', 'latBho_ms', 'plr', 'e2e_ms', 'succ', 'cloud_rate', 'fracB'):
             vals = clean(k)
             agg[k + '_sd'] = statistics.stdev(vals) if len(vals) > 1 else 0.0
+            # half-width of the 95 % confidence interval of the mean over the seeds (Student t)
+            agg[k + '_ci'] = T975.get(len(vals) - 1, 1.96) * agg[k + '_sd'] / math.sqrt(len(vals)) if len(vals) > 1 else 0.0
         agg['runs'] = len(runs)
         # loss pooled over the seeds with a 95 % Wilson interval: only a few protocol messages
         # are lost per run, so the standard deviation of the per-seed rates is not informative

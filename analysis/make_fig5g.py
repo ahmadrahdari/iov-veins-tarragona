@@ -17,9 +17,9 @@ CFGS = [('Proposed', 'FogRoam (A+B)', '#2A78D6', 'o', '-'),
         ('ProposedA', 'FogRoam (A only)', '#EB6834', 's', '--'),
         ('Baseline', 'Chen et al.', '#1BAF7A', '^', ':')]
 PANELS = [('plr_pooled', None, 100.0, 'Packet loss rate (%)', '(a) loss of the protocol messages'),
-          ('e2e_ms', 'e2e_ms_sd', 1.0, 'End-to-end delay (ms)', '(b) delay of the protocol messages'),
-          ('lat_ms', 'lat_ms_sd', 1.0, 'Authentication latency (ms)', '(c) authentication latency'),
-          ('cloud_rate', 'cloud_rate_sd', 1.0, 'CS load (msg/s)', '(d) messages processed by CS')]
+          ('e2e_ms', 'e2e_ms_ci', 1.0, 'End-to-end delay (ms)', '(b) delay of the protocol messages'),
+          ('lat_ms', 'lat_ms_ci', 1.0, 'Authentication latency (ms)', '(c) authentication latency'),
+          ('cloud_rate', 'cloud_rate_ci', 1.0, 'CS load (msg/s)', '(d) messages processed by CS')]
 
 plt.rcParams.update({'font.size': 9, 'axes.spines.top': False, 'axes.spines.right': False})
 fig, axes = plt.subplots(1, 4, figsize=(13.5, 3.4))

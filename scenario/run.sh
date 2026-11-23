@@ -1,6 +1,6 @@
 #!/bin/bash
 # usage: ./run.sh <Config> <runnumber> [extra opp_run options]
-#   Config: Proposed | ProposedA | Baseline;  run numbers 0..17 = 6 densities x 3 seeds
+#   Config: see omnetpp.ini;  run numbers 0..59 = 6 densities x 10 seeds (r = 10*index(N) + seed)
 # Paths default to the layout made by build/fetch5g.sh and build/build5g.sh and can be
 # overridden with the environment variables below.
 HERE=$(cd "$(dirname "$0")" && pwd)

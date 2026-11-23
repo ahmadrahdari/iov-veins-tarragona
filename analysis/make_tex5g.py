@@ -49,9 +49,9 @@ def panel(label, ylabel, key, sd=None, scale=1.0, extra='', marks_only=False, le
 
 
 pa = panel('a', r'Packet loss rate (\%)', 'plr_pooled', scale=100.0, extra=', ymin=0, ymax=1', marks_only=True)
-pb = panel('b', 'End-to-end delay (ms)', 'e2e_ms', 'e2e_ms_sd', extra=', ymin=0, legend to name=simleg', legend=True)
-pc = panel('c', 'Authentication latency (ms)', 'lat_ms', 'lat_ms_sd', extra=', ymin=0')
-pd = panel('d', r'$\CS$ load (msg/s)', 'cloud_rate', 'cloud_rate_sd', extra=', ymin=0')
+pb = panel('b', 'End-to-end delay (ms)', 'e2e_ms', 'e2e_ms_ci', extra=', ymin=0, legend to name=simleg', legend=True)
+pc = panel('c', 'Authentication latency (ms)', 'lat_ms', 'lat_ms_ci', extra=', ymin=0')
+pd = panel('d', r'$\CS$ load (msg/s)', 'cloud_rate', 'cloud_rate_ci', extra=', ymin=0')
 fig = r'''\begin{figure*}[!t]
 \centering
 \definecolor{cA}{HTML}{2A78D6}\definecolor{cB}{HTML}{EB6834}\definecolor{cC}{HTML}{1BAF7A}

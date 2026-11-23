@@ -1,12 +1,12 @@
-src/
-local/
-logs/
+/src/
+/local/
+/logs/
 scenario/runlogs/
 scenario/results/
 scenario/snapshot/
-ieee80211p/src/
-ieee80211p/local/
-ieee80211p/logs/
+/ieee80211p/src/
+/ieee80211p/local/
+/ieee80211p/logs/
 ieee80211p/scenario/runlogs/
 ieee80211p/scenario/results/
 fogroam5g/out/
@@ -16,3 +16,8 @@ fogroam5g/src/Makefile
 *.vci
 *_m.cc
 *_m.h
+__pycache__/
+scenario/.cmdenv-log
+scenario/runlogs_campaign.out
+scenario/test/
+fogroam5g/src/out/

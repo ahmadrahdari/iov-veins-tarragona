@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Resumable batch runner.
 
-usage: runset.py "20,40,60" [workers] [configs] [budget_minutes]
+usage: runset.py "20,40,60" [workers] [configs] [budget_minutes] [seeds]
 
-Run numbers: r = 3*index(N) + seed, for N in 20..120 and seed in 0..2.
+Run numbers: r = SEEDS*index(N) + seed, for N in 20..120 and seed in 0..SEEDS-1 (SEEDS = 10,
+the "repeat" of omnetpp.ini); seeds is a range such as "0-9" (default: all).
 A run is complete when its log reports that the time limit was reached and
 ends with "End.", and its .sca file exists;
 complete runs are skipped, so the script can be restarted at any time.
@@ -16,12 +17,18 @@ import json, os, sys, time, subprocess, threading
 
 NS_ALL = [20, 40, 60, 80, 100, 120]
 CFGS_ALL = ('Proposed', 'ProposedA', 'Baseline')
+SEEDS = 10
 EST = {20: 6.0, 40: 12.0, 60: 19.0, 80: 27.0, 100: 35.0, 120: 45.0}   # minutes per run (2 runs in parallel)
 
 want = set(int(x) for x in sys.argv[1].split(','))
 W = int(sys.argv[2]) if len(sys.argv) > 2 else 2
 CFGS = tuple(sys.argv[3].split(',')) if len(sys.argv) > 3 else CFGS_ALL
-BUDGET = float(sys.argv[4]) * 60 if len(sys.argv) > 4 else None
+BUDGET = float(sys.argv[4]) * 60 if len(sys.argv) > 4 and float(sys.argv[4]) > 0 else None
+if len(sys.argv) > 5:
+    a, b = (int(x) for x in sys.argv[5].split('-'))
+    SEEDS_USE = set(range(a, b + 1))
+else:
+    SEEDS_USE = set(range(SEEDS))
 T0 = time.time()
 HERE = os.path.dirname(os.path.abspath(__file__))
 os.chdir(HERE)
@@ -34,7 +41,7 @@ if os.path.exists(TIMES):
 
 
 def names(cfg, r):
-    return f'runlogs/{cfg}_{r}.txt', f'results/{cfg}-N{NS_ALL[r // 3]}-r{r % 3}.sca'
+    return f'runlogs/{cfg}_{r}.txt', f'results/{cfg}-N{NS_ALL[r // SEEDS]}-r{r % SEEDS}.sca'
 
 
 def done(cfg, r):
@@ -73,10 +80,11 @@ def fits(n):
     return BUDGET is None or time.time() - T0 + EST[n] * 60 * 1.1 <= BUDGET
 
 
-jobs = [(cfg, r) for r in range(18) if NS_ALL[r // 3] in want for cfg in CFGS if not done(cfg, r) and not failed(cfg, r)]
-jobs.sort(key=lambda j: (NS_ALL[j[1] // 3], j[1] % 3))   # small N first
+jobs = [(cfg, r) for r in range(6 * SEEDS) if NS_ALL[r // SEEDS] in want and r % SEEDS in SEEDS_USE
+        for cfg in CFGS if not done(cfg, r) and not failed(cfg, r)]
+jobs.sort(key=lambda j: (j[1] % SEEDS, NS_ALL[j[1] // SEEDS]))   # seed by seed, small N first
 if os.environ.get('LARGE_FIRST'):   # packs long runs first, shorter ones into the rest of the budget
-    jobs.sort(key=lambda j: (-NS_ALL[j[1] // 3], j[1] % 3))
+    jobs.sort(key=lambda j: (j[1] % SEEDS, -NS_ALL[j[1] // SEEDS]))
 lock = threading.Lock()
 
 
@@ -85,7 +93,7 @@ def worker(w):
         with lock:
             j = None
             for cand in list(jobs):
-                if not fits(NS_ALL[cand[1] // 3]):
+                if not fits(NS_ALL[cand[1] // SEEDS]):
                     continue
                 jobs.remove(cand)
                 if not done(*cand) and claim(*cand):
@@ -94,7 +102,7 @@ def worker(w):
             if j is None:
                 return
         cfg, r = j
-        n = NS_ALL[r // 3]
+        n = NS_ALL[r // SEEDS]
         s = time.time()
         log, sca = names(cfg, r)
         with open(log, 'w') as f:
@@ -117,6 +125,6 @@ def worker(w):
 th = [threading.Thread(target=worker, args=(w,)) for w in range(W)]
 [t.start() for t in th]
 [t.join() for t in th]
-rem = [(c, r) for r in range(18) if NS_ALL[r // 3] in want for c in CFGS if not done(c, r)]
+rem = [(c, r) for r in range(6 * SEEDS) if NS_ALL[r // SEEDS] in want and r % SEEDS in SEEDS_USE for c in CFGS if not done(c, r)]
 bad = [(c, r) for (c, r) in rem if failed(c, r)]
 print(f'RUNSET_END remaining {len(rem)} failed {len(bad)} elapsed {(time.time() - T0) / 60:.1f}min', flush=True)

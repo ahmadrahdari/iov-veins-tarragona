@@ -12,6 +12,8 @@ Three configurations are compared:
 | `Proposed`  | FogRoam: phase A (cloud-assisted, messages M1–M4) and phase B (cloud-free handover, messages M5–M6) |
 | `ProposedA` | FogRoam restricted to phase A |
 | `Baseline`  | the protocol of Chen et al. analysed in the paper (messages M1–M4) |
+| `ProposedHO`, `BaselineHO` | as `Proposed` and `Baseline`, but sessions are triggered by the mobility: when a vehicle joins, at every change of its serving gNB, and when its last phase A (full run) is older than 300 s |
+| `ProposedHO150`, `ProposedHO600` | `ProposedHO` with a phase-A re-validation interval of 150 s and 600 s |
 
 ## Software
 
@@ -69,13 +71,18 @@ phase B run (cloud-free) as long as the last phase A of the vehicle is not older
 * Every vehicle authenticates with the fog node of its serving cell every 30 ± 7.5 s. With
   `Proposed`, phase A is run when the vehicle joins and whenever its last phase A is older
   than 300 s, and phase B otherwise. A session fails if it is not completed within 1 s.
+  With the `...HO` configurations (`authTrigger = "handover"`), a vehicle instead starts a
+  session when it joins, when its serving gNB changes, and when its last phase A is older
+  than `phaseAValidity`; the latency of the sessions that follow a handover is recorded
+  separately (`latAho_ms`, `latBho_ms` in `analysis/summary5g.json`).
 * Every vehicle sends a 250-byte cooperative awareness message (CAM) to its fog node at
   10 Hz as background uplink traffic.
 * Message sizes (bits) and processing delays (ms) are set in `scenario/omnetpp.ini` from the
-  operation counts of each scheme and the execution times measured with `bench/bench.c`
-  (`cd bench && python3 costs2.py` prints them). Fog nodes and CS process the messages in
+  operation counts of Table V of the paper and the execution times measured with `bench/bench.c`
+  (`cd bench && python3 sim_delays5g.py` prints them). Fog nodes and CS process the messages in
   FIFO order.
-* 900 s per run, statistics collected after a 300 s warm-up, 3 seeds per configuration.
+* 900 s per run, statistics collected after a 300 s warm-up, 10 seeds per configuration
+  (95 % confidence intervals of the mean over the seeds, Student t).
 
 ### Radio access network
 
@@ -111,8 +118,9 @@ Deviations from the Simu5G defaults, and why:
 
 ```bash
 cd scenario
-./run.sh Proposed 0              # one run; run numbers 0..17 = 6 densities x 3 seeds
-python3 runset.py 20,40,60,80,100,120 2     # all 54 runs, 2 in parallel, resumable
+./run.sh Proposed 0              # one run; run numbers 0..59 = 6 densities x 10 seeds
+python3 runset.py 20,40,60,80,100,120 2     # Proposed, ProposedA and Baseline, 2 in parallel, resumable
+./campaign.sh                    # all runs of the paper in the order in which they were made
 cd ..
 python3 analysis/parse5g.py results analysis/summary5g.json analysis/summary5g.csv
 python3 analysis/make_fig5g.py analysis/summary5g.json figs/results5g.png
@@ -196,7 +204,8 @@ Radio KPIs averaged over all runs of `Proposed`: uplink SINR 21.5 dB, downlink S
 ## Layout
 
 ```
-fogroam5g/   OMNeT++ project: vehicle, fog-node and cloud applications, message definition, network
+fogroam5g/   OMNeT++ project (src/): AkaVehicleApp5G, AkaFogApp5G, AkaCloudApp5G, AkaMessages5G.msg,
+             network Tarragona5G; build with build/build5g.sh
 scenario/    omnetpp.ini, address plan, SUMO inputs, run.sh, runset.py
 map/         OpenStreetMap extract and prepare_map.sh
 analysis/    parse5g.py (aggregation), make_fig5g.py and make_tex5g.py (result figures), make_map5g.py (scenario figure), vecstats.py
