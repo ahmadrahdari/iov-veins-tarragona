@@ -12,28 +12,32 @@
    "fog": 0.34703999999999996,
    "air": 352,
    "interfog": "one ledger record per handover",
-   "fog_storage_per_vehicle": 1056
+   "fog_storage_per_vehicle": 1056,
+   "total": 0.34859999999999997
   },
   "mohammed2024hafc": {
    "veh": 1.968202,
    "fog": 7.1858216,
    "air": 2048,
    "interfog": 1024,
-   "fog_storage_per_vehicle": 2048
+   "fog_storage_per_vehicle": 2048,
+   "total": 9.1540236
   },
   "son2025seamless": {
    "veh": 0.0026,
    "fog": 0.31013919999999995,
    "air": 928,
    "interfog": 1696,
-   "fog_storage_per_vehicle": 256
+   "fog_storage_per_vehicle": 256,
+   "total": 0.31273919999999994
   },
   "FogRoam B": {
    "veh": 0.547,
    "fog": 0.799,
    "air": 1088,
    "interfog": 0,
-   "fog_storage": 160480
+   "fog_storage": 160480,
+   "total": 1.346
   }
  }
 }

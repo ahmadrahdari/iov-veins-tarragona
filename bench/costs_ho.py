@@ -34,7 +34,8 @@ rows = {
  'FogRoam B':        dict(veh=0.547, fog=0.799, air=1088, interfog=0, fog_storage=320 + 160 * 1001),
 }
 for k, v in rows.items():
-    print(f"{k:18s} veh {v['veh']:.3f} ms  fog {v['fog']:.3f} ms  air {v['air']}  inter-fog {v['interfog']}  "
+    v['total'] = v['veh'] + v['fog']
+    print(f"{k:18s} veh {v['veh']:.3f} ms  fog {v['fog']:.3f} ms  total {v['total']:.3f} ms  air {v['air']}  inter-fog {v['interfog']}  "
           f"storage {v.get('fog_storage_per_vehicle', v.get('fog_storage'))}")
 print(f'Te {Te:.3f} ms, Tbp {Tbp:.3f} ms, Tc {Tc:.4f} ms')
 json.dump(dict(T=dict(Tpm=Tpm, Th=Th, Te=Te, Tbp=Tbp, Tc=Tc), rows=rows), open('costs_ho.json', 'w'), indent=1)
