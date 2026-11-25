@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """Operation counts of Table V of the paper and the processing delays of the 5G simulation.
 
-Operation times (ms) at the 80-bit level (secp160r1, SHA-1, AES-128, 160-bit modulus), averaged
-over 100 rounds of bench/bench.c (OpenSSL 3.0.13, Intel Xeon 2.10 GHz), as in the paper.
+Operation times (ms) at the 128-bit level (secp256r1, SHA-256, AES-256, 256-bit field for the
+polynomial shares), the means of 5 runs of bench/bench256.c on an idle machine (OpenSSL 3.0.13,
+Intel Xeon 2.10 GHz), see ops128.json; Tmm is one Horner step (f_1000 / 1000).
 Counts exclude the one-time login of the vehicle (password check and unlocking of Cred_i) and
 include the derivation of the exported session key h_ses(SK) by every party.
 """
 import json
-Tpm, Tpa, Th, Tsed, Tmm = 0.1717, 0.00042, 0.00052, 0.00060, 0.00028
+Tpm, Tpa, Th, Tsed, Tmm = 0.0556, 0.00083, 0.00050, 0.00062, 0.00036
 ty, tx = 100, 1000
 def c(pm=0, pa=0, h=0, sed=0, mm=0):
     return pm * Tpm + pa * Tpa + h * Th + sed * Tsed + mm * Tmm
@@ -29,15 +30,16 @@ steps = {
    cF2=c(h=5),                       # r_5, SK, Z_i, J_i, N_i
    cCS=c(h=8)),
 }
-p, b = steps['Proposed'], steps['Baseline']
-table = {
- 'FogRoam A': (p['cV1'] + p['cV2'], p['cF1'] + p['cF2'], p['cCS']),
- 'FogRoam B': (p['cH1'] + p['cH2'], p['cFH'], 0.0),
- 'Chen': (b['cV1'] + b['cV2'], b['cF1'] + b['cF2'], b['cCS']),
-}
-for k, (v, f, cs) in table.items():
-    print(f'{k:10s} V {v:.3f}  F {f:.3f}  CS {cs:.3f}  total {v + f + cs:.3f} ms')
-print('omnetpp.ini (ms):')
-for cfg, d in steps.items():
-    print(' ', cfg, ' '.join(f'{a}={x:.4f}ms' for a, x in d.items()))
-json.dump({cfg: {a: round(x, 4) for a, x in d.items()} for cfg, d in steps.items()}, open('sim_delays5g.json', 'w'), indent=1)
+if __name__ == '__main__':
+    p, b = steps['Proposed'], steps['Baseline']
+    table = {
+     'FogRoam A': (p['cV1'] + p['cV2'], p['cF1'] + p['cF2'], p['cCS']),
+     'FogRoam B': (p['cH1'] + p['cH2'], p['cFH'], 0.0),
+     'Chen': (b['cV1'] + b['cV2'], b['cF1'] + b['cF2'], b['cCS']),
+    }
+    for k, (v, f, cs) in table.items():
+        print(f'{k:10s} V {v:.3f}  F {f:.3f}  CS {cs:.3f}  total {v + f + cs:.3f} ms')
+    print('omnetpp.ini (ms):')
+    for cfg, d in steps.items():
+        print(' ', cfg, ' '.join(f'{a}={x:.4f}ms' for a, x in d.items()))
+    json.dump({cfg: {a: round(x, 4) for a, x in d.items()} for cfg, d in steps.items()}, open('sim_delays5g.json', 'w'), indent=1)

@@ -1,19 +1,21 @@
 /* Execution time of the primitives of the handover schemes compared in Table VII,
- * on the platform of Table V and with the same OpenSSL 3 big-number arithmetic:
- *   Tpm : scalar multiplication on secp160r1 (reference, as in bench.c)
+ * on the platform of Table V and with the same OpenSSL 3 big-number arithmetic.
+ * Usage: ./bench_pairing [80|128]   (default 128)
+ *   Tpm : scalar multiplication on secp256r1 (128) or secp160r1 (80), as in bench256.c/bench.c
  *   Te  : scalar multiplication (exponentiation) in G of a Type-A pairing, i.e., on
- *         y^2 = x^3 + x over a 512-bit prime field q = 3 mod 4, subgroup order r of 160 bits
+ *         y^2 = x^3 + x over a prime field of |q| bits, q = 3 mod 4, subgroup order r of |r| bits
  *   Tbp : Tate pairing e: G x G -> GT with the distortion map (x,y) -> (-x, iy),
  *         Miller loop in Jacobian coordinates with denominator elimination and
  *         final exponentiation (q^2-1)/r
- *   Tc  : Chebyshev polynomial T_n(x) mod p with a 512-bit prime p and a 160-bit n
- * Both 512-bit settings give the 80-bit level of secp160r1, since discrete logarithms in
- * GT and in the Chebyshev semigroup reduce to those in a field of 1024 bits.
+ *   Tc  : Chebyshev polynomial T_n(x) mod p with a prime p of |q| bits and an n of |r| bits
+ * (|q|, |r|) = (1536, 256) at the 128-bit level and (512, 160) at the 80-bit level, since
+ * discrete logarithms in GT and in the Chebyshev semigroup reduce to those in a field of 2|q| bits.
  * All times are CPU times of this process, so that other processes on the machine do not
  * inflate them; the program also prints Te, Tbp, and Tc relative to Tpm.
  * Build: gcc -O2 bench_pairing.c -o bench_pairing -lcrypto
  */
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 #include <openssl/bn.h>
 #include <openssl/ec.h>
@@ -112,20 +114,24 @@ static void cheb(BIGNUM *z, const BIGNUM *x, const BIGNUM *n) {
     BN_copy(z, ca);
 }
 
-#define N 200
 #define ROUNDS 10
-int main(void) {
+int main(int argc, char **argv) {
+    int level = argc > 1 ? atoi(argv[1]) : 128;
+    int rbits = level == 128 ? 256 : 160, qbits = level == 128 ? 1536 : 512, N = level == 128 ? 24 : 200;
     ctx = BN_CTX_new(); q = BN_new(); r = BN_new(); h = BN_new();
     BIGNUM **regs[] = {&t0, &t1, &t2, &t3, &X, &Y, &Z, &M, &S, &u, &v, &w, &xt, &yt, &lam, &ca, &cb, &two_m, &one_m};
     for (unsigned i = 0; i < sizeof regs / sizeof *regs; i++) *regs[i] = BN_new();
-    /* r = 2^159 + 2^107 + 1 (the Solinas prime of PBC's Type-A curves); q = h r - 1 prime, q = 3 mod 4 */
-    BN_set_bit(r, 159); BN_set_bit(r, 107); BN_set_bit(r, 0);
-    if (BN_check_prime(r, ctx, NULL) != 1) { puts("r not prime"); return 1; }
+    /* r = 2^(|r|-1) + 2^a + 1 prime (for 80 bits, a = 107 gives the Solinas prime of PBC's Type-A
+       curves); q = h r - 1 prime with q = 3 mod 4 */
+    for (int a2 = (level == 128 ? 41 : 107); ; a2++) {
+        BN_zero(r); BN_set_bit(r, rbits - 1); BN_set_bit(r, a2); BN_set_bit(r, 0);
+        if (BN_check_prime(r, ctx, NULL) == 1) { fprintf(stderr, "r = 2^%d + 2^%d + 1\n", rbits - 1, a2); break; }
+    }
     do {
-        BN_rand(h, 353, BN_RAND_TOP_ONE, BN_RAND_BOTTOM_ANY);
+        BN_rand(h, qbits - rbits + 1, BN_RAND_TOP_ONE, BN_RAND_BOTTOM_ANY);
         BN_rshift(h, h, 2); BN_lshift(h, h, 2);            /* 4 | h  =>  q = 3 mod 4 */
         BN_mul(q, h, r, ctx); BN_sub_word(q, 1);
-    } while (BN_num_bits(q) != 512 || BN_check_prime(q, ctx, NULL) != 1);
+    } while (BN_num_bits(q) != qbits || BN_check_prime(q, ctx, NULL) != 1);
     fprintf(stderr, "params ok\n");
     mont = BN_MONT_CTX_new(); BN_MONT_CTX_set(mont, q, ctx);
     BN_one(t0); BN_to_montgomery(one_m, t0, mont, ctx);
@@ -166,13 +172,13 @@ int main(void) {
     BIGNUM *cx = BN_new(), *c1 = BN_new(), *c2 = BN_new(), *n160[64];
     BN_rand_range(cx, q); BN_to_montgomery(cx, cx, mont, ctx);
     BIGNUM *sa = BN_new(), *sb = BN_new(), *sab = BN_new();
-    BN_rand(sa, 80, BN_RAND_TOP_ONE, BN_RAND_BOTTOM_ANY); BN_rand(sb, 80, BN_RAND_TOP_ONE, BN_RAND_BOTTOM_ANY); BN_mul(sab, sa, sb, ctx);
+    BN_rand(sa, rbits / 2, BN_RAND_TOP_ONE, BN_RAND_BOTTOM_ANY); BN_rand(sb, rbits / 2, BN_RAND_TOP_ONE, BN_RAND_BOTTOM_ANY); BN_mul(sab, sa, sb, ctx);
     cheb(c1, cx, sb); cheb(c1, c1, sa); cheb(c2, cx, sab);
     printf("Chebyshev check: %s\n", BN_cmp(c1, c2) == 0 ? "ok" : "FAILED"); fflush(stdout);
-    for (int i = 0; i < 64; i++) { n160[i] = BN_new(); BN_rand(n160[i], 160, BN_RAND_TOP_ONE, BN_RAND_BOTTOM_ANY); }
+    for (int i = 0; i < 64; i++) { n160[i] = BN_new(); BN_rand(n160[i], rbits, BN_RAND_TOP_ONE, BN_RAND_BOTTOM_ANY); }
 
-    /* reference: secp160r1 */
-    EC_GROUP *G160 = EC_GROUP_new_by_curve_name(NID_secp160r1);
+    /* reference curve of the same level */
+    EC_GROUP *G160 = EC_GROUP_new_by_curve_name(level == 128 ? NID_X9_62_prime256v1 : NID_secp160r1);
     EC_POINT *P160 = EC_POINT_new(G160), *Z160 = EC_POINT_new(G160);
     BIGNUM *k160[64]; const BIGNUM *o160 = EC_GROUP_get0_order(G160);
     for (int i = 0; i < 64; i++) { k160[i] = BN_new(); BN_rand_range(k160[i], o160); }
@@ -189,7 +195,8 @@ int main(void) {
         for (int j = 0; j < 4; j++) { s[j] += m[j]; ss[j] += m[j] * m[j]; }
         fprintf(stderr, "round %d: %.4f %.4f %.4f %.4f ms\n", rd, m[0]*1e3, m[1]*1e3, m[2]*1e3, m[3]*1e3);
     }
-    const char *nm[4] = {"Tpm (secp160r1)", "Te  (Type-A G)", "Tbp (Tate)", "Tc  (Chebyshev)"};
+    const char *nm[4] = {"Tpm", "Te", "Tbp", "Tc"};
+    printf("level %d bits: |q| = %d, |r| = %d\n", level, BN_num_bits(q), BN_num_bits(r));
     printf("{\n");
     for (int j = 0; j < 4; j++) {
         double mu = s[j] / ROUNDS;

@@ -21,3 +21,5 @@ scenario/.cmdenv-log
 scenario/runlogs_campaign.out
 scenario/test/
 fogroam5g/src/out/
+/bench/bench256
+/bench/bench_pairing

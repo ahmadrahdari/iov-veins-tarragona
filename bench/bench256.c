@@ -1,14 +1,15 @@
 /* Execution time of the cryptographic operations used in the cost comparison.
  * All operations are measured on the same machine with OpenSSL 3:
  *   Tpm : scalar multiplication k*P of an arbitrary point on secp256r1 (NIST P-256)
- *   Tpa : point addition P+Q on secp160r1
+ *   Tpa : point addition P+Q on secp256r1
  *   Th  : SHA-256 of a 128-byte input (256-bit output)
  *   Tsed: AES-256-CTR encryption of a 16-byte block, including the key schedule
- *   Tmm : 160-bit modular multiplication (BN_mod_mul)
- * plus a Horner evaluation of a degree-t polynomial over F_q (t = 100, 1000).
+ *   Tmm : 256-bit modular multiplication (BN_mod_mul)
+ * plus a Horner evaluation of a degree-t polynomial over a 256-bit field F_q (t = 100, 1000);
+ * the paper uses one Horner step, f_1000 / 1000, as Tmm.
  * Each operation is repeated N times after a warm-up; the program reports the
  * mean over R rounds and the standard deviation of the round means.
- * Build: gcc -O2 bench.c -o bench -lcrypto
+ * Build: gcc -O2 bench256.c -o bench256 -lcrypto
  */
 #include <stdio.h>
 #include <string.h>

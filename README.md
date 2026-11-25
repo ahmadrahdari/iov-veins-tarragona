@@ -77,9 +77,10 @@ phase B run (cloud-free) as long as the last phase A of the vehicle is not older
   separately (`latAho_ms`, `latBho_ms` in `analysis/summary5g.json`).
 * Every vehicle sends a 250-byte cooperative awareness message (CAM) to its fog node at
   10 Hz as background uplink traffic.
-* Message sizes (bits) and processing delays (ms) are set in `scenario/omnetpp.ini` from the
-  operation counts of Table V of the paper and the execution times measured with `bench/bench.c`
-  (`cd bench && python3 sim_delays5g.py` prints them). Fog nodes and CS process the messages in
+* Message sizes (bits) and processing delays (ms) are set in `scenario/omnetpp.ini` at the 128-bit
+  security level (secp256r1, SHA-256, AES-256, 256-bit field for the polynomial shares), from the
+  operation counts of Table V of the paper and the execution times measured with `bench/bench256.c`
+  (`cd bench && python3 sim_delays5g.py` prints the delays, `python3 costs128.py` the sizes). Fog nodes and CS process the messages in
   FIFO order.
 * 900 s per run, statistics collected after a 300 s warm-up, 10 seeds per configuration
   (95 % confidence intervals of the mean over the seeds, Student t).
@@ -171,6 +172,9 @@ vectors (`akaReqDelayA`, `akaReqDelayB`, `akaCamDelay`). Vector recording is off
 
 ## Results
 
+**The table below is from the earlier campaign (80-bit operation times, three seeds); it will be
+replaced by the results of the 128-bit campaign with ten seeds.**
+
 Mean over three seeds (latency: mean ± standard deviation over the seeds; loss: all messages of the three seeds,
 with the 95 % Wilson interval, since only 0 to 12 protocol messages are lost per run). `analysis/summary5g.json` and
 `analysis/summary5g.csv` contain all metrics, `figs/results5g.png` the figure and `figs/tarragona_sim5g.png` the scenario.
@@ -210,7 +214,8 @@ fogroam5g/   OMNeT++ project (src/): AkaVehicleApp5G, AkaFogApp5G, AkaCloudApp5G
 scenario/    omnetpp.ini, address plan, SUMO inputs, run.sh, runset.py
 map/         OpenStreetMap extract and prepare_map.sh
 analysis/    parse5g.py (aggregation), make_fig5g.py and make_tex5g.py (result figures), make_map5g.py (scenario figure), vecstats.py
-bench/       bench.c, bench256.c (operation timings), ops_session2.json (measured times), costs2.py (costs and processing delays)
+bench/       bench256.c (operation timings at the 128-bit level), ops128.json (measured times),
+             sim_delays5g.py and costs128.py (costs, message sizes, and processing delays of Tables V and VI),
              bench_pairing.c and costs_ho.py (pairing, Chebyshev, and handover costs of Table VII)
 build/       fetch.sh, build.sh, fetch5g.sh, build5g.sh
 results/     OMNeT++ scalar results of all 54 runs (.sca); snapshot/ for the scenario figure

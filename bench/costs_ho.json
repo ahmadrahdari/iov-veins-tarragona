@@ -1,43 +1,43 @@
 {
  "T": {
-  "Tpm": 0.1717,
-  "Th": 0.00052,
-  "Te": 1.3044049,
-  "Tbp": 0.6632771,
-  "Tc": 0.05082319999999999
+  "Tpm": 0.0556,
+  "Th": 0.0005,
+  "Te": 21.529839733333333,
+  "Tbp": 7.209948533333333,
+  "Tc": 0.36469893333333325
  },
  "rows": {
   "xie2023provable": {
-   "veh": 0.0015599999999999998,
-   "fog": 0.34703999999999996,
-   "air": 352,
+   "veh": 0.0015,
+   "fog": 0.1147,
+   "air": 544,
    "interfog": "one ledger record per handover",
-   "fog_storage_per_vehicle": 1056,
-   "total": 0.34859999999999997
+   "fog_storage_per_vehicle": 1632,
+   "total": 0.1162
   },
   "mohammed2024hafc": {
-   "veh": 1.968202,
-   "fog": 7.1858216,
-   "air": 2048,
-   "interfog": 1024,
-   "fog_storage_per_vehicle": 2048,
-   "total": 9.1540236
+   "veh": 28.740288266666663,
+   "fog": 114.8596472,
+   "air": 6144,
+   "interfog": 3072,
+   "fog_storage_per_vehicle": 6144,
+   "total": 143.59993546666666
   },
   "son2025seamless": {
-   "veh": 0.0026,
-   "fog": 0.31013919999999995,
-   "air": 928,
-   "interfog": 1696,
-   "fog_storage_per_vehicle": 256,
-   "total": 0.31273919999999994
+   "veh": 0.0025,
+   "fog": 2.1931935999999994,
+   "air": 1408,
+   "interfog": 4032,
+   "fog_storage_per_vehicle": 352,
+   "total": 2.1956935999999994
   },
   "FogRoam B": {
-   "veh": 0.547,
-   "fog": 0.799,
-   "air": 1088,
+   "veh": 0.20642000000000002,
+   "fog": 0.5304200000000001,
+   "air": 1664,
    "interfog": 0,
-   "fog_storage": 160480,
-   "total": 1.346
+   "fog_storage": 256768,
+   "total": 0.7368400000000002
   }
  }
 }
