@@ -1,0 +1,39 @@
+{
+ "T": {
+  "Tpm": 0.1717,
+  "Th": 0.00052,
+  "Te": 1.3044049,
+  "Tbp": 0.6632771,
+  "Tc": 0.05082319999999999
+ },
+ "rows": {
+  "xie2023provable": {
+   "veh": 0.0015599999999999998,
+   "fog": 0.34703999999999996,
+   "air": 352,
+   "interfog": "one ledger record per handover",
+   "fog_storage_per_vehicle": 1056
+  },
+  "mohammed2024hafc": {
+   "veh": 1.968202,
+   "fog": 7.1858216,
+   "air": 2048,
+   "interfog": 1024,
+   "fog_storage_per_vehicle": 2048
+  },
+  "son2025seamless": {
+   "veh": 0.0026,
+   "fog": 0.31013919999999995,
+   "air": 928,
+   "interfog": 1696,
+   "fog_storage_per_vehicle": 256
+  },
+  "FogRoam B": {
+   "veh": 0.547,
+   "fog": 0.799,
+   "air": 1088,
+   "interfog": 0,
+   "fog_storage": 160480
+  }
+ }
+}

@@ -211,6 +211,7 @@ scenario/    omnetpp.ini, address plan, SUMO inputs, run.sh, runset.py
 map/         OpenStreetMap extract and prepare_map.sh
 analysis/    parse5g.py (aggregation), make_fig5g.py and make_tex5g.py (result figures), make_map5g.py (scenario figure), vecstats.py
 bench/       bench.c, bench256.c (operation timings), ops_session2.json (measured times), costs2.py (costs and processing delays)
+             bench_pairing.c and costs_ho.py (pairing, Chebyshev, and handover costs of Table VII)
 build/       fetch.sh, build.sh, fetch5g.sh, build5g.sh
 results/     OMNeT++ scalar results of all 54 runs (.sca); snapshot/ for the scenario figure
 figs/        result and scenario figures
