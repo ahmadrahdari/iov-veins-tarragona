@@ -128,15 +128,16 @@ python3 analysis/make_tex5g.py analysis/summary5g.json fig_sim.tex
 ```
 
 The scenario figure (`figs/tarragona_sim5g.png`) shows the serving gNB of every vehicle at
-t = 60 s, recorded by the simulation itself. `results/snapshot/Proposed-N100-r0-t60.sca` is a
-copy of `scenario/snapshot/Proposed-N100-r0.sca` written by
+t = 600 s, after the 300 s warm-up, recorded by the simulation itself.
+`results/snapshot/Proposed-N100-r0-t600.sca` is a copy of `scenario/snapshot600/Proposed-N100-r0.sca`
+written by
 
 ```bash
 cd scenario
-./run.sh Proposed 12 --sim-time-limit=61s --result-dir=snapshot "--**.app[*].snapshotTime=60s"
+./run.sh Proposed 40 --sim-time-limit=601s --result-dir=snapshot600 "--**.app[*].snapshotTime=600s"
 cd ..
 python3 analysis/make_map5g.py scenario/tarragona_center.net.xml scenario/tarragona_center.poly.xml \
-  results/snapshot/Proposed-N100-r0-t60.sca figs/tarragona_sim5g.png
+  results/snapshot/Proposed-N100-r0-t600.sca figs/tarragona_sim5g.png
 ```
 
 `snapshotTime` is off by default and draws no random numbers, so it does not change any result.

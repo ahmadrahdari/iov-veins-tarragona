@@ -4,7 +4,7 @@
 (a) road network and building footprints processed by SUMO, with the four gNB sites and
     their co-located fog nodes;
 (b) serving cells of the vehicles at one instant, recorded by the simulation itself
-    (run with "--**.app[*].snapshotTime=60s", scalars akaSnapX, akaSnapY, akaSnapFog).
+    (run with "--**.app[*].snapshotTime=600s", scalars akaSnapX, akaSnapY, akaSnapFog).
 
 The panels have no titles; the sub-captions are set in LaTeX below the figure.
 
