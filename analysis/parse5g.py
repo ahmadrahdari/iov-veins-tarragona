@@ -27,7 +27,7 @@ Metrics per configuration and number of vehicles N (mean over the seeds):
   sinr_ul, sinr_dl, cqi_ul, cqi_dl, bler1_ul, bler1_dl, harq_ul, harq_dl,
   macloss_ul, macloss_dl   radio KPIs (mean over the vehicles and cells)
 """
-import glob, re, sys, collections, statistics, json, math
+import glob, gzip, re, sys, collections, statistics, json, math
 
 NAN = float('nan')
 T975 = {1: 12.706, 2: 4.303, 3: 3.182, 4: 2.776, 5: 2.571, 6: 2.447, 7: 2.365, 8: 2.306, 9: 2.262,
@@ -44,7 +44,7 @@ RADIO = {  # scalar name -> (key, level)
 def parse_sca(path):
     d = collections.defaultdict(float)
     radio = collections.defaultdict(list)
-    for line in open(path):
+    for line in (gzip.open(path, 'rt') if path.endswith('.gz') else open(path)):
         if not line.startswith('scalar '):
             continue
         parts = line.rstrip('\n').split(' ')
@@ -118,8 +118,8 @@ def metrics(d, radio):
 
 def main():
     res = collections.defaultdict(list)
-    for f in sorted(glob.glob(sys.argv[1] + '/*.sca')):
-        mm = re.search(r'(\w+)-N(\d+)-r(\d+)\.sca$', f)
+    for f in sorted(glob.glob(sys.argv[1] + '/*.sca') + glob.glob(sys.argv[1] + '/*.sca.gz')):
+        mm = re.search(r'(\w+)-N(\d+)-r(\d+)\.sca(\.gz)?$', f)
         if mm:
             d, radio = parse_sca(f)
             if not d.get(('cloud', 'akaWindow')):

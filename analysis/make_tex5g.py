@@ -5,7 +5,7 @@ usage: make_tex5g.py summary5g.json fig_sim.tex
 
 Panel (a) shows the loss rate over the messages of all seeds with its 95 % Wilson interval
 (markers only, slightly offset); panels (b)-(d) show the mean over the seeds with the
-standard deviation across seeds. Panel labels are placed below the axes and the legend
+95 % confidence interval of the mean (Student t). Panel labels are placed below the axes and the legend
 below the figure, as in the paper.
 """
 import json, sys
@@ -72,7 +72,7 @@ fig = r'''\begin{figure*}[!t]
 \node[anchor=north, inner sep=1pt] at (9.0cm,-1.2cm) {\pgfplotslegendfromname{simleg}};
 \end{tikzpicture}
 \vspace{-10pt}
-\caption{Simulation results of the 5G NR scenario in Tarragona: (a) packet loss rate of the protocol messages over the three seeds with 95\%% Wilson intervals, (b) mean end-to-end delay of the protocol messages, (c) mean authentication latency, and (d) messages processed by $\CS$ per second. Error bars in (b)--(d) show the standard deviation over three seeds.}
+\caption{Simulation results of the 5G NR scenario in Tarragona: (a) packet loss rate of the protocol messages over all seeds with 95\%% Wilson intervals, (b) mean end-to-end delay of the protocol messages, (c) mean authentication latency, and (d) messages processed by $\CS$ per second. Error bars in (b)--(d) show 95\%% confidence intervals of the mean over ten seeds.}
 \label{fig:sim}
 \end{figure*}
 ''' % (pa, pb, pc, pd)

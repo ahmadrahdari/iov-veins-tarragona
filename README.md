@@ -145,9 +145,9 @@ python3 analysis/make_map5g.py scenario/tarragona_center.net.xml scenario/tarrag
 
 `runset.py` writes the results to `scenario/results/` (copy them to `results/` or pass that
 folder to `parse5g.py`). SUMO is started by the simulation itself (`VeinsInetManagerForker`).
-A 900 s run takes about 6 minutes for 20 vehicles, 30 minutes for 100 vehicles and 40 minutes
+A 900 s run takes about 4 minutes for 20 vehicles, 25 minutes for 100 vehicles and 35 minutes
 for 120 vehicles on one core of an Intel Xeon at 2.1 GHz (two runs in parallel on two cores);
-the 54 runs take about 20 core-hours. `runset.py` takes an optional time budget in minutes as
+the 320 runs of `campaign.sh` take about 80 core-hours. `runset.py` takes an optional time budget in minutes as
 fourth argument and only starts runs that are expected to finish within it; with
 `LARGE_FIRST=1` it starts the longest runs first. A run counts as complete only when its log
 in `scenario/runlogs/` reports that the 900 s time limit was reached.
@@ -162,7 +162,7 @@ vectors (`akaReqDelayA`, `akaReqDelayB`, `akaCamDelay`). Vector recording is off
 * **Authentication latency**: time from the start of a session at the vehicle to the
   establishment of the session key, including processing, radio access and backhaul delays.
 * **Packet loss rate**: fraction of the over-the-air protocol messages (M1, M4, M5, M6)
-  that are not received by their destination, over all messages of the three seeds, with
+  that are not received by their destination, over all messages of the ten seeds, with
   its 95 % Wilson interval (only a few messages are lost per run).
 * **End-to-end delay**: time from the transmission of an over-the-air protocol message by
   the application of the sender to its reception by that of the receiver.
@@ -172,37 +172,61 @@ vectors (`akaReqDelayA`, `akaReqDelayB`, `akaCamDelay`). Vector recording is off
 
 ## Results
 
-**The table below is from the earlier campaign (80-bit operation times, three seeds); it will be
-replaced by the results of the 128-bit campaign with ten seeds.**
-
-Mean over three seeds (latency: mean ± standard deviation over the seeds; loss: all messages of the three seeds,
-with the 95 % Wilson interval, since only 0 to 12 protocol messages are lost per run). `analysis/summary5g.json` and
-`analysis/summary5g.csv` contain all metrics, `figs/results5g.png` the figure and `figs/tarragona_sim5g.png` the scenario.
+Results of the campaign at the 128-bit level (320 runs). Mean over ten seeds (latency: mean ± 95 % confidence
+interval of the mean, Student t; loss: all messages of the ten seeds, with the 95 % Wilson interval, since fewer
+than ten protocol messages are lost per run on average). `analysis/summary5g.json` and `analysis/summary5g.csv`
+contain all metrics, `figs/results5g.png` the figure and `figs/tarragona_sim5g.png` the scenario
+(`python3 analysis/readme5g.py analysis/summary5g.json` prints the tables below).
 
 | N | Scheme | Latency (ms) | Phase A (ms) | Phase B (ms) | Phase B share | Loss (95 % interval) | Success | CS load (msg/s) |
 |---|--------|-------------:|-------------:|-------------:|--------------:|-----:|--------:|----------------:|
-| 20 | FogRoam (A+B) | 12.85 ± 0.46 | 31.86 | 9.65 | 85.5 % | 0.21 % (0.09–0.48) | 99.6 % | 0.097 |
-| 20 | FogRoam (A only) | 31.26 ± 0.18 | 31.26 | – | 0.0 % | 0.08 % (0.02–0.30) | 99.8 % | 0.666 |
-| 20 | Chen et al. | 28.97 ± 0.05 | 28.97 | – | 0.0 % | 0.08 % (0.02–0.31) | 99.8 % | 0.662 |
-| 40 | FogRoam (A+B) | 12.88 ± 0.18 | 31.73 | 9.67 | 85.4 % | 0.08 % (0.03–0.21) | 99.8 % | 0.195 |
-| 40 | FogRoam (A only) | 31.57 ± 0.18 | 31.57 | – | 0.0 % | 0.15 % (0.07–0.30) | 99.7 % | 1.337 |
-| 40 | Chen et al. | 29.27 ± 0.16 | 29.27 | – | 0.0 % | 0.17 % (0.08–0.33) | 99.7 % | 1.333 |
-| 60 | FogRoam (A+B) | 12.94 ± 0.12 | 32.34 | 9.94 | 86.6 % | 0.15 % (0.09–0.27) | 99.7 % | 0.266 |
-| 60 | FogRoam (A only) | 31.62 ± 0.15 | 31.62 | – | 0.0 % | 0.11 % (0.06–0.22) | 99.8 % | 1.999 |
-| 60 | Chen et al. | 29.65 ± 0.09 | 29.65 | – | 0.0 % | 0.25 % (0.16–0.39) | 99.5 % | 2.002 |
-| 80 | FogRoam (A+B) | 13.33 ± 0.08 | 33.29 | 10.06 | 85.9 % | 0.15 % (0.09–0.25) | 99.7 % | 0.373 |
-| 80 | FogRoam (A only) | 31.89 ± 0.09 | 31.89 | – | 0.0 % | 0.21 % (0.14–0.32) | 99.6 % | 2.644 |
-| 80 | Chen et al. | 29.71 ± 0.07 | 29.71 | – | 0.0 % | 0.17 % (0.10–0.27) | 99.7 % | 2.658 |
-| 100 | FogRoam (A+B) | 12.96 ± 0.28 | 32.39 | 9.75 | 85.8 % | 0.10 % (0.06–0.18) | 99.8 % | 0.471 |
-| 100 | FogRoam (A only) | 31.56 ± 0.24 | 31.56 | – | 0.0 % | 0.18 % (0.12–0.27) | 99.6 % | 3.324 |
-| 100 | Chen et al. | 29.46 ± 0.28 | 29.46 | – | 0.0 % | 0.15 % (0.10–0.24) | 99.7 % | 3.311 |
-| 120 | FogRoam (A+B) | 12.90 ± 0.29 | 32.25 | 9.88 | 86.4 % | 0.22 % (0.15–0.31) | 99.6 % | 0.536 |
-| 120 | FogRoam (A only) | 31.53 ± 0.22 | 31.53 | – | 0.0 % | 0.10 % (0.06–0.16) | 99.8 % | 3.993 |
-| 120 | Chen et al. | 29.45 ± 0.34 | 29.45 | – | 0.0 % | 0.20 % (0.14–0.28) | 99.6 % | 3.982 |
+| 20 | FogRoam (A+B) | 12.94 ± 0.12 | 31.67 | 9.73 | 85.3 % | 0.11 % (0.06–0.21) | 99.8 % | 0.098 |
+| 20 | FogRoam (A only) | 31.25 ± 0.10 | 31.25 | – | 0.0 % | 0.09 % (0.04–0.18) | 99.8 % | 0.664 |
+| 20 | Chen et al. | 30.71 ± 0.12 | 30.71 | – | 0.0 % | 0.20 % (0.12–0.33) | 99.6 % | 0.666 |
+| 40 | FogRoam (A+B) | 13.32 ± 0.16 | 31.70 | 10.12 | 85.1 % | 0.15 % (0.10–0.22) | 99.7 % | 0.197 |
+| 40 | FogRoam (A only) | 31.51 ± 0.15 | 31.51 | – | 0.0 % | 0.18 % (0.13–0.26) | 99.6 % | 1.328 |
+| 40 | Chen et al. | 30.91 ± 0.13 | 30.91 | – | 0.0 % | 0.18 % (0.13–0.26) | 99.6 % | 1.325 |
+| 60 | FogRoam (A+B) | 13.09 ± 0.08 | 32.23 | 10.10 | 86.4 % | 0.22 % (0.17–0.29) | 99.6 % | 0.270 |
+| 60 | FogRoam (A only) | 31.69 ± 0.10 | 31.69 | – | 0.0 % | 0.20 % (0.15–0.27) | 99.6 % | 1.996 |
+| 60 | Chen et al. | 31.07 ± 0.05 | 31.07 | – | 0.0 % | 0.16 % (0.12–0.22) | 99.7 % | 1.999 |
+| 80 | FogRoam (A+B) | 13.47 ± 0.06 | 32.45 | 10.36 | 85.9 % | 0.22 % (0.17–0.27) | 99.6 % | 0.374 |
+| 80 | FogRoam (A only) | 31.84 ± 0.06 | 31.84 | – | 0.0 % | 0.21 % (0.16–0.26) | 99.6 % | 2.659 |
+| 80 | Chen et al. | 31.23 ± 0.10 | 31.23 | – | 0.0 % | 0.23 % (0.18–0.28) | 99.5 % | 2.664 |
+| 100 | FogRoam (A+B) | 13.26 ± 0.15 | 32.32 | 10.12 | 85.8 % | 0.17 % (0.13–0.21) | 99.7 % | 0.471 |
+| 100 | FogRoam (A only) | 31.76 ± 0.05 | 31.76 | – | 0.0 % | 0.16 % (0.12–0.20) | 99.7 % | 3.324 |
+| 100 | Chen et al. | 31.14 ± 0.07 | 31.14 | – | 0.0 % | 0.18 % (0.14–0.23) | 99.6 % | 3.327 |
+| 120 | FogRoam (A+B) | 13.06 ± 0.22 | 32.30 | 10.07 | 86.5 % | 0.18 % (0.15–0.23) | 99.6 % | 0.537 |
+| 120 | FogRoam (A only) | 31.80 ± 0.13 | 31.80 | – | 0.0 % | 0.20 % (0.16–0.24) | 99.6 % | 3.992 |
+| 120 | Chen et al. | 31.08 ± 0.07 | 31.08 | – | 0.0 % | 0.20 % (0.16–0.24) | 99.6 % | 3.994 |
 
-Compared with the baseline, FogRoam reduces the mean authentication latency by 55.1–56.4 % (mean 55.9 %) and the load of the cloud server by 85.4–86.7 % (mean 86.0 %).
+Compared with the baseline, FogRoam reduces the mean authentication latency by 56.9–58.0 % (mean 57.5 %) and the load of the cloud server by 85.1–86.6 % (mean 85.9 %).
 
-Radio KPIs averaged over all runs of `Proposed`: uplink SINR 21.5 dB, downlink SINR 43.7 dB, uplink CQI 11.6, downlink CQI 14.3, first-transmission block error rate 18.9 % (uplink) and 1.6 % (downlink), residual MAC loss after HARQ 0.33 % (uplink) and 0.00 % (downlink), CAM delivery ratio 99.40 % with a mean delay of 8.57 ms.
+Radio KPIs averaged over all runs of `Proposed`: uplink SINR 21.5 dB, downlink SINR 43.7 dB, uplink CQI 11.6, downlink CQI 14.3, first-transmission block error rate 18.8 % (uplink) and 2.0 % (downlink), residual MAC loss after HARQ 0.30 % (uplink) and 0.00 % (downlink), CAM delivery ratio 99.45 % with a mean delay of 8.57 ms.
+
+Handover-triggered sessions (`ProposedHO`, `BaselineHO`; a session starts when the vehicle joins, when its serving gNB changes, and when its last phase A is older than 300 s):
+
+| N | Scheme | Latency (ms) | After handover (ms) | Phase B share | Loss | Success | CS load (msg/s) |
+|---|--------|-------------:|--------------------:|--------------:|-----:|--------:|----------------:|
+| 20 | FogRoam (A+B) | 18.49 ± 0.51 | 15.29 ± 0.64 | 79.6 % | 0.51 % | 99.0 % | 0.100 |
+| 20 | Chen et al. | 34.44 ± 0.79 | 35.31 ± 1.00 | 0.0 % | 0.94 % | 98.1 % | 0.492 |
+| 40 | FogRoam (A+B) | 18.53 ± 0.56 | 15.54 ± 0.74 | 80.8 % | 0.63 % | 98.7 % | 0.203 |
+| 40 | Chen et al. | 34.24 ± 0.40 | 35.02 ± 0.50 | 0.0 % | 0.91 % | 98.2 % | 0.990 |
+| 60 | FogRoam (A+B) | 18.47 ± 0.44 | 15.40 ± 0.57 | 80.8 % | 0.83 % | 98.3 % | 0.285 |
+| 60 | Chen et al. | 34.49 ± 0.38 | 35.28 ± 0.46 | 0.0 % | 1.08 % | 97.9 % | 1.403 |
+| 80 | FogRoam (A+B) | 18.92 ± 0.26 | 15.97 ± 0.35 | 81.2 % | 0.96 % | 98.1 % | 0.393 |
+| 80 | Chen et al. | 34.91 ± 0.36 | 35.63 ± 0.39 | 0.0 % | 1.13 % | 97.8 % | 2.008 |
+| 100 | FogRoam (A+B) | 19.68 ± 0.41 | 16.39 ± 0.54 | 77.9 % | 0.82 % | 98.4 % | 0.505 |
+| 100 | Chen et al. | 34.95 ± 0.41 | 35.98 ± 0.51 | 0.0 % | 1.03 % | 98.0 % | 2.173 |
+| 120 | FogRoam (A+B) | 19.23 ± 0.36 | 15.95 ± 0.46 | 79.0 % | 0.96 % | 98.1 % | 0.564 |
+| 120 | Chen et al. | 34.73 ± 0.43 | 35.58 ± 0.50 | 0.0 % | 0.94 % | 98.1 % | 2.546 |
+
+Phase-A re-validation interval with handover-triggered sessions, 60 vehicles:
+
+| Interval | Phase B share | Latency (ms) | CS load (msg/s) |
+|---------:|--------------:|-------------:|----------------:|
+| 150 s | 69.7 % | 20.71 | 0.517 |
+| 300 s | 80.8 % | 18.47 | 0.285 |
+| 600 s | 83.2 % | 18.22 | 0.239 |
 
 ![Results](figs/results5g.png)
 
@@ -213,12 +237,13 @@ fogroam5g/   OMNeT++ project (src/): AkaVehicleApp5G, AkaFogApp5G, AkaCloudApp5G
              network Tarragona5G; build with build/build5g.sh
 scenario/    omnetpp.ini, address plan, SUMO inputs, run.sh, runset.py
 map/         OpenStreetMap extract and prepare_map.sh
-analysis/    parse5g.py (aggregation), make_fig5g.py and make_tex5g.py (result figures), make_map5g.py (scenario figure), vecstats.py
+analysis/    parse5g.py (aggregation), report5g.py and readme5g.py (numbers of the paper and of this README),
+             make_fig5g.py and make_tex5g.py (result figures), make_map5g.py (scenario figure), vecstats.py
 bench/       bench256.c (operation timings at the 128-bit level), ops128.json (measured times),
              sim_delays5g.py and costs128.py (costs, message sizes, and processing delays of Tables V and VI),
              bench_pairing.c and costs_ho.py (pairing, Chebyshev, and handover costs of Table VII)
 build/       fetch.sh, build.sh, fetch5g.sh, build5g.sh
-results/     OMNeT++ scalar results of all 54 runs (.sca); snapshot/ for the scenario figure
+results/     OMNeT++ scalar results of all 320 runs of the 128-bit campaign (.sca.gz); snapshot/ for the scenario figure
 figs/        result and scenario figures
 ```
 
